@@ -11,7 +11,7 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
-        public static final int trail_clsoed_color=0x7f050001;
+        public static final int trail_closed_color=0x7f050001;
         public static final int trail_open_color=0x7f050000;
         public static final int white=0x7f050002;
     }
@@ -43,6 +43,6 @@ public final class R {
         public static final int AppTheme=0x7f070000;
     }
     public static final class xml {
-        public static final int example_appwidget_info=0x7f040000;
+        public static final int trailstatus_appwidget_info=0x7f040000;
     }
 }

@@ -1,28 +1,16 @@
 package com.JoshShoemaker.trailstatus;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import android.app.PendingIntent;
-import android.app.Service;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.net.Uri;
-import android.os.Bundle;
-import android.os.IBinder;
-import android.text.format.Time;
-import android.util.Log;
 import android.widget.RemoteViews;
-import android.widget.Toast;
 
-import com.JoshShoemaker.trailstatus.PageScraper.ApiException;
-import com.JoshShoemaker.trailstatus.PageScraper.ParseException;
 
-public class ExampleAppWidgetProvider extends AppWidgetProvider {
+public class TrailStatusWidgetProvider extends AppWidgetProvider {
 
 	public static String EXTRA_WORD=
 		    "com.commonsware.android.appwidget.lorem.WORD";

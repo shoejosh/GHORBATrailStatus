@@ -7,15 +7,6 @@ import java.io.InputStream;
 
 import java.net.*;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.StatusLine;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-
-import com.JoshShoemaker.trailstatus.PageScraper.ApiException;
-
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -27,30 +18,6 @@ public class PageScraper {
 
 private static final String TAG = "SimpleWikiHelper";
     
-    /**
-     * Regular expression that splits "Word of the day" entry into word
-     * name, word type, and the first description bullet point.
-     */
-    public static final String WORD_OF_DAY_REGEX =
-        "(?s)\\{\\{wotd\\|(.+?)\\|(.+?)\\|([^#\\|]+).*?\\}\\}";
-    
-    /**
-     * Partial URL to use when requesting the detailed entry for a specific
-     * Wiktionary page. Use {@link String#format(String, Object...)} to insert
-     * the desired page title after escaping it as needed.
-     */
-    private static final String WIKTIONARY_PAGE =
-        "http://en.wiktionary.org/w/api.php?action=query&prop=revisions&titles=%s&" +
-        "rvprop=content&format=json%s";
-
-    /**
-     * Partial URL to append to {@link #WIKTIONARY_PAGE} when you want to expand
-     * any templates found on the requested page. This is useful when browsing
-     * full entries, but may use more network bandwidth.
-     */
-    private static final String WIKTIONARY_EXPAND_TEMPLATES =
-        "&rvexpandtemplates=true";
-
     /**
      * {@link StatusLine} HTTP status code when no server error has occurred.
      */
@@ -66,31 +33,7 @@ private static final String TAG = "SimpleWikiHelper";
      * User-agent string to use when making requests. Should be filled using
      * {@link #prepareUserAgent(Context)} before making any other calls.
      */
-    private static String sUserAgent = null;
-    
-    /**
-     * Thrown when there were problems contacting the remote API server, either
-     * because of a network error, or the server returned a bad status code.
-     */
-    public static class ApiException extends Exception {
-        public ApiException(String detailMessage, Throwable throwable) {
-            super(detailMessage, throwable);
-        }
-        
-        public ApiException(String detailMessage) {
-            super(detailMessage);
-        }
-    }
-
-    /**
-     * Thrown when there were problems parsing the response to an API call,
-     * either because the response was empty, or it was malformed.
-     */
-    public static class ParseException extends Exception {
-        public ParseException(String detailMessage, Throwable throwable) {
-            super(detailMessage, throwable);
-        }
-    }
+    private static String sUserAgent = null;   
 	
     /**
      * Prepare the internal User-Agent string for use. This requires a
@@ -117,10 +60,9 @@ private static final String TAG = "SimpleWikiHelper";
      * 
      * @param url The exact URL to request.
      * @return The raw content returned by the server.
-     * @throws ApiException If any connection or server error occurs.
 	 * @throws IOException 
      */
-    protected static synchronized String getUrlContent(String requestUrl) throws ApiException, IOException {
+    protected static synchronized String getUrlContent(String requestUrl) throws IOException {
                 
     	URL url = new URL(requestUrl);
     	HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
@@ -147,44 +89,7 @@ private static final String TAG = "SimpleWikiHelper";
     	}
     	finally {
     		urlConnection.disconnect();
-    	}
-    	
-    	
-        // Create client and set our specific user-agent string
-    	/*
-        HttpClient client = new DefaultHttpClient();        
-        HttpGet request = new HttpGet(requestUrl);
-        request.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.2) AppleWebKit/537.4 (KHTML, like Gecko) Chrome/22.0.1229.94 Safari/537.4");                
-        
-        try {
-            HttpResponse response = client.execute(request);
-            
-            // Check if server response is valid
-            StatusLine status = response.getStatusLine();
-            if (status.getStatusCode() != HTTP_STATUS_OK) {
-                throw new ApiException("Invalid response from server: " +
-                        status.toString());
-            }
-    
-            // Pull content stream from response
-            HttpEntity entity = response.getEntity();
-            InputStream inputStream = entity.getContent();
-            
-            ByteArrayOutputStream content = new ByteArrayOutputStream();
-            
-            // Read response into a buffered stream
-            int readBytes = 0;
-            while ((readBytes = inputStream.read(sBuffer)) != -1) {
-                content.write(sBuffer, 0, readBytes);
-            }
-            
-            // Return result from buffered stream
-            String test = new String(content.toByteArray()); 
-            return test;
-        } catch (IOException e) {
-            throw new ApiException("Problem communicating with API", e);
-        }
-        */
+    	}    	   
     }
           
 }

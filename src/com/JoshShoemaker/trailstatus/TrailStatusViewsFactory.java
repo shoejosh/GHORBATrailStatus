@@ -6,25 +6,18 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
-//import android.webkit.WebView.FindListener;
-import android.widget.LinearLayout;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
-import com.JoshShoemaker.trailstatus.PageScraper.ApiException;
-
-public class LoremViewsFactory implements RemoteViewsService.RemoteViewsFactory {
+public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFactory {
   private static Trail[] items;
   private Context context=null;
-  private int appWidgetId;
 
-  public LoremViewsFactory(Context context, Intent intent) {
+  public TrailStatusViewsFactory(Context context, Intent intent) {
       this.context=context;
-      appWidgetId=intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
-                                      AppWidgetManager.INVALID_APPWIDGET_ID);
+      //appWidgetId=intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
   }
   
   public int getCount() {
@@ -49,15 +42,14 @@ public class LoremViewsFactory implements RemoteViewsService.RemoteViewsFactory 
     		colorId = R.color.trail_open_color;
     		break;
     	case CLOSED:
-    		colorId = R.color.trail_clsoed_color;
+    		colorId = R.color.trail_closed_color;
     		break;
+    	case UNKNOWN:
+    		colorId = R.color.white;
     		
     }
     row.setInt(R.id.trail_list_item_view, "setBackgroundResource", colorId);
-    
-    
-    
-    
+            
     //Intent i=new Intent();
     //Bundle extras=new Bundle();
     
@@ -119,8 +111,8 @@ public class LoremViewsFactory implements RemoteViewsService.RemoteViewsFactory 
 	// TODO Auto-generated method stub	
   }
 
-public void onDestroy() {
+  public void onDestroy() {
 	// TODO Auto-generated method stub
 	
-}
+  }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="trail_open_color">#D5F7D5</color>
-    <color name="trail_clsoed_color">#E6DCDE</color>
+    <color name="trail_closed_color">#E6DCDE</color>
+    <color name="white">#FFFFFF</color>
 </resources>

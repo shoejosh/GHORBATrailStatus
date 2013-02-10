@@ -24,7 +24,7 @@ public class LoremActivity extends Activity {
   public void onCreate(Bundle state) {
     super.onCreate(state);
     
-    String word=getIntent().getStringExtra(ExampleAppWidgetProvider.EXTRA_WORD);
+    String word=getIntent().getStringExtra(TrailStatusWidgetProvider.EXTRA_WORD);
     
     if (word==null) {
       word="We did not get a word!";
