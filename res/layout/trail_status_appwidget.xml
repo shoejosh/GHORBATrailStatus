@@ -5,7 +5,6 @@
     android:layout_height="match_parent" 
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
-    android:padding="1dp"
     android:background="@drawable/widget_frame">
        
     <RelativeLayout 
@@ -38,6 +37,12 @@
   	
   	</RelativeLayout>
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dip"
+        android:background="#0099CC"/>    
+    
 	<ListView
 	    android:id="@+id/trail_list"
 	    android:layout_width="match_parent"
@@ -45,6 +50,14 @@
 	    android:layout_marginTop="0dp"
 	    android:divider="#ccc"
 	    android:dividerHeight="1.5dp"
-	    android:fadingEdgeLength="0dp" />
+	    android:fadingEdgeLength="0dp"
+	    android:layout_weight="1" />
+	
+	<LinearLayout
+	    android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dip"
+        android:background="#0099CC"
+        android:layout_weight="0"/>
 
 </LinearLayout>
