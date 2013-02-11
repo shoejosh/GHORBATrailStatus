@@ -40,7 +40,7 @@ public class TrailStatusWidgetProvider extends AppWidgetProvider {
             svcIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,  appWidgetId);
             svcIntent.setData(Uri.parse(svcIntent.toUri(Intent.URI_INTENT_SCHEME)));           
             
-            RemoteViews widget = new RemoteViews(context.getPackageName(), R.layout.example_appwidget);                        
+            RemoteViews widget = new RemoteViews(context.getPackageName(), R.layout.trail_status_appwidget);                        
             widget.setRemoteAdapter(R.id.trail_list, svcIntent);
             widget.setOnClickPendingIntent(R.id.btnRefresh, getPendingSelfIntent(context, ACTION_VIEW_DATA_CHANGED));
             

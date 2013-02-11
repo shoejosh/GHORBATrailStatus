@@ -5,16 +5,23 @@
               android:layout_height="fill_parent" 
               android:orientation="vertical" 
               android:minHeight="?android:attr/listPreferredItemHeight"
-              android:alpha="1">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:alpha="1"
+              android:background="@color/widget_item_color"
+              android:paddingLeft="10dp"
+              android:paddingRight="5dp"
+              android:paddingTop="5dp"
+              android:paddingBottom="5dp">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         		  android:layout_width="fill_parent"
-        		  android:layout_height="wrap_content"
-        		  android:orientation="horizontal">"
+        		  android:layout_height="wrap_content">
 		<TextView xmlns:android="http://schemas.android.com/apk/res/android"
 		    android:id="@+id/trail_name"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
+		    android:layout_alignParentLeft="true"
 		    android:textAppearance="@android:attr/textAppearanceLarge"
+		    android:textSize="14sp"
+		    android:textStyle="bold"
 		    android:gravity="left"
 		    android:paddingLeft="6dip"
 		/>
@@ -22,11 +29,13 @@
 		    android:id="@+id/trail_last_updated"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
+		    android:layout_alignParentRight="true"
+		    android:layout_toLeftOf="@id/trail_name"
 		    android:textAppearance="@android:attr/textAppearanceSmall"
 		    android:gravity="right"
 		    android:paddingLeft="6dip"			    	   
 		/>
-	</LinearLayout>
+	</RelativeLayout>
 	<TextView xmlns:android="http://schemas.android.com/apk/res/android"
 	    android:id="@+id/trail_status_condition"
 	    android:layout_width="match_parent"
@@ -34,6 +43,7 @@
 	    android:textAppearance="@android:attr/textAppearanceMedium"
 	    android:gravity="left"
 	    android:paddingLeft="6dip"
-	    android:paddingTop="6dip"
+	    android:paddingTop="3dip"
+	    android:textStyle="bold"
 	/>
 </LinearLayout>              

@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
@@ -48,7 +49,11 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
     		colorId = R.color.white;
     		
     }
-    row.setInt(R.id.trail_list_item_view, "setBackgroundResource", colorId);
+    int color = this.context.getResources().getColor(colorId);
+    
+    row.setInt(R.id.trail_status_condition, "setTextColor", color);
+    //row.setInt(R.id.trail_list_item_view, "setBackgroundResource", colorId);
+    
             
     //Intent i=new Intent();
     //Bundle extras=new Bundle();
