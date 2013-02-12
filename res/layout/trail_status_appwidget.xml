@@ -26,14 +26,15 @@
 	        android:text="@string/widget_title"
 	        android:textColor="@color/white"/>
 	
-		<Button
+	    <ImageButton
 	        android:id="@id/btnRefresh"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_alignParentLeft="false"
 	        android:layout_alignParentRight="true"
-	        android:layout_marginLeft="98dp"
-	        android:text="Refresh" />
+	        android:layout_marginLeft="98dp" 	    
+	        android:src="@drawable/navigation_refresh_white"    
+	        android:contentDescription="Refresh"/>	   	           
   	
   	</RelativeLayout>
 
