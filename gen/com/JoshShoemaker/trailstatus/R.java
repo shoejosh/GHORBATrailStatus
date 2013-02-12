@@ -27,6 +27,7 @@ public final class R {
         public static final int preview=0x7f020004;
         public static final int widget_frame=0x7f020005;
         public static final int widget_frame_old=0x7f020006;
+        public static final int widget_header=0x7f020007;
     }
     public static final class id {
         public static final int btnRefresh=0x7f080006;
