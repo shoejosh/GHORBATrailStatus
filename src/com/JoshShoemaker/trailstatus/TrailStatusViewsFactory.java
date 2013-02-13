@@ -23,7 +23,7 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
   }
   
   public int getCount() {
-    return(items.length);
+	  return(items.length);
   }
 
   public RemoteViews getViewAt(int position) {
@@ -94,13 +94,11 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
 	  try {
 		  page = PageScraper.getUrlContent("http://ghorba.org/trails" + "?val=" + date.getTime());
 	  } catch (Exception e) {
-		  // TODO Auto-generated catch block
 		  e.printStackTrace();
 	  }
 	
 	  String regex = "<tr.*?field-title.*?<a href=\"/trails(.*?)\">(.*?)</a>.*?trail-status.*?<a.*?>(.*?)</a>.*?trail-condition.*?>(.*?)</td>.*?<em.*?>(.*?)<.*?</tr>";
 	  Pattern pattern = Pattern.compile(regex, Pattern.DOTALL);
-	  //Pattern pattern = Pattern.compile("<td.*class=.*views-field-title.*\\n*.*>(.*)</a>", Pattern.DOTALL);	  
 	  Matcher matcher = pattern.matcher(page);
 	  while(matcher.find())
 	  {	
@@ -114,6 +112,14 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
 	  }
 	  
 	  items = trails.toArray(new Trail[trails.size()]);
+	  
+	  
+	  //Notify Widget Provider that data has been updated
+	  
+	  Intent intent = new Intent(context, TrailStatusWidgetProvider.class);
+	  intent.setAction(TrailStatusWidgetProvider.ACTION_VIEW_UPDATED);
+	  context.sendBroadcast(intent);
+	  
   }
 
   public void onCreate() {

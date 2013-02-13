@@ -1,5 +1,7 @@
 package com.JoshShoemaker.trailstatus;
 
+import java.util.Date;
+
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
@@ -9,6 +11,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.sax.StartElementListener;
 import android.widget.RemoteViews;
+import java.text.SimpleDateFormat;
 
 
 public class TrailStatusWidgetProvider extends AppWidgetProvider {
@@ -17,16 +20,27 @@ public class TrailStatusWidgetProvider extends AppWidgetProvider {
 		    "com.commonsware.android.appwidget.lorem.WORD";
 	
 	public static final String ACTION_VIEW_DATA_CHANGED = "com.JoshShoemaker.trailstatus.VIEW_DATA_CHANGED";
+	
+	public static final String ACTION_VIEW_UPDATED = "com.JoshShoemaker.trailstatus.VIEW_DATA_UPDATED";
 
 	//@Override
 	public void onReceive(Context context, Intent intent){
 		
+		AppWidgetManager awm = AppWidgetManager.getInstance(context);		
+		int[] ids = awm.getAppWidgetIds(new ComponentName(context, getClass()));	
+		
 		if(intent.getAction() == ACTION_VIEW_DATA_CHANGED)
-		{	
-			AppWidgetManager awm = AppWidgetManager.getInstance(context);		
-			int[] ids = awm.getAppWidgetIds(new ComponentName(context, getClass()));			
+		{					
 			awm.notifyAppWidgetViewDataChanged(ids, R.id.trail_list);
-		}		
+		}
+		else if(intent.getAction() == ACTION_VIEW_UPDATED)
+		{			
+			String time = new SimpleDateFormat("hh:mm a").format(new Date());
+			
+			RemoteViews widget = new RemoteViews(context.getPackageName(), R.layout.trail_status_appwidget);   
+			widget.setTextViewText(R.id.widget_last_updated, time);
+			awm.partiallyUpdateAppWidget(ids, widget);
+		}
 		
 		super.onReceive(context, intent);
 	}

@@ -18,26 +18,36 @@
           
 	    <TextView
 	        android:id="@+id/txtTitle"
-	        android:layout_width="0dp"
+	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_alignParentLeft="true"
 	        android:layout_centerVertical="true"
-	        android:layout_toLeftOf="@+id/btnRefresh"
+	        android:layout_toLeftOf="@+id/widget_last_updated"
 	        android:text="@string/widget_title"
 	        android:textColor="#000000"
 	        android:textStyle="bold"
 	        android:textSize="14sp"/>
-	
+	    
+	    
 	    <ImageButton
-	        android:id="@id/btnRefresh"
+	        android:id="@+id/btnRefresh"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_alignParentLeft="false"
-	        android:layout_alignParentRight="true"
-	        android:layout_marginLeft="98dp" 	    
+	        android:layout_alignParentRight="true"	    
 	        android:src="@drawable/navigation_refresh"
 	        android:background="#00000000"    
-	        android:contentDescription="Refresh"/>	   	           
+	        android:contentDescription="Refresh"/>
+
+	    <TextView
+	        android:id="@id/widget_last_updated"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerVertical="true"	        
+	        android:layout_toLeftOf="@id/btnRefresh"
+	        android:layout_marginRight="2dp"
+	        android:textColor="#000000"
+	        android:textSize="10sp" />
   	
   	</RelativeLayout>
 
