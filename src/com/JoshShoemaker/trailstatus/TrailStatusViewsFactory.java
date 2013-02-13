@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
@@ -55,12 +56,14 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
     //row.setInt(R.id.trail_list_item_view, "setBackgroundResource", colorId);
     
             
-    //Intent i=new Intent();
+    Intent i = new Intent();
     //Bundle extras=new Bundle();
+    
+    i.setData(Uri.parse(trail.getPageUrl()));
     
     //extras.putString(ExampleAppWidgetProvider.EXTRA_WORD, items[position]);
     //i.putExtras(extras);
-    //row.setOnClickFillInIntent(android.R.id.text1, i);
+    row.setOnClickFillInIntent(R.id.trail_list_item_view, i);
 
     return(row);
   }
@@ -95,16 +98,17 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
 		  e.printStackTrace();
 	  }
 	
-	  String regex = "<tr.*?field-title.*?<a.*?>(.*?)</a>.*?trail-status.*?<a.*?>(.*?)</a>.*?trail-condition.*?>(.*?)</td>.*?<em.*?>(.*?)<.*?</tr>";
+	  String regex = "<tr.*?field-title.*?<a href=\"/trails(.*?)\">(.*?)</a>.*?trail-status.*?<a.*?>(.*?)</a>.*?trail-condition.*?>(.*?)</td>.*?<em.*?>(.*?)<.*?</tr>";
 	  Pattern pattern = Pattern.compile(regex, Pattern.DOTALL);
 	  //Pattern pattern = Pattern.compile("<td.*class=.*views-field-title.*\\n*.*>(.*)</a>", Pattern.DOTALL);	  
 	  Matcher matcher = pattern.matcher(page);
 	  while(matcher.find())
 	  {	
-		  Trail trail = new Trail(matcher.group(1).trim());
-		  trail.setStatus(matcher.group(2).replace('\n', ' ').trim());
-		  trail.setCondition(matcher.group(3).replace('\n', ' ').trim());
-		  trail.setLastUpdated(matcher.group(4).replace('\n', ' ').trim());
+		  Trail trail = new Trail(matcher.group(2).trim());
+		  trail.setPageName(matcher.group(1));
+		  trail.setStatus(matcher.group(3).replace('\n', ' ').trim());
+		  trail.setCondition(matcher.group(4).replace('\n', ' ').trim());
+		  trail.setLastUpdated(matcher.group(5).replace('\n', ' ').trim());
 		  
 		  trails.add(trail);
 	  }

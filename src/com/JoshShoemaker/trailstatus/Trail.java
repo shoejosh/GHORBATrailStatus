@@ -29,6 +29,8 @@ public class Trail {
 	
 	private String mLastUpdated;
 	
+	private String mPageName;
+	
 	public Trail(String name)
 	{
 		this.mName = name;
@@ -74,7 +76,6 @@ public class Trail {
 	public void setCondition(String condition) {
 		this.mCondition = condition;
 	}
-
 	
 	public String getLastUpdated() {
 		return mLastUpdated;
@@ -83,6 +84,14 @@ public class Trail {
 	
 	public void setLastUpdated(String lastUpdated) {
 		this.mLastUpdated = lastUpdated;
+	}
+	
+	public void setPageName(String pageName) {
+		this.mPageName = pageName;
+	}
+	
+	public String getPageUrl() {
+		return "http://ghorba.org/trails" + mPageName;
 	}
 
 }

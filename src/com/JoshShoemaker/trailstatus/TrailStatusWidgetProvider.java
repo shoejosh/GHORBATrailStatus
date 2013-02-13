@@ -7,6 +7,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.sax.StartElementListener;
 import android.widget.RemoteViews;
 
 
@@ -25,7 +26,7 @@ public class TrailStatusWidgetProvider extends AppWidgetProvider {
 			AppWidgetManager awm = AppWidgetManager.getInstance(context);		
 			int[] ids = awm.getAppWidgetIds(new ComponentName(context, getClass()));			
 			awm.notifyAppWidgetViewDataChanged(ids, R.id.trail_list);
-		}
+		}		
 		
 		super.onReceive(context, intent);
 	}
@@ -44,6 +45,11 @@ public class TrailStatusWidgetProvider extends AppWidgetProvider {
             
             widget.setRemoteAdapter(R.id.trail_list, svcIntent);
             widget.setOnClickPendingIntent(R.id.btnRefresh, getPendingSelfIntent(context, ACTION_VIEW_DATA_CHANGED));
+            
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW);
+            browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            PendingIntent browserPendingIntent = PendingIntent.getActivity(context, 0, browserIntent, 0);
+            widget.setPendingIntentTemplate(R.id.trail_list, browserPendingIntent);
             
             appWidgetManager.updateAppWidget(appWidgetId, widget);            
             appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.trail_list);
