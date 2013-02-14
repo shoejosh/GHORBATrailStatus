@@ -31,9 +31,15 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
     
     Trail trail = items[position];
     
+    if(trail.getShortReport() == null)
+    {
+    	getShortReport(trail);    	
+    }
+        
     row.setTextViewText(R.id.trail_name, trail.getName());     
     row.setTextViewText(R.id.trail_last_updated, trail.getLastUpdated());
     row.setTextViewText(R.id.trail_status_condition, trail.getStatus().toString() + " - " + trail.getCondition());
+    row.setTextViewText(R.id.trail_short_report, trail.getShortReport());
     
     Trail.TrailStatus status = trail.getStatus();
     
@@ -68,7 +74,28 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
     return(row);
   }
 
-  public RemoteViews getLoadingView() {
+  private void getShortReport(Trail trail) {
+	  
+	  String page = "";
+	  Date date = new Date();
+	  
+	  try {
+		  page = PageScraper.getUrlContent(trail.getPageUrl());
+	  } catch (Exception e) {
+		  e.printStackTrace();
+	  }
+	  
+	  String regex = "<a href=\"/trails/" + trail.getPageName() + "/\\d{4}-\\d\\d-\\d\\d\">(.*)</a>";
+	  Pattern pattern = Pattern.compile(regex);
+	  Matcher matcher = pattern.matcher(page);  	
+	  
+	  if(matcher.find())
+	  {	
+		  trail.setShortReport(matcher.group(1));
+	  }
+}
+
+public RemoteViews getLoadingView() {
     return(null);
   }
   
@@ -97,7 +124,7 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
 		  e.printStackTrace();
 	  }
 	
-	  String regex = "<tr.*?field-title.*?<a href=\"/trails(.*?)\">(.*?)</a>.*?trail-status.*?<a.*?>(.*?)</a>.*?trail-condition.*?>(.*?)</td>.*?<em.*?>(.*?)<.*?</tr>";
+	  String regex = "<tr.*?field-title.*?<a href=\"/trails/(.*?)\">(.*?)</a>.*?trail-status.*?<a.*?>(.*?)</a>.*?trail-condition.*?>(.*?)</td>.*?<em.*?>(.*?)<.*?</tr>";
 	  Pattern pattern = Pattern.compile(regex, Pattern.DOTALL);
 	  Matcher matcher = pattern.matcher(page);
 	  while(matcher.find())

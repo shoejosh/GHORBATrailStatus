@@ -31,6 +31,8 @@ public class Trail {
 	
 	private String mPageName;
 	
+	private String mShortReport;
+	
 	public Trail(String name)
 	{
 		this.mName = name;
@@ -90,8 +92,20 @@ public class Trail {
 		this.mPageName = pageName;
 	}
 	
+	public String getPageName() {
+		return this.mPageName;
+	}
+	
 	public String getPageUrl() {
-		return "http://ghorba.org/trails" + mPageName;
+		return "http://ghorba.org/trails/" + mPageName;
+	}
+
+	public String getShortReport() {
+		return mShortReport;
+	}
+
+	public void setShortReport(String shortReport) {
+		this.mShortReport = shortReport;
 	}
 
 }
