@@ -25,9 +25,12 @@ public final class R {
         public static final int navigation_refresh=0x7f020002;
         public static final int navigation_refresh_white=0x7f020003;
         public static final int preview=0x7f020004;
-        public static final int widget_frame=0x7f020005;
-        public static final int widget_frame_old=0x7f020006;
-        public static final int widget_header=0x7f020007;
+        public static final int refresh_button=0x7f020005;
+        public static final int refresh_button_pressed=0x7f020006;
+        public static final int refresh_button_selector=0x7f020007;
+        public static final int widget_frame=0x7f020008;
+        public static final int widget_frame_old=0x7f020009;
+        public static final int widget_header=0x7f02000a;
     }
     public static final class id {
         public static final int btnRefresh=0x7f080007;
