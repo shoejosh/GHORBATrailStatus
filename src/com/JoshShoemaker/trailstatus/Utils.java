@@ -2,6 +2,8 @@ package com.JoshShoemaker.trailstatus;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -11,6 +13,12 @@ public class Utils {
 	
 	private static Typeface robotoTypeFace;
 
+	public static boolean isNetworkConnected(Context context) {
+		  ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+		  NetworkInfo ni = cm.getActiveNetworkInfo();
+		  return ni != null;
+		 }
+	
     public static void setRobotoFont (Context context, View view)
     {
         if (robotoTypeFace == null)

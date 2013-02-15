@@ -76,6 +76,11 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
 
   private void getShortReport(Trail trail) {
 	  
+	  if(!Utils.isNetworkConnected(context))
+	  {
+		  return;
+	  }
+	  
 	  String page = "";
 	  Date date = new Date();
 	  
@@ -95,7 +100,7 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
 	  }
 }
 
-public RemoteViews getLoadingView() {
+  public RemoteViews getLoadingView() {
     return(null);
   }
   
@@ -112,6 +117,11 @@ public RemoteViews getLoadingView() {
   }
 
   public void onDataSetChanged() {
+	  
+	  if(!Utils.isNetworkConnected(context))
+	  {
+		  return;
+	  }
 	  
 	  List<Trail> trails = new ArrayList<Trail>();
 	  
