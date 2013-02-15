@@ -1,15 +1,22 @@
 package com.JoshShoemaker.trailstatus;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.http.impl.cookie.DateUtils;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.net.Uri;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.StyleSpan;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
@@ -33,13 +40,27 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
     
     if(trail.getShortReport() == null)
     {
-    	getShortReport(trail);    	
+    	loadPageData(trail);    	
     }
+    
+    //trail.setShortReport("A long short report to test layout wrapping stuffs and stuff, like you know? I need to fix it if it doesn't work! A long short report to test layout wrapping stuffs and stuff, like you know? I need to fix it if it doesn't work!");
         
-    row.setTextViewText(R.id.trail_name, trail.getName());     
-    row.setTextViewText(R.id.trail_last_updated, trail.getLastUpdated());
-    row.setTextViewText(R.id.trail_status_condition, trail.getStatus().toString() + " - " + trail.getCondition());
-    row.setTextViewText(R.id.trail_short_report, trail.getShortReport());
+    row.setTextViewText(R.id.trail_name, trail.getName());             
+    row.setTextViewText(R.id.trail_status_condition, trail.getStatus().toString() );
+             
+    SpannableString str = new SpannableString(trail.getCondition() + " - " + trail.getShortReport());
+    str.setSpan(new StyleSpan(android.graphics.Typeface.BOLD_ITALIC), 0, trail.getCondition().length() + 2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+    row.setTextViewText(R.id.trail_condition, str);
+    
+    if(!Utils.isSameDate(trail.getUpdateDate(), new Date()))
+    {
+    	SimpleDateFormat sdf = new SimpleDateFormat("MMM d");
+    	row.setTextViewText(R.id.trail_last_updated, sdf.format(trail.getUpdateDate()).toString());
+    }
+    else
+    {
+    	row.setTextViewText(R.id.trail_last_updated, trail.getLastUpdated());
+    }    	  
     
     Trail.TrailStatus status = trail.getStatus();
     
@@ -59,22 +80,22 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
     int color = this.context.getResources().getColor(colorId);
     
     row.setInt(R.id.trail_status_condition, "setTextColor", color);
-    //row.setInt(R.id.trail_list_item_view, "setBackgroundResource", colorId);
     
             
     Intent i = new Intent();
-    //Bundle extras=new Bundle();
     
     i.setData(Uri.parse(trail.getPageUrl()));
     
+    //Bundle extras=new Bundle();
     //extras.putString(ExampleAppWidgetProvider.EXTRA_WORD, items[position]);
     //i.putExtras(extras);
+    
     row.setOnClickFillInIntent(R.id.trail_list_item_view, i);
 
     return(row);
   }
 
-  private void getShortReport(Trail trail) {
+  private void loadPageData(Trail trail) {
 	  
 	  if(!Utils.isNetworkConnected(context))
 	  {
@@ -90,14 +111,7 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
 		  e.printStackTrace();
 	  }
 	  
-	  String regex = "<a href=\"/trails/" + trail.getPageName() + "/\\d{4}-\\d\\d-\\d\\d\">(.*)</a>";
-	  Pattern pattern = Pattern.compile(regex);
-	  Matcher matcher = pattern.matcher(page);  	
-	  
-	  if(matcher.find())
-	  {	
-		  trail.setShortReport(matcher.group(1));
-	  }
+	  trail.loadTrailPageData(page);
 }
 
   public RemoteViews getLoadingView() {

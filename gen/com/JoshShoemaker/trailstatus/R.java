@@ -35,12 +35,12 @@ public final class R {
     public static final class id {
         public static final int btnRefresh=0x7f080008;
         public static final int header=0x7f080005;
-        public static final int trail_last_updated=0x7f080002;
+        public static final int trail_condition=0x7f080003;
+        public static final int trail_last_updated=0x7f080004;
         public static final int trail_list=0x7f080009;
         public static final int trail_list_item_view=0x7f080000;
         public static final int trail_name=0x7f080001;
-        public static final int trail_short_report=0x7f080004;
-        public static final int trail_status_condition=0x7f080003;
+        public static final int trail_status_condition=0x7f080002;
         public static final int txtTitle=0x7f080006;
         public static final int widget_last_updated=0x7f080007;
     }

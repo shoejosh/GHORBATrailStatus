@@ -1,5 +1,8 @@
 package com.JoshShoemaker.trailstatus;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import android.content.Context;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
@@ -18,6 +21,17 @@ public class Utils {
 		  NetworkInfo ni = cm.getActiveNetworkInfo();
 		  return ni != null;
 		 }
+	
+	public static boolean isSameDate(Date d1, Date d2)
+	{
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		String sd1 = sdf.format(d1).toString();
+		String sd2 = sdf.format(d2).toString();
+		
+		return sd1.equals(sd2);
+		
+	}
 	
     public static void setRobotoFont (Context context, View view)
     {
