@@ -31,7 +31,7 @@ public class TrailStatusWidgetProvider extends AppWidgetProvider {
 		
 		if(intent.getAction() == ACTION_VIEW_DATA_CHANGED)
 		{					
-			awm.notifyAppWidgetViewDataChanged(ids, R.id.trail_list);
+			this.onUpdate(context, awm, ids);
 		}
 		else if(intent.getAction() == ACTION_VIEW_UPDATED)
 		{			
@@ -63,7 +63,7 @@ public class TrailStatusWidgetProvider extends AppWidgetProvider {
             Intent browserIntent = new Intent(Intent.ACTION_VIEW);
             browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             PendingIntent browserPendingIntent = PendingIntent.getActivity(context, 0, browserIntent, 0);
-            widget.setPendingIntentTemplate(R.id.trail_list, browserPendingIntent);
+            widget.setPendingIntentTemplate(R.id.trail_list, browserPendingIntent);            
             
             appWidgetManager.updateAppWidget(appWidgetId, widget);            
             appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.trail_list);

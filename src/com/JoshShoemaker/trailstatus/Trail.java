@@ -2,6 +2,7 @@ package com.JoshShoemaker.trailstatus;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -29,6 +30,8 @@ public class Trail {
 	private String mName;
 
 	private TrailStatus mStatus;
+	
+	private Boolean mStatusChanged;
 
 	private String mParenName;
 
@@ -37,6 +40,8 @@ public class Trail {
 	private String mLastUpdated;
 	
 	private Date mUpdateDate;
+	
+	private Calendar mPageDataUpdated;
 
 	private String mPageName;
 
@@ -53,15 +58,26 @@ public class Trail {
 
 	public void setStatus(String status) {
 		if (status.equalsIgnoreCase("open")) {
-			mStatus = TrailStatus.OPEN;
+			this.setStatus(TrailStatus.OPEN);
 		} else if (status.equalsIgnoreCase("closed")) {
-			mStatus = TrailStatus.CLOSED;
+			this.setStatus(TrailStatus.CLOSED);
 		} else {
-			mStatus = TrailStatus.UNKNOWN;
+			this.setStatus(TrailStatus.UNKNOWN);
 		}
-
+	}
+	
+	public void setStatus(TrailStatus status)
+	{
+		mStatusChanged = !mStatus.equals(status);
+		
+		mStatus = status;
 	}
 
+	public Boolean getStatusChanged()
+	{
+		return mStatusChanged;
+	}
+	
 	public void setName(String name) {
 		name = name.trim();
 		if (name.endsWith(")")) {
@@ -141,6 +157,21 @@ public class Trail {
 			
 			this.setShortReport(matcher.group(2));
 		}
+		
+		this.mPageDataUpdated = Calendar.getInstance();
 	}
 
+	
+	public Boolean shouldUpdatePageData()
+	{
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.HOUR, -24);
+				
+		if(mShortReport == null || mStatusChanged || mPageDataUpdated.before(cal))
+		{
+			return true;
+		}
+		return false;
+	}
+	
 }

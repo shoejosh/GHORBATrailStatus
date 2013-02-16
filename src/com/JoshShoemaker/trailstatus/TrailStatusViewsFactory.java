@@ -30,6 +30,11 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
   }
   
   public int getCount() {
+	  if(items == null)
+	  {
+		  return 0;
+	  }
+	  
 	  return(items.length);
   }
 
@@ -38,7 +43,7 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
     
     Trail trail = items[position];
     
-    if(trail.getShortReport() == null)
+    if(trail.shouldUpdatePageData())
     {
     	loadPageData(trail);    	
     }
@@ -151,22 +156,40 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
 	  String regex = "<tr.*?field-title.*?<a href=\"/trails/(.*?)\">(.*?)</a>.*?trail-status.*?<a.*?>(.*?)</a>.*?trail-condition.*?>(.*?)</td>.*?<em.*?>(.*?)<.*?</tr>";
 	  Pattern pattern = Pattern.compile(regex, Pattern.DOTALL);
 	  Matcher matcher = pattern.matcher(page);
+	  
+	  int count = 0;
 	  while(matcher.find())
 	  {	
-		  Trail trail = new Trail(matcher.group(2).trim());
+		  Trail trail = null;
+		  
+		  if(items != null && items.length > count)
+		  {
+			  Trail prevTrail = (Trail)items[count];
+			  if(prevTrail.getPageName().equals(matcher.group(1)))
+			  {
+				  trail = prevTrail;
+			  }
+		  }
+		  
+		  if(trail == null)
+		  {
+			  trail = new Trail(matcher.group(2).trim());
+		  }
+			  		  
 		  trail.setPageName(matcher.group(1));
 		  trail.setStatus(matcher.group(3).replace('\n', ' ').trim());
 		  trail.setCondition(matcher.group(4).replace('\n', ' ').trim());
 		  trail.setLastUpdated(matcher.group(5).replace('\n', ' ').trim());
 		  
 		  trails.add(trail);
+			  
+		  count++;
 	  }
 	  
 	  items = trails.toArray(new Trail[trails.size()]);
 	  
 	  
-	  //Notify Widget Provider that data has been updated
-	  
+	  //Notify Widget Provider that data has been updated	  
 	  Intent intent = new Intent(context, TrailStatusWidgetProvider.class);
 	  intent.setAction(TrailStatusWidgetProvider.ACTION_VIEW_UPDATED);
 	  context.sendBroadcast(intent);
