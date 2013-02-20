@@ -8,6 +8,7 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.sax.StartElementListener;
 import android.widget.RemoteViews;
@@ -41,9 +42,15 @@ public class TrailStatusWidgetProvider extends AppWidgetProvider {
 			widget.setTextViewText(R.id.widget_last_updated, time);
 			awm.partiallyUpdateAppWidget(ids, widget);
 		}
+		else if(intent.getAction() == ConnectivityManager.CONNECTIVITY_ACTION)
+		{
+			//TODO: If Connection has been restored and widget has not been updated recently, update it.
+		}
 		
-		super.onReceive(context, intent);
+		super.onReceive(context, intent);	
 	}
+	
+
 	
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         final int N = appWidgetIds.length;

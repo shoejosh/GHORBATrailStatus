@@ -18,6 +18,7 @@
             android:enabled="@bool/sinceHoneycomb">
 		    <intent-filter>
 		        <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+		        <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
 		    </intent-filter>
 		    <meta-data android:name="android.appwidget.provider"
 		               android:resource="@xml/trailstatus_appwidget_info" />
