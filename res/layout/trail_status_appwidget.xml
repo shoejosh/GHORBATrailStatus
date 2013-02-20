@@ -8,71 +8,31 @@
        
     <RelativeLayout 
         android:id="@+id/header"
-        android:background="@drawable/widget_header"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="7dp"
-        android:paddingRight="5dp"
-        android:paddingTop="7dp"
-        android:paddingBottom="7dp">
+        style="@style/TrailStatusHeader.Widget">
           
 	    <TextView
 	        android:id="@+id/txtTitle"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignParentLeft="true"
-	        android:layout_centerVertical="true"
-	        android:layout_toLeftOf="@+id/widget_last_updated"
-	        android:text="@string/widget_title"
-	        android:textColor="#000000"
-	        android:textStyle="bold"
-	        android:textSize="14sp"/>
+	        style="@style/TrailStatusTitle"
+	        android:layout_toLeftOf="@+id/widget_last_updated"/>	    
 	    
+	    <TextView
+	        android:id="@id/widget_last_updated"
+	        style="@style/TrailStatusLastUpdated" />
 	    
 	    <ImageButton
 	        android:id="@+id/btnRefresh"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignParentLeft="false"
-	        android:layout_alignParentRight="true"	    
-	        android:src="@drawable/navigation_refresh"
-	        android:background="@drawable/refresh_button_selector"    
-	        android:contentDescription="Refresh"/>
-
-	    <TextView
-	        android:id="@id/widget_last_updated"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_centerVertical="true"	        
-	        android:layout_toLeftOf="@id/btnRefresh"
-	        android:layout_marginRight="2dp"
-	        android:textColor="#000000"
-	        android:textSize="10sp" />
+	        style="@style/TrailStatusRefresh"/>	    
   	
   	</RelativeLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="2dip"
-        android:background="#33B5E5"/>    
+	    style="@style/HorizontalLine"/>    
     
 	<ListView
 	    android:id="@+id/trail_list"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:layout_marginTop="0dp"
-	    android:divider="#ccc"
-	    android:dividerHeight="1.5dp"
-	    android:fadingEdgeLength="0dp"
-	    android:layout_weight="1"
-	    android:drawSelectorOnTop="true" />
+	    style="@style/TrailStatusList" />
 	
 	<LinearLayout
-	    android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="2dip"
-        android:background="#33B5E5"
-        android:layout_weight="0"/>
+	    style="@style/HorizontalLine"/>
 
 </LinearLayout>
