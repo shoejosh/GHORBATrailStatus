@@ -10,14 +10,18 @@ package com.JoshShoemaker.trailstatus;
 public final class R {
     public static final class attr {
     }
+    public static final class bool {
+        public static final int beforeHoneycomb=0x7f050001;
+        public static final int sinceHoneycomb=0x7f050000;
+    }
     public static final class color {
-        public static final int trail_closed_color=0x7f050001;
-        public static final int trail_closed_color_old=0x7f050006;
-        public static final int trail_open_color=0x7f050000;
-        public static final int trail_open_color_old=0x7f050005;
-        public static final int white=0x7f050004;
-        public static final int widget_header_color=0x7f050002;
-        public static final int widget_item_color=0x7f050003;
+        public static final int trail_closed_color=0x7f060001;
+        public static final int trail_closed_color_old=0x7f060006;
+        public static final int trail_open_color=0x7f060000;
+        public static final int trail_open_color_old=0x7f060005;
+        public static final int white=0x7f060004;
+        public static final int widget_header_color=0x7f060002;
+        public static final int widget_item_color=0x7f060003;
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
@@ -33,28 +37,36 @@ public final class R {
         public static final int widget_header=0x7f02000a;
     }
     public static final class id {
-        public static final int btnRefresh=0x7f080008;
-        public static final int header=0x7f080005;
-        public static final int trail_condition=0x7f080003;
-        public static final int trail_last_updated=0x7f080004;
-        public static final int trail_list=0x7f080009;
-        public static final int trail_list_item_view=0x7f080000;
-        public static final int trail_name=0x7f080001;
-        public static final int trail_status_condition=0x7f080002;
-        public static final int txtTitle=0x7f080006;
-        public static final int widget_last_updated=0x7f080007;
+        public static final int btnRefresh=0x7f090007;
+        public static final int header=0x7f090005;
+        public static final int trail_condition=0x7f090003;
+        public static final int trail_last_updated=0x7f090004;
+        public static final int trail_list=0x7f090008;
+        public static final int trail_list_item_view=0x7f090000;
+        public static final int trail_name=0x7f090001;
+        public static final int trail_status_condition=0x7f090002;
+        public static final int txtTitle=0x7f090006;
+        public static final int widget_last_updated=0x7f090009;
     }
     public static final class layout {
         public static final int trail_list_item=0x7f030000;
-        public static final int trail_status_appwidget=0x7f030001;
+        public static final int trail_status_activity=0x7f030001;
+        public static final int trail_status_appwidget=0x7f030002;
     }
     public static final class string {
-        public static final int app_name=0x7f060000;
-        public static final int template_user_agent=0x7f060002;
-        public static final int widget_title=0x7f060001;
+        public static final int app_name=0x7f070000;
+        public static final int template_user_agent=0x7f070002;
+        public static final int widget_title=0x7f070001;
     }
     public static final class style {
-        public static final int AppTheme=0x7f070000;
+        public static final int AppTheme=0x7f080000;
+        public static final int HorizontalLine=0x7f080007;
+        public static final int TrailStatusHeader=0x7f080001;
+        public static final int TrailStatusHeader_Widget=0x7f080002;
+        public static final int TrailStatusLastUpdated=0x7f080005;
+        public static final int TrailStatusList=0x7f080006;
+        public static final int TrailStatusRefresh=0x7f080004;
+        public static final int TrailStatusTitle=0x7f080003;
     }
     public static final class xml {
         public static final int trailstatus_appwidget_info=0x7f040000;
