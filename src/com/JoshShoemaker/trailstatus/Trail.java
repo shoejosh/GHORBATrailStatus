@@ -7,6 +7,11 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import android.content.Context;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.StyleSpan;
+
 public class Trail {
 
 	public enum TrailStatus {
@@ -139,6 +144,16 @@ public class Trail {
 		return mUpdateDate;
 	}
 	
+	public void setUpdateDate(Date date)
+	{
+		mUpdateDate = date;
+	}
+	
+	public void setPageDataUpdated(Calendar cal)
+	{
+		mPageDataUpdated = cal;
+	}
+	
 	public void loadTrailPageData(String pageData) {
 		String regex = "<a href=\"/trails/" + getPageName() + "/(\\d{4}-\\d\\d-\\d\\d)\">(.*)</a>";
 		Pattern pattern = Pattern.compile(regex);
@@ -160,7 +175,6 @@ public class Trail {
 		
 		this.mPageDataUpdated = Calendar.getInstance();
 	}
-
 	
 	public Boolean shouldUpdatePageData()
 	{
@@ -174,4 +188,64 @@ public class Trail {
 		return false;
 	}
 	
+	public String getLastUpdatedText()
+	{
+		SimpleDateFormat sdf = new SimpleDateFormat("MMM d");
+	    String lastUpdated = sdf.format(this.getUpdateDate()).toString();
+	    
+	    if(Utils.isSameDate(this.getUpdateDate(), new Date()))
+	    {    	
+	    	//updated within last hour?
+	    	int index = this.getLastUpdated().indexOf("min") + 3;
+			//min index = "1 min" = 5. max index = "59 min" = 6  
+	    	if(index < 5 || index > 6)    	
+	    	{
+	    		
+	    		//updated within the last day?
+	    		index = this.getLastUpdated().indexOf("hours") + 5;        
+	        	//min index = "1 hours" = 7. max index = "23 hours" = 8  
+	        	if(index < 7 || index > 8)
+	        	{
+	        		index = -1;
+	        	}
+	        	
+	    	}
+	    	
+	    	if(index > 0)
+	    	{
+		    	lastUpdated = this.getLastUpdated();
+				lastUpdated = lastUpdated.substring(0, index);
+	    	}
+	    }
+	    
+	    return lastUpdated;
+	}
+
+	public int getStatusColor(Context context)
+	{
+		Trail.TrailStatus status = this.getStatus();
+	    
+	    int colorId = R.color.trail_open_color;
+	    switch(status)
+	    {
+	    	case OPEN:
+	    		colorId = R.color.trail_open_color;
+	    		break;
+	    	case CLOSED:
+	    		colorId = R.color.trail_closed_color;
+	    		break;
+	    	case UNKNOWN:
+	    		colorId = R.color.white;
+	    		
+	    }
+	    return context.getResources().getColor(colorId);
+	}
+	
+	public SpannableString getFormattedConditionString()
+	{
+		SpannableString str = new SpannableString(this.getCondition() + " - " + this.getShortReport());
+	    str.setSpan(new StyleSpan(android.graphics.Typeface.BOLD_ITALIC), 0, this.getCondition().length() + 2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+	    return str;
+	}
 }
+
