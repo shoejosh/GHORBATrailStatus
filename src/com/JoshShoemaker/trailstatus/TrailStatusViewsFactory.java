@@ -57,15 +57,34 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
     str.setSpan(new StyleSpan(android.graphics.Typeface.BOLD_ITALIC), 0, trail.getCondition().length() + 2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
     row.setTextViewText(R.id.trail_condition, str);
     
-    if(!Utils.isSameDate(trail.getUpdateDate(), new Date()))
-    {
-    	SimpleDateFormat sdf = new SimpleDateFormat("MMM d");
-    	row.setTextViewText(R.id.trail_last_updated, sdf.format(trail.getUpdateDate()).toString());
+    SimpleDateFormat sdf = new SimpleDateFormat("MMM d");
+    String lastUpdated = sdf.format(trail.getUpdateDate()).toString();
+    
+    if(Utils.isSameDate(trail.getUpdateDate(), new Date()))
+    {    	
+    	//updated within last hour?
+    	int index = trail.getLastUpdated().indexOf("min") + 3;
+		//min index = "1 min" = 5. max index = "59 min" = 6  
+    	if(index < 5 || index > 6)    	
+    	{
+    		
+    		//updated within the last day?
+    		index = trail.getLastUpdated().indexOf("hours") + 5;        
+        	//min index = "1 hours" = 7. max index = "23 hours" = 8  
+        	if(index < 7 || index > 8)
+        	{
+        		index = -1;
+        	}
+        	
+    	}
+    	
+    	if(index > 0)
+    	{
+	    	lastUpdated = trail.getLastUpdated();
+			lastUpdated = lastUpdated.substring(0, index);
+    	}
     }
-    else
-    {
-    	row.setTextViewText(R.id.trail_last_updated, trail.getLastUpdated());
-    }    	  
+    row.setTextViewText(R.id.trail_last_updated, lastUpdated);
     
     Trail.TrailStatus status = trail.getStatus();
     
@@ -111,7 +130,7 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
 	  Date date = new Date();
 	  
 	  try {
-		  page = PageScraper.getUrlContent(trail.getPageUrl());
+		  page = PageScraper.getUrlContent(trail.getPageUrl() + "?val=" + date.getTime());
 	  } catch (Exception e) {
 		  e.printStackTrace();
 	  }
