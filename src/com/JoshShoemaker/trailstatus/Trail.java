@@ -73,7 +73,7 @@ public class Trail {
 	
 	public void setStatus(TrailStatus status)
 	{
-		mStatusChanged = !mStatus.equals(status);
+		mStatusChanged = (mStatus != TrailStatus.UNKNOWN && !mStatus.equals(status));
 		
 		mStatus = status;
 	}
@@ -190,6 +190,11 @@ public class Trail {
 	
 	public String getLastUpdatedText()
 	{
+		if(this.getUpdateDate() == null || this.getLastUpdated() == null)
+		{
+			return "";
+		}
+		
 		SimpleDateFormat sdf = new SimpleDateFormat("MMM d");
 	    String lastUpdated = sdf.format(this.getUpdateDate()).toString();
 	    
@@ -243,6 +248,11 @@ public class Trail {
 	
 	public SpannableString getFormattedConditionString()
 	{
+		if(this.getCondition() == null || this.getShortReport() == null)
+		{
+			return new SpannableString("");
+		}
+		
 		SpannableString str = new SpannableString(this.getCondition() + " - " + this.getShortReport());
 	    str.setSpan(new StyleSpan(android.graphics.Typeface.BOLD_ITALIC), 0, this.getCondition().length() + 2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 	    return str;
