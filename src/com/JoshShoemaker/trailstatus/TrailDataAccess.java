@@ -10,6 +10,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import android.content.Context;
+import android.text.Html;
 
 public class TrailDataAccess {
 
@@ -86,8 +87,8 @@ public class TrailDataAccess {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
-			trail.setShortReport(matcher.group(2));
+	
+			trail.setShortReport(Html.fromHtml(matcher.group(2)).toString());
 		}
 
 		trail.setPageDataUpdated(Calendar.getInstance());
