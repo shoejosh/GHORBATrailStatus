@@ -6,7 +6,12 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnTouchListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 public class TrailStatusActivity extends Activity
@@ -18,6 +23,17 @@ public class TrailStatusActivity extends Activity
 	{
 		super.onCreate(state);
 		setContentView(R.layout.trail_status_activity);
+				
+		ImageButton refreshBtn = (ImageButton) findViewById(R.id.btnRefresh);
+		refreshBtn.setOnTouchListener(new OnTouchListener()
+		{
+			
+			public boolean onTouch(View v, MotionEvent event)
+			{
+				new GetTrailData().execute(adapter); 
+				return true;
+			}
+		});
 		
 		ListView listView = (ListView) findViewById(R.id.trail_list);	
 		
@@ -30,15 +46,15 @@ public class TrailStatusActivity extends Activity
 		}
 
 	}
-
-	private class GetTrailData extends AsyncTask
+	
+	private class GetTrailData extends AsyncTask<Object, Integer, Object>
 	{		
 		@Override
 		protected Object doInBackground(Object... params)
 		{
-			adapter = (TrailListAdapter)params[0];
+			adapter = (TrailListAdapter)params[0];			
 			
-			List<Trail> trails = TrailDataAccess.GetAllTrails(null);			
+			List<Trail> trails = TrailDataAccess.GetAllTrails(adapter.getData());			
 			return trails;
 		}
 		
