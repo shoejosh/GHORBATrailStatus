@@ -8,11 +8,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import android.content.Context;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.StyleSpan;
 
-public class Trail {
+public class Trail implements Parcelable {
 
 	public enum TrailStatus {
 		OPEN, CLOSED, UNKNOWN;
@@ -58,7 +60,43 @@ public class Trail {
 		this.setName(name);
 		this.mStatus = TrailStatus.UNKNOWN;
 	}
+	
+	public Trail(Parcel in)
+	{
+		readFromParcel(in);
+	}
 
+	public void writeToParcel(Parcel dest, int flags)
+	{
+		dest.writeString(mName);
+		dest.writeString(mStatus.toString());
+		dest.writeByte((byte) (mStatusChanged ? 1 : 0));
+		dest.writeString(mParenName);
+		dest.writeString(mCondition);
+		dest.writeString(mLastUpdated);
+		dest.writeLong(mUpdateDate.getTime());
+		dest.writeLong(mPageDataUpdated.getTimeInMillis());
+		dest.writeString(mPageName);
+		dest.writeString(mShortReport);	
+		dest.writeByte((byte) (mUpdatingPageData? 1 : 0));
+	}
+	
+	private void readFromParcel(Parcel in)
+	{
+		mName = in.readString();
+		this.setStatus(in.readString());
+		mStatusChanged = in.readByte() == 1;
+		mParenName = in.readString();
+		mCondition = in.readString();
+		mLastUpdated = in.readString();
+		mUpdateDate = new Date(in.readLong());
+		mPageDataUpdated = Calendar.getInstance();
+		mPageDataUpdated.setTimeInMillis(in.readLong());
+		mPageName = in.readString();
+		mShortReport = in.readString();
+		mUpdatingPageData = in.readByte() == 1;
+	}
+	
 	public TrailStatus getStatus() {
 		return mStatus;
 	}
@@ -269,5 +307,21 @@ public class Trail {
 	    str.setSpan(new StyleSpan(android.graphics.Typeface.BOLD_ITALIC), 0, this.getCondition().length() + 2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 	    return str;
 	}
+
+	public int describeContents()
+	{
+		return 0;
+	}
+	
+	public static final Parcelable.Creator<Trail> CREATOR = new Parcelable.Creator<Trail>()
+	{
+		public Trail createFromParcel(Parcel in) {
+			return new Trail(in);
+		}
+		
+		public Trail[] newArray(int size) {
+			return new Trail[size];
+		}
+	};
 }
 

@@ -115,10 +115,15 @@ public class TrailListAdapter extends BaseAdapter
 
 	}
 
-	public void SetData(Trail[] items)
+	public void setData(Trail[] items)
 	{
 		this.items = items;
 		this.notifyDataSetChanged();
+	}
+	
+	public Trail[] getData()
+	{
+		return this.items;
 	}
 	
 }
