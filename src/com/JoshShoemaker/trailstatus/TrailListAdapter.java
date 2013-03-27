@@ -20,9 +20,6 @@ public class TrailListAdapter extends BaseAdapter
 	public TrailListAdapter(Context context)
 	{
 		this.context = context;
-		
-		//List<Trail> trails = TrailDataAccess.GetAllTrails(items);
-		//items = trails.toArray(new Trail[trails.size()]);
 	}
 
 	public int getCount()

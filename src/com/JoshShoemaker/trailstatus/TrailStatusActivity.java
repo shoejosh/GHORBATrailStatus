@@ -3,12 +3,16 @@ package com.JoshShoemaker.trailstatus;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -36,6 +40,15 @@ public class TrailStatusActivity extends Activity
 		});
 		
 		ListView listView = (ListView) findViewById(R.id.trail_list);	
+		listView.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+			{
+				Trail trail = (Trail)adapter.getItem(position);
+				
+				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(trail.getPageUrl()));
+	            startActivity(browserIntent);				
+			}			
+		});
 		
 		adapter = new TrailListAdapter(this);
 		listView.setAdapter(adapter);
