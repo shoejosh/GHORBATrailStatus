@@ -59,7 +59,7 @@ public class TrailDataAccess {
 	}
 
 	public static void LoadPageData(Trail trail) {
-
+		
 		String page = "";
 		Date now = new Date();
 
@@ -91,6 +91,7 @@ public class TrailDataAccess {
 		}
 
 		trail.setPageDataUpdated(Calendar.getInstance());
+		trail.setUpdatingTrailPageData(false);
 	}
 
 }

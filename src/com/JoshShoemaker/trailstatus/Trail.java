@@ -51,6 +51,8 @@ public class Trail {
 	private String mPageName;
 
 	private String mShortReport;
+	
+	private Boolean mUpdatingPageData = false;
 
 	public Trail(String name) {
 		this.setName(name);
@@ -154,6 +156,11 @@ public class Trail {
 		mPageDataUpdated = cal;
 	}
 	
+	public void setUpdatingTrailPageData(Boolean updating)
+	{
+		mUpdatingPageData = updating;
+	}
+	
 	public void loadTrailPageData(String pageData) {
 		String regex = "<a href=\"/trails/" + getPageName() + "/(\\d{4}-\\d\\d-\\d\\d)\">(.*)</a>";
 		Pattern pattern = Pattern.compile(regex);
@@ -178,6 +185,11 @@ public class Trail {
 	
 	public Boolean shouldUpdatePageData()
 	{
+		if(mUpdatingPageData)
+		{
+			return false;
+		}
+		
 		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.HOUR, -24);
 				
