@@ -74,8 +74,8 @@ public class Trail implements Parcelable {
 		dest.writeString(mParenName);
 		dest.writeString(mCondition);
 		dest.writeString(mLastUpdated);
-		dest.writeLong(mUpdateDate.getTime());
-		dest.writeLong(mPageDataUpdated.getTimeInMillis());
+		dest.writeLong(mUpdateDate == null ? -1 : mUpdateDate.getTime());
+		dest.writeLong(mPageDataUpdated == null ? -1 : mPageDataUpdated.getTimeInMillis());
 		dest.writeString(mPageName);
 		dest.writeString(mShortReport);	
 		dest.writeByte((byte) (mUpdatingPageData? 1 : 0));
@@ -89,9 +89,20 @@ public class Trail implements Parcelable {
 		mParenName = in.readString();
 		mCondition = in.readString();
 		mLastUpdated = in.readString();
-		mUpdateDate = new Date(in.readLong());
-		mPageDataUpdated = Calendar.getInstance();
-		mPageDataUpdated.setTimeInMillis(in.readLong());
+		
+		long val = in.readLong();
+		if(val != -1)
+		{
+			mUpdateDate = new Date(val);
+		}
+		
+		val = in.readLong();
+		if(val != -1)
+		{
+			mPageDataUpdated = Calendar.getInstance();
+			mPageDataUpdated.setTimeInMillis(val);
+		}
+		
 		mPageName = in.readString();
 		mShortReport = in.readString();
 		mUpdatingPageData = in.readByte() == 1;
