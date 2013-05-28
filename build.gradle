@@ -33,3 +33,5 @@ android {
         instrumentTest.setRoot('tests')
     }
 }
+
+compile files('libs/volley.jar')
