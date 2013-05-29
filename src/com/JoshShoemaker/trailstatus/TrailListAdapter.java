@@ -58,7 +58,8 @@ public class TrailListAdapter extends BaseAdapter
 		if (trail.shouldUpdatePageData())
 		{
 			trail.setUpdatingTrailPageData(true);
-			new GetTrailPageData().execute(this, trail);
+			//new GetTrailPageData().execute(this, trail);
+            TrailDataAccess.LoadTrailPageData(this, trail);
 		}
 				
 		if(row == null)

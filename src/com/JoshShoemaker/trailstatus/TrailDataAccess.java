@@ -48,6 +48,30 @@ public class TrailDataAccess {
         requestQueue.add(new StringRequest(TrailDataAccess.GetTrailsUrl(), responseListener, errorListener));
     }
 
+    public static void LoadTrailPageData(final TrailListAdapter adapter, final Trail trail)
+    {
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String page) {
+                LoadTrailData(trail, page);
+                adapter.notifyDataSetChanged();
+            }
+        };
+
+        Response.ErrorListener errorListener = new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                //do something;
+            }
+        };
+
+        Date now = new Date();
+        String url = trail.getPageUrl() + "?val=" + now.getTime();
+
+        RequestQueue requestQueue = TrailStatusApp.get().getRequestQueue();
+        requestQueue.add(new StringRequest(url, responseListener, errorListener));
+    }
+
     private static List<Trail> CreateTrails(String page, Trail[] oldTrailData)
     {
         List<Trail> trails = new ArrayList<Trail>();
@@ -109,7 +133,11 @@ public class TrailDataAccess {
             e.printStackTrace();
         }
 
-        // trail.loadTrailPageData(page);
+        LoadTrailData(trail, page);
+    }
+
+    private static void LoadTrailData(Trail trail, String page)
+    {
         String regex = "<a href=\"/trails/" + trail.getPageName()
                 + "/(\\d{4}-\\d\\d-\\d\\d)\">(.*)</a>";
         Pattern pattern = Pattern.compile(regex);
@@ -132,5 +160,4 @@ public class TrailDataAccess {
         trail.setPageDataUpdated(Calendar.getInstance());
         trail.setUpdatingTrailPageData(false);
     }
-
 }
