@@ -12,7 +12,8 @@
     <application android:label="@string/app_name"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name=".TrailStatusApp">
 
         <activity
             android:name=".TrailStatusActivity"

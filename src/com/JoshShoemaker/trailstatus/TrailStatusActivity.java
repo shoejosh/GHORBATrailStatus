@@ -17,6 +17,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.Response.Listener;
+import com.android.volley.Response.ErrorListener;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 
 public class TrailStatusActivity extends Activity
 {
@@ -34,7 +40,7 @@ public class TrailStatusActivity extends Activity
 			
 			public boolean onTouch(View v, MotionEvent event)
 			{
-				new GetTrailData().execute(adapter); 
+				//new GetTrailData().execute(adapter);
 				return true;
 			}
 		});
@@ -55,26 +61,9 @@ public class TrailStatusActivity extends Activity
 		
 		if(state == null)
 		{													
-			new GetTrailData().execute(adapter);
-		}
+			//new GetTrailData().execute(adapter);
 
-	}
-	
-	private class GetTrailData extends AsyncTask<Object, Integer, Object>
-	{		
-		@Override
-		protected Object doInBackground(Object... params)
-		{
-			adapter = (TrailListAdapter)params[0];			
-			
-			List<Trail> trails = TrailDataAccess.GetAllTrails(adapter.getData());			
-			return trails;
-		}
-		
-		protected void onPostExecute(Object result)
-		{
-			List<Trail> items = (List<Trail>)result;
-			adapter.setData(items.toArray(new Trail[items.size()]));
+            TrailDataAccess.LoadTrailData(adapter);
 		}
 
 	}
