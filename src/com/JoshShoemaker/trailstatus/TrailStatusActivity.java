@@ -40,7 +40,7 @@ public class TrailStatusActivity extends Activity
 			
 			public boolean onTouch(View v, MotionEvent event)
 			{
-				//new GetTrailData().execute(adapter);
+                TrailDataAccess.LoadTrailData(adapter);
 				return true;
 			}
 		});
@@ -60,9 +60,7 @@ public class TrailStatusActivity extends Activity
 		listView.setAdapter(adapter);
 		
 		if(state == null)
-		{													
-			//new GetTrailData().execute(adapter);
-
+		{
             TrailDataAccess.LoadTrailData(adapter);
 		}
 
