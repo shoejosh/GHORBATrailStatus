@@ -27,7 +27,7 @@ public class TrailDataAccess {
         return BASE_TRAIL_URL + "?val=" + date.getTime();
     }
 
-    public static void LoadTrailData(final TrailListAdapter adapter)
+    public static void LoadTrailData(final ITrailListAdapter adapter)
     {
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
@@ -48,13 +48,13 @@ public class TrailDataAccess {
         requestQueue.add(new StringRequest(TrailDataAccess.GetTrailsUrl(), responseListener, errorListener));
     }
 
-    public static void LoadTrailPageData(final TrailListAdapter adapter, final Trail trail)
+    public static void LoadTrailPageData(final ITrailListAdapter adapter, final Trail trail)
     {
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String page) {
                 LoadTrailData(trail, page);
-                adapter.notifyDataSetChanged();
+                adapter.trailUpdated();
             }
         };
 
@@ -70,6 +70,7 @@ public class TrailDataAccess {
 
         RequestQueue requestQueue = TrailStatusApp.get().getRequestQueue();
         requestQueue.add(new StringRequest(url, responseListener, errorListener));
+
     }
 
     private static List<Trail> CreateTrails(String page, Trail[] oldTrailData)

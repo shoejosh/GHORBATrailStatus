@@ -12,7 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.RemoteViews;
 import android.widget.TextView;
 
-public class TrailListAdapter extends BaseAdapter
+public class TrailListAdapter extends BaseAdapter implements ITrailListAdapter
 {
 	private final Context context;
 	private Trail[] items;
@@ -87,31 +87,7 @@ public class TrailListAdapter extends BaseAdapter
 		return row;
 		
 	}
-	
-	private class GetTrailPageData extends AsyncTask<Object, Integer, Object>
-	{
-		
-		TrailListAdapter adapter;
-		
-		@Override
-		protected Object doInBackground(Object... params)
-		{
-			adapter = (TrailListAdapter)params[0];
-			Trail trail = (Trail)params[1];
-			if (Utils.isNetworkConnected(context))
-			{
-				TrailDataAccess.LoadPageData(trail);
-			}
-						
-			return null;
-		}
-		
-		protected void onPostExecute(Object result)
-		{
-			adapter.notifyDataSetChanged();
-		}
 
-	}
 
 	public void setData(Trail[] items)
 	{
@@ -123,5 +99,10 @@ public class TrailListAdapter extends BaseAdapter
 	{
 		return this.items;
 	}
-	
+
+    @Override
+    public void trailUpdated() {
+        this.notifyDataSetChanged();
+    }
+
 }
