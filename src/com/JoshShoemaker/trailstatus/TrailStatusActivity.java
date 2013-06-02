@@ -26,11 +26,19 @@ public class TrailStatusActivity extends Activity
 		ImageButton refreshBtn = (ImageButton) findViewById(R.id.btnRefresh);
 		refreshBtn.setOnTouchListener(new OnTouchListener()
 		{
-			
+
 			public boolean onTouch(View v, MotionEvent event)
 			{
-                TrailDataAccess.LoadTrailData(adapter);
-				return true;
+
+                final int action = event.getAction();
+
+                if(action == MotionEvent.ACTION_UP)
+                {
+                    TrailDataAccess.LoadTrailData(adapter);
+                }
+
+                ImageButton btn = (ImageButton) v;
+                return btn.onTouchEvent(event);
 			}
 		});
 		
