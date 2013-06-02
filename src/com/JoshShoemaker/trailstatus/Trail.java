@@ -40,6 +40,8 @@ public class Trail implements Parcelable {
 	
 	private Boolean mStatusChanged;
 
+    private Boolean mConditionChanged;
+
 	private String mParenName;
 
 	private String mCondition;
@@ -84,6 +86,7 @@ public class Trail implements Parcelable {
 	private void readFromParcel(Parcel in)
 	{
 		mName = in.readString();
+        this.mStatus = TrailStatus.UNKNOWN;
 		this.setStatus(in.readString());
 		mStatusChanged = in.readByte() == 1;
 		mParenName = in.readString();
@@ -124,7 +127,10 @@ public class Trail implements Parcelable {
 	
 	public void setStatus(TrailStatus status)
 	{
-		mStatusChanged = (mStatus != TrailStatus.UNKNOWN && !mStatus.equals(status));
+        if(mStatus != null)
+        {
+            mStatusChanged = (mStatus != TrailStatus.UNKNOWN && !mStatus.equals(status));
+        }
 		
 		mStatus = status;
 	}
@@ -159,6 +165,7 @@ public class Trail implements Parcelable {
 	}
 
 	public void setCondition(String condition) {
+        mConditionChanged = !condition.equals(this.mCondition);
 		this.mCondition = condition;
 	}
 
@@ -242,7 +249,7 @@ public class Trail implements Parcelable {
 		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.HOUR, -24);
 				
-		if(mShortReport == null || mStatusChanged || mPageDataUpdated.before(cal))
+		if(mShortReport == null || mStatusChanged || mConditionChanged || mPageDataUpdated.before(cal))
 		{
 			return true;
 		}
