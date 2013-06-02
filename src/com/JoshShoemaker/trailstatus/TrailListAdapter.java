@@ -1,15 +1,10 @@
 package com.JoshShoemaker.trailstatus;
 
-import java.util.List;
-
 import android.content.Context;
-import android.content.Intent;
-import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.RemoteViews;
 import android.widget.TextView;
 
 public class TrailListAdapter extends BaseAdapter implements ITrailListAdapter
@@ -89,10 +84,16 @@ public class TrailListAdapter extends BaseAdapter implements ITrailListAdapter
 	}
 
 
-	public void setData(Trail[] items)
+    public void setData(Trail[] items)
 	{
 		this.items = items;
 		this.notifyDataSetChanged();
+
+        if(this.context instanceof TrailStatusActivity)
+        {
+            ((TrailStatusActivity)this.context).ShowProgress(false);
+        }
+
 	}
 	
 	public Trail[] getData()

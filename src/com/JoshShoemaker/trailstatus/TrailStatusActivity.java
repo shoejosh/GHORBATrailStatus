@@ -22,18 +22,18 @@ public class TrailStatusActivity extends Activity
 	{
 		super.onCreate(state);
 		setContentView(R.layout.trail_status_activity);
-				
-		ImageButton refreshBtn = (ImageButton) findViewById(R.id.btnRefresh);
+
+        ImageButton refreshBtn = (ImageButton) findViewById(R.id.btnRefresh);
 		refreshBtn.setOnTouchListener(new OnTouchListener()
 		{
 
 			public boolean onTouch(View v, MotionEvent event)
 			{
-
                 final int action = event.getAction();
 
                 if(action == MotionEvent.ACTION_UP)
                 {
+                    ShowProgress(true);
                     TrailDataAccess.LoadTrailData(adapter);
                 }
 
@@ -41,8 +41,8 @@ public class TrailStatusActivity extends Activity
                 return btn.onTouchEvent(event);
 			}
 		});
-		
-		ListView listView = (ListView) findViewById(R.id.trail_list);	
+
+        ListView listView = (ListView) findViewById(R.id.trail_list);
 		listView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id)
 			{
@@ -58,13 +58,32 @@ public class TrailStatusActivity extends Activity
 		
 		if(state == null)
 		{
+            ShowProgress(true);
             TrailDataAccess.LoadTrailData(adapter);
 		}
 
 	}
 
+    public void ShowProgress(Boolean showProgress)
+    {
+        final View refresh = findViewById(R.id.refreshProgress);
+        final ListView listView = (ListView) findViewById(R.id.trail_list);
+
+        if(showProgress)
+        {
+            refresh.setVisibility(View.VISIBLE);
+            listView.setVisibility(View.INVISIBLE);
+        }
+        else
+        {
+            refresh.setVisibility(View.INVISIBLE);
+            listView.setVisibility(View.VISIBLE);
+        }
+    }
+
+
 	@Override
-	public void onSaveInstanceState(Bundle savedInstanceState) 
+	public void onSaveInstanceState(Bundle savedInstanceState)
 	{
 		super.onRestoreInstanceState(savedInstanceState);
 		

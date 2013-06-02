@@ -1,31 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent" 
     android:layout_marginLeft="0dp"
     android:layout_marginRight="0dp">
        
-    <RelativeLayout 
-        android:id="@+id/header"
-        style="@style/TrailStatusHeader">
-          
-	    <TextView
-	        android:id="@+id/txtTitle"
-	        style="@style/TrailStatusTitle" 
-	        android:layout_toLeftOf="@+id/btnRefresh"/>	    
-	    
-	    <ImageButton
-	        android:id="@+id/btnRefresh"
-	        style="@style/TrailStatusRefresh"/>
-  	
-  	</RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/header"
+            style="@style/TrailStatusHeader">
 
-    <LinearLayout
-	    style="@style/HorizontalLine"/>   
-    
-	<ListView
-	    android:id="@+id/trail_list"
-	    style="@style/TrailStatusList" />
+            <TextView
+                android:id="@+id/txtTitle"
+                style="@style/TrailStatusTitle"
+                android:layout_toLeftOf="@+id/btnRefresh"/>
 
-</LinearLayout>
+            <ImageButton
+                android:id="@+id/btnRefresh"
+                style="@style/TrailStatusRefresh"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            style="@style/HorizontalLine"/>
+
+        <ListView
+            android:id="@+id/trail_list"
+            style="@style/TrailStatusList"/>
+
+    </LinearLayout>
+
+    <ProgressBar
+            android:id="@+id/refreshProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:layout_gravity="center_horizontal|center_vertical"
+            style="@android:style/Widget.ProgressBar"
+            android:visibility="invisible"/>
+
+</FrameLayout>
