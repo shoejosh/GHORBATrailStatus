@@ -111,7 +111,6 @@ public class TrailDataAccess {
 
     public static List<Trail> GetAllTrails(Trail[] oldTrailData) {
         String page = "";
-        Date date = new Date();
 
         try {
             page = PageScraper.getUrlContent(GetTrailsUrl());

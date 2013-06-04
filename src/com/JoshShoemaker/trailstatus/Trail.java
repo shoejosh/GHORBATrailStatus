@@ -165,7 +165,14 @@ public class Trail implements Parcelable {
 	}
 
 	public void setCondition(String condition) {
-        mConditionChanged = !condition.equals(this.mCondition);
+        if(mCondition == null || mCondition.isEmpty())
+        {
+            mConditionChanged = false;
+        }
+        else
+        {
+            mConditionChanged =  !condition.equals(this.mCondition);
+        }
 		this.mCondition = condition;
 	}
 
