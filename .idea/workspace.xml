@@ -24,14 +24,14 @@
     <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a541c2e0-16ee-48b3-81a1-240d200ca7cd" name="Default" comment="Activity - Added spinning progress indicator when refreshing list">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/Trail.java" afterPath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/Trail.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailDataAccess.java" afterPath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailDataAccess.java" />
+    <list default="true" id="a541c2e0-16ee-48b3-81a1-240d200ca7cd" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GHORBATrailStatus.apk" afterPath="$PROJECT_DIR$/GHORBATrailStatus.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="GHORBATrailStatus.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="a541c2e0-16ee-48b3-81a1-240d200ca7cd" time="1370389606779" ignored="false" />
+    <file path="/Dummy.txt" changelist="a541c2e0-16ee-48b3-81a1-240d200ca7cd" time="1370389661196" ignored="false" />
     <file path="/fragment.java" changelist="a541c2e0-16ee-48b3-81a1-240d200ca7cd" time="1370190064238" ignored="false" />
     <file path="/build.gradle" changelist="a541c2e0-16ee-48b3-81a1-240d200ca7cd" time="1369718210416" ignored="false" />
     <file path="/TrailStatusActivity.java" changelist="a541c2e0-16ee-48b3-81a1-240d200ca7cd" time="1370194419149" ignored="false" />
@@ -48,6 +48,7 @@
     <file path="/trail_status_activity.xml" changelist="a541c2e0-16ee-48b3-81a1-240d200ca7cd" time="1370193774615" ignored="false" />
     <file path="/refresh_progress.xml" changelist="a541c2e0-16ee-48b3-81a1-240d200ca7cd" time="1370193004637" ignored="false" />
     <file path="/Trail.java" changelist="a541c2e0-16ee-48b3-81a1-240d200ca7cd" time="1370388960593" ignored="false" />
+    <file path="$PROJECT_DIR$/gen/com/JoshShoemaker/trailstatus/BuildConfig.java" changelist="a541c2e0-16ee-48b3-81a1-240d200ca7cd" time="1370481588805" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,10 +113,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="51" selection-start="1175" selection-end="1175" vertical-scroll-proportion="0.0">
+            <state line="3" column="32" selection-start="173" selection-end="173" vertical-scroll-proportion="0.07589286">
               <folding />
             </state>
           </provider>
@@ -159,12 +160,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TrailDataAccess.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="TrailDataAccess.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailDataAccess.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="112" column="25" selection-start="3821" selection-end="3821" vertical-scroll-proportion="0.4434524">
+            <state line="108" column="22" selection-start="3721" selection-end="3721" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="method#CreateTrails#0;class#TrailDataAccess#0" expanded="true" />
+                <element signature="method#GetAllTrails#0;class#TrailDataAccess#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -214,10 +215,10 @@
         <option value="$PROJECT_DIR$/res/layout/refresh_progress.xml" />
         <option value="$PROJECT_DIR$/res/layout/trail_status_activity.xml" />
         <option value="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailStatusActivity.java" />
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailListAdapter.java" />
         <option value="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/Trail.java" />
         <option value="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailDataAccess.java" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -495,7 +496,7 @@
       <workItem from="1370096283410" duration="42000" />
       <workItem from="1370096359906" duration="7764000" />
       <workItem from="1370125537288" duration="18000" />
-      <workItem from="1370126140843" duration="12480000" />
+      <workItem from="1370126140843" duration="13229000" />
     </task>
     <task id="LOCAL-00001" summary="Changed widget update time to 6 hours">
       <created>1370189269028</created>
@@ -517,11 +518,15 @@
       <created>1370389610586</created>
       <updated>1370389610586</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fix for bug where trail would not update when condition was changed">
+      <created>1370389675533</created>
+      <updated>1370389675533</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36874000" />
+    <option name="totallyTimeSpent" value="37623000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -595,7 +600,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.0.1 Initial Google Play release" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix for bug where trail would not update when condition was changed" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -614,6 +619,7 @@
     <MESSAGE value="Activity - Added spinning progress indicator when refreshing list" />
     <MESSAGE value="Update trail page data when condition is changed. Fix NPE for setStatus" />
     <MESSAGE value="1.0.1 Initial Google Play release" />
+    <MESSAGE value="Fix for bug where trail would not update when condition was changed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -692,13 +698,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="51" selection-start="1175" selection-end="1175" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailStatusActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="30" selection-start="1044" selection-end="1044" vertical-scroll-proportion="0.0">
@@ -733,10 +732,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailDataAccess.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="25" selection-start="3821" selection-end="3821" vertical-scroll-proportion="0.4434524">
+        <state line="108" column="22" selection-start="3721" selection-end="3721" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="method#CreateTrails#0;class#TrailDataAccess#0" expanded="true" />
+            <element signature="method#GetAllTrails#0;class#TrailDataAccess#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="32" selection-start="173" selection-end="173" vertical-scroll-proportion="0.07589286">
+          <folding />
         </state>
       </provider>
     </entry>
