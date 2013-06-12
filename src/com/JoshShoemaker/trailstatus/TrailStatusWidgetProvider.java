@@ -2,6 +2,7 @@ package com.JoshShoemaker.trailstatus;
 
 import java.util.Date;
 
+import android.annotation.TargetApi;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
@@ -10,11 +11,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.Uri;
-import android.sax.StartElementListener;
+import android.os.Build;
 import android.widget.RemoteViews;
 import java.text.SimpleDateFormat;
 
-
+@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class TrailStatusWidgetProvider extends AppWidgetProvider {
 
 	public static String EXTRA_WORD=
@@ -31,8 +32,8 @@ public class TrailStatusWidgetProvider extends AppWidgetProvider {
 		int[] ids = awm.getAppWidgetIds(new ComponentName(context, getClass()));	
 		
 		if(intent.getAction() == ACTION_VIEW_DATA_CHANGED)
-		{					
-			this.onUpdate(context, awm, ids);
+		{
+            awm.notifyAppWidgetViewDataChanged(ids, R.id.trail_list);
 		}
 		else if(intent.getAction() == ACTION_VIEW_UPDATED)
 		{			
@@ -51,7 +52,6 @@ public class TrailStatusWidgetProvider extends AppWidgetProvider {
 	}
 	
 
-	
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         final int N = appWidgetIds.length;
     	                       
@@ -72,9 +72,10 @@ public class TrailStatusWidgetProvider extends AppWidgetProvider {
             PendingIntent browserPendingIntent = PendingIntent.getActivity(context, 0, browserIntent, 0);
             widget.setPendingIntentTemplate(R.id.trail_list, browserPendingIntent);            
             
-            appWidgetManager.updateAppWidget(appWidgetId, widget);            
-            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.trail_list);
+            appWidgetManager.updateAppWidget(appWidgetId, widget);
         }
+
+        super.onUpdate(context, appWidgetManager, appWidgetIds);
     }
         
     protected PendingIntent getPendingSelfIntent(Context context, String action) {
