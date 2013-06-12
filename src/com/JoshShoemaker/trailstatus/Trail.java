@@ -38,9 +38,9 @@ public class Trail implements Parcelable {
 
 	private TrailStatus mStatus;
 	
-	private Boolean mStatusChanged;
+	private Boolean mStatusChanged = false;
 
-    private Boolean mConditionChanged;
+    private Boolean mConditionChanged = false;
 
 	private String mParenName;
 
@@ -73,6 +73,7 @@ public class Trail implements Parcelable {
 		dest.writeString(mName);
 		dest.writeString(mStatus.toString());
 		dest.writeByte((byte) (mStatusChanged ? 1 : 0));
+        dest.writeByte((byte) (mConditionChanged ? 1 : 0));
 		dest.writeString(mParenName);
 		dest.writeString(mCondition);
 		dest.writeString(mLastUpdated);
@@ -89,6 +90,7 @@ public class Trail implements Parcelable {
         this.mStatus = TrailStatus.UNKNOWN;
 		this.setStatus(in.readString());
 		mStatusChanged = in.readByte() == 1;
+        mConditionChanged = in.readByte() == 1;
 		mParenName = in.readString();
 		mCondition = in.readString();
 		mLastUpdated = in.readString();
