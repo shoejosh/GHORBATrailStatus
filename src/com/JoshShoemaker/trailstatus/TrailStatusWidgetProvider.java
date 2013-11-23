@@ -66,11 +66,10 @@ public class TrailStatusWidgetProvider extends AppWidgetProvider {
             
             widget.setRemoteAdapter(R.id.trail_list, svcIntent);
             widget.setOnClickPendingIntent(R.id.btnRefresh, getPendingSelfIntent(context, ACTION_VIEW_DATA_CHANGED));
-            
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW);
-            browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            PendingIntent browserPendingIntent = PendingIntent.getActivity(context, 0, browserIntent, 0);
-            widget.setPendingIntentTemplate(R.id.trail_list, browserPendingIntent);            
+
+            Intent trailIntent = new Intent(context, TrailActivity.class);
+            PendingIntent pendingTrailIntent = PendingIntent.getActivity(context, 0, trailIntent, 0);
+            widget.setPendingIntentTemplate(R.id.trail_list, pendingTrailIntent);
             
             appWidgetManager.updateAppWidget(appWidgetId, widget);
             appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.trail_list);

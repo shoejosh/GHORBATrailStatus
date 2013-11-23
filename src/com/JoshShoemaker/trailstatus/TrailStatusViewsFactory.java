@@ -58,7 +58,7 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
 
 		// add fill in intent for on click event
 		Intent i = new Intent();
-		i.setData(Uri.parse(trail.getPageUrl()));
+        i.putExtra("trail", trail);
 		row.setOnClickFillInIntent(R.id.trail_list_item_view, i);
 
 		return (row);

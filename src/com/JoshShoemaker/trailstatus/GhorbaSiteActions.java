@@ -30,8 +30,6 @@ public class GhorbaSiteActions {
 
     private static Boolean login(String username, String password)
     {
-
-
         String html = "";
 
         try {

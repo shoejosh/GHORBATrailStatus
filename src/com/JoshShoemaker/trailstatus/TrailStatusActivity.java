@@ -47,9 +47,10 @@ public class TrailStatusActivity extends Activity
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id)
 			{
 				Trail trail = (Trail)adapter.getItem(position);
-				
-				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(trail.getPageUrl()));
-	            startActivity(browserIntent);				
+
+                Intent intent = new Intent(view.getContext(), TrailActivity.class);
+                intent.putExtra("trail", trail);
+                startActivity(intent);
 			}			
 		});
 		
