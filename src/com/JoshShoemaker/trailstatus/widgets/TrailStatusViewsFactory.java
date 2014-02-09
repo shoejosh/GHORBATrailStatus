@@ -1,4 +1,4 @@
-package com.JoshShoemaker.trailstatus;
+package com.JoshShoemaker.trailstatus.widgets;
 
 
 import java.util.ArrayList;
@@ -7,10 +7,15 @@ import java.util.List;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Build;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
+
+import com.JoshShoemaker.trailstatus.interfaces.ITrailListAdapter;
+import com.JoshShoemaker.trailstatus.R;
+import com.JoshShoemaker.trailstatus.helpers.Utils;
+import com.JoshShoemaker.trailstatus.helpers.TrailDataAccess;
+import com.JoshShoemaker.trailstatus.models.Trail;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFactory, ITrailListAdapter

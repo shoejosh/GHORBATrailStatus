@@ -1,14 +1,15 @@
-package com.JoshShoemaker.trailstatus;
+package com.JoshShoemaker.trailstatus.activities;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
+
+import com.JoshShoemaker.trailstatus.helpers.GhorbaSiteActions;
+import com.JoshShoemaker.trailstatus.R;
+import com.JoshShoemaker.trailstatus.models.Trail;
 
 /**
  * Created by Josh on 1/18/14.

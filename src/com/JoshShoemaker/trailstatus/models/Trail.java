@@ -1,4 +1,4 @@
-package com.JoshShoemaker.trailstatus;
+package com.JoshShoemaker.trailstatus.models;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,6 +13,10 @@ import android.os.Parcelable;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.StyleSpan;
+
+import com.JoshShoemaker.trailstatus.Constants;
+import com.JoshShoemaker.trailstatus.R;
+import com.JoshShoemaker.trailstatus.helpers.Utils;
 
 public class Trail implements Parcelable {
 

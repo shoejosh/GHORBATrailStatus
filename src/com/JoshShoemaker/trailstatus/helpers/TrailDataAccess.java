@@ -1,4 +1,4 @@
-package com.JoshShoemaker.trailstatus;
+package com.JoshShoemaker.trailstatus.helpers;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -9,8 +9,12 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import android.content.Context;
 import android.text.Html;
+
+import com.JoshShoemaker.trailstatus.Constants;
+import com.JoshShoemaker.trailstatus.interfaces.ITrailListAdapter;
+import com.JoshShoemaker.trailstatus.TrailStatusApp;
+import com.JoshShoemaker.trailstatus.models.Trail;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;

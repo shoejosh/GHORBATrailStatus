@@ -1,5 +1,7 @@
-package com.JoshShoemaker.trailstatus;
+package com.JoshShoemaker.trailstatus.helpers;
 
+
+import com.JoshShoemaker.trailstatus.Constants;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;

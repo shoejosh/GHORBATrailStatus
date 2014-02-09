@@ -1,4 +1,4 @@
-package com.JoshShoemaker.trailstatus;
+package com.JoshShoemaker.trailstatus.widgets;
 
 import java.util.Date;
 
@@ -13,6 +13,11 @@ import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
 import android.widget.RemoteViews;
+
+import com.JoshShoemaker.trailstatus.R;
+import com.JoshShoemaker.trailstatus.activities.TrailActivity;
+import com.JoshShoemaker.trailstatus.widgets.WidgetService;
+
 import java.text.SimpleDateFormat;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)

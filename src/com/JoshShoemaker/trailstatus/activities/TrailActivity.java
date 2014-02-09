@@ -1,11 +1,13 @@
-package com.JoshShoemaker.trailstatus;
+package com.JoshShoemaker.trailstatus.activities;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+
+import com.JoshShoemaker.trailstatus.R;
+import com.JoshShoemaker.trailstatus.models.Trail;
 
 /**
  * Created by Josh on 11/23/13.
@@ -28,12 +30,15 @@ public class TrailActivity extends Activity {
 
     public void btnTrailReportClicked(View v)
     {
-        if(mTrail != null)
+        Intent intent = new Intent(v.getContext(), LoginActivity.class);
+        startActivity(intent);
+
+        /*if(mTrail != null)
         {
             Intent intent = new Intent(v.getContext(), TrailReportActivity.class);
             intent.putExtra("trail", mTrail);
             startActivity(intent);
-        }
+        }*/
     }
 
     public void btnTrailWebpageClicked(View v)

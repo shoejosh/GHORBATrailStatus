@@ -1,4 +1,4 @@
-package com.JoshShoemaker.trailstatus;
+package com.JoshShoemaker.trailstatus.helpers;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
@@ -13,6 +13,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.AsyncTask;
 import android.util.Log;
+
+import com.JoshShoemaker.trailstatus.R;
 
 public class PageScraper {
 

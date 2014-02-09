@@ -1,4 +1,4 @@
-package com.JoshShoemaker.trailstatus;
+package com.JoshShoemaker.trailstatus.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.JoshShoemaker.trailstatus.interfaces.ITrailListAdapter;
+import com.JoshShoemaker.trailstatus.R;
+import com.JoshShoemaker.trailstatus.helpers.TrailDataAccess;
+import com.JoshShoemaker.trailstatus.activities.TrailStatusActivity;
+import com.JoshShoemaker.trailstatus.models.Trail;
 
 public class TrailListAdapter extends BaseAdapter implements ITrailListAdapter
 {
@@ -60,7 +66,7 @@ public class TrailListAdapter extends BaseAdapter implements ITrailListAdapter
 		if(row == null)
 		{
 			LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			row = inflater.inflate(R.layout.trail_list_item, parent, false);		
+			row = inflater.inflate(R.layout.trail_list_item, parent, false);
 			
 			ViewHolder viewHolder = new ViewHolder();
 			viewHolder.trailName = (TextView) row.findViewById(R.id.trail_name);

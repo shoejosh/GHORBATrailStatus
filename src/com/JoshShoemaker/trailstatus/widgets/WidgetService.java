@@ -1,4 +1,4 @@
-package com.JoshShoemaker.trailstatus;
+package com.JoshShoemaker.trailstatus.widgets;
 
 import android.annotation.TargetApi;
 import android.content.Intent;

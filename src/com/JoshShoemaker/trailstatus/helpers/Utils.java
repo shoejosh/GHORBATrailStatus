@@ -1,4 +1,4 @@
-package com.JoshShoemaker.trailstatus;
+package com.JoshShoemaker.trailstatus.helpers;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

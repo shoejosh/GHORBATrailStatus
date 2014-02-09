@@ -1,8 +1,7 @@
-package com.JoshShoemaker.trailstatus;
+package com.JoshShoemaker.trailstatus.activities;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.MotionEvent;
@@ -12,6 +11,11 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageButton;
 import android.widget.ListView;
+
+import com.JoshShoemaker.trailstatus.R;
+import com.JoshShoemaker.trailstatus.models.Trail;
+import com.JoshShoemaker.trailstatus.helpers.TrailDataAccess;
+import com.JoshShoemaker.trailstatus.adapters.TrailListAdapter;
 
 public class TrailStatusActivity extends Activity
 {

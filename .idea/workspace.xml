@@ -25,20 +25,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a541c2e0-16ee-48b3-81a1-240d200ca7cd" name="Default" comment="Fix for bug where trail would not update when condition was changed">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/Constants.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailReportActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/trail_report.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/activities/LoginActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/login.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/JoshShoemaker/trailstatus/BuildConfig.java" afterPath="$PROJECT_DIR$/gen/com/JoshShoemaker/trailstatus/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GHORBATrailStatus.iml" afterPath="$PROJECT_DIR$/GHORBATrailStatus.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/GhorbaSiteActions.java" afterPath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/GhorbaSiteActions.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/Trail.java" afterPath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/Trail.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailActivity.java" afterPath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailDataAccess.java" afterPath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailDataAccess.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/trail_activity.xml" afterPath="$PROJECT_DIR$/res/layout/trail_activity.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\src\com\JoshShoemaker\trailstatus\GhorbaSiteActions.java" afterPath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/helpers/GhorbaSiteActions.java" />
+      <change type="MOVED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\src\com\JoshShoemaker\trailstatus\ITrailListAdapter.java" afterPath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/interfaces/ITrailListAdapter.java" />
+      <change type="MOVED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\src\com\JoshShoemaker\trailstatus\PageScraper.java" afterPath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/helpers/PageScraper.java" />
+      <change type="MOVED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\src\com\JoshShoemaker\trailstatus\Trail.java" afterPath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/models/Trail.java" />
+      <change type="MOVED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\src\com\JoshShoemaker\trailstatus\TrailActivity.java" afterPath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/activities/TrailActivity.java" />
+      <change type="MOVED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\src\com\JoshShoemaker\trailstatus\TrailDataAccess.java" afterPath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/helpers/TrailDataAccess.java" />
+      <change type="MOVED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\src\com\JoshShoemaker\trailstatus\TrailListAdapter.java" afterPath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/adapters/TrailListAdapter.java" />
+      <change type="MOVED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\src\com\JoshShoemaker\trailstatus\TrailReportActivity.java" afterPath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/activities/TrailReportActivity.java" />
+      <change type="MOVED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\src\com\JoshShoemaker\trailstatus\TrailStatusActivity.java" afterPath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/activities/TrailStatusActivity.java" />
+      <change type="MOVED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\src\com\JoshShoemaker\trailstatus\TrailStatusViewsFactory.java" afterPath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/widgets/TrailStatusViewsFactory.java" />
+      <change type="MOVED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\src\com\JoshShoemaker\trailstatus\TrailStatusWidgetProvider.java" afterPath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/widgets/TrailStatusWidgetProvider.java" />
+      <change type="MOVED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\src\com\JoshShoemaker\trailstatus\Utils.java" afterPath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/helpers/Utils.java" />
+      <change type="MOVED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\src\com\JoshShoemaker\trailstatus\WidgetService.java" afterPath="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/widgets/WidgetService.java" />
     </list>
     <ignored path="GHORBATrailStatus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -111,59 +114,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="GhorbaSiteActions.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/GhorbaSiteActions.java">
+      <file leaf-file-name="LoginActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/activities/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="97" column="4" selection-start="3405" selection-end="3405" vertical-scroll-proportion="0.31828195" vertical-offset="0" max-vertical-offset="908">
+            <state line="26" column="0" selection-start="511" selection-end="511" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="578">
               <folding>
-                <element signature="method#login#0;class#GhorbaSiteActions#0" expanded="false" />
-                <element signature="method#getInputValueByName#0;class#GhorbaSiteActions#0" expanded="false" />
-                <element signature="method#postTrailReport#0;class#GhorbaSiteActions#0" expanded="false" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BasicHttpResponse.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-19/android.jar!/org/apache/http/message/BasicHttpResponse.class">
+      <file leaf-file-name="login.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/login.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="38" selection-start="866" selection-end="866" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="714">
+            <state line="53" column="50" selection-start="1798" selection-end="1819" vertical-scroll-proportion="-25.12" vertical-offset="273" max-vertical-offset="1190">
               <folding />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TrailDataAccess.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailDataAccess.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="159" column="0" selection-start="5148" selection-end="5148" vertical-scroll-proportion="0.0" vertical-offset="2703" max-vertical-offset="3060">
-              <folding />
-            </state>
+          <provider editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="TrailReportActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailReportActivity.java">
+        <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/activities/TrailReportActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="0" selection-start="1905" selection-end="1905" vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="1105">
+            <state line="22" column="46" selection-start="606" selection-end="644" vertical-scroll-proportion="0.0" vertical-offset="129" max-vertical-offset="1037">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="PageScraper.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/PageScraper.java">
+        <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/helpers/PageScraper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="38" selection-start="3223" selection-end="3223" vertical-scroll-proportion="0.0" vertical-offset="1632" max-vertical-offset="1955">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Activity.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-19/android.jar!/android/app/Activity.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="173" column="29" selection-start="6912" selection-end="6912" vertical-scroll-proportion="0.0" vertical-offset="2941" max-vertical-offset="7582">
+            <state line="98" column="38" selection-start="3272" selection-end="3272" vertical-scroll-proportion="0.0" vertical-offset="877" max-vertical-offset="1785">
               <folding />
             </state>
           </provider>
@@ -172,7 +158,7 @@
       <file leaf-file-name="trail_report.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/trail_report.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="39" selection-start="1615" selection-end="1629" vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="1054">
+            <state line="54" column="48" selection-start="1837" selection-end="1877" vertical-scroll-proportion="-29.88" vertical-offset="171" max-vertical-offset="1054">
               <folding />
             </state>
           </provider>
@@ -181,24 +167,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TrailActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailActivity.java">
+      <file leaf-file-name="WidgetService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/widgets/WidgetService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="5" selection-start="913" selection-end="1155" vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="884">
+            <state line="8" column="13" selection-start="239" selection-end="239" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="trail_activity.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/trail_activity.xml">
+      <file leaf-file-name="Utils.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/helpers/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="46" selection-start="396" selection-end="417" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="459">
+            <state line="14" column="13" selection-start="349" selection-end="349" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952">
               <folding />
             </state>
           </provider>
-          <provider editor-type-id="android-designer">
-            <state />
+        </entry>
+      </file>
+      <file leaf-file-name="ITrailListAdapter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/interfaces/ITrailListAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="0" selection-start="141" selection-end="141" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="56" selection-start="1154" selection-end="1154" vertical-scroll-proportion="0.38132912" vertical-offset="218" max-vertical-offset="850">
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -244,7 +245,6 @@
         <option value="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailStatusViewsFactory.java" />
         <option value="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailStatusWidgetProvider.java" />
         <option value="$PROJECT_DIR$/res/layout/trail_activity.xml" />
-        <option value="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailActivity.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/Constants.java" />
@@ -253,6 +253,14 @@
         <option value="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailReportActivity.java" />
         <option value="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/Trail.java" />
         <option value="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/GhorbaSiteActions.java" />
+        <option value="$PROJECT_DIR$/res/layout/login.xml" />
+        <option value="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/com/JoshShoemaker/trailstatus/activities/TrailActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/activities/TrailActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/widgets/WidgetService.java" />
+        <option value="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/helpers/Utils.java" />
+        <option value="$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/interfaces/ITrailListAdapter.java" />
       </list>
     </option>
   </component>
@@ -353,6 +361,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GHORBATrailStatus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GHORBATrailStatus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -378,7 +404,7 @@
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="SearchEverywhereHistory" value="" />
+    <property name="SearchEverywhereHistory" value="comment" />
   </component>
   <component name="RunManager" selected="Android Application.GHORBATrailStatus">
     <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
@@ -612,11 +638,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.69849783" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.69849783" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17864583" sideWeight="0.69849783" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25053534" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -624,21 +651,20 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2955032" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22961374" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2955032" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18125" sideWeight="0.74892706" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18125" sideWeight="0.74892706" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3254818" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17864583" sideWeight="0.69849783" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23875803" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22961374" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -666,59 +692,14 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/layout/trail_report.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="39" selection-start="1615" selection-end="1629" vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="1054">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="5" selection-start="913" selection-end="1155" vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="884">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/trail_activity.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="46" selection-start="396" selection-end="417" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="459">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="59" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="391">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/GhorbaSiteActions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="1092" selection-end="1092" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2363">
-          <folding>
-            <element signature="method#login#0;class#GhorbaSiteActions#0" expanded="false" />
-            <element signature="method#getInputValueByName#0;class#GhorbaSiteActions#0" expanded="false" />
-            <element signature="method#postTrailReport#0;class#GhorbaSiteActions#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailStatusActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/activities/TrailStatusActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="52" column="38" selection-start="1494" selection-end="1649" vertical-scroll-proportion="0.0" vertical-offset="884" max-vertical-offset="2159">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/Trail.java">
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/models/Trail.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="260" column="0" selection-start="5492" selection-end="5492" vertical-scroll-proportion="0.0" vertical-offset="4420" max-vertical-offset="6120">
           <folding>
@@ -727,33 +708,33 @@
             <element signature="method#Trail#1;class#Trail#0" expanded="false" />
             <element signature="method#writeToParcel#0;class#Trail#0" expanded="false" />
             <element signature="method#readFromParcel#0;class#Trail#0" expanded="false" />
-            <element signature="e#2767#2768#0" expanded="true" />
-            <element signature="e#2793#2794#0" expanded="true" />
-            <element signature="e#2829#2830#0" expanded="true" />
-            <element signature="e#2858#2859#0" expanded="true" />
-            <element signature="e#2931#2932#0" expanded="true" />
-            <element signature="e#2985#2986#0" expanded="true" />
-            <element signature="e#3032#3033#0" expanded="true" />
+            <element signature="e#2915#2916#0" expanded="true" />
+            <element signature="e#2941#2942#0" expanded="true" />
+            <element signature="e#2977#2978#0" expanded="true" />
+            <element signature="e#3006#3007#0" expanded="true" />
+            <element signature="e#3079#3080#0" expanded="true" />
+            <element signature="e#3133#3134#0" expanded="true" />
+            <element signature="e#3180#3181#0" expanded="true" />
             <element signature="method#setStatus#0;class#Trail#0" expanded="false" />
             <element signature="method#setStatus#1;class#Trail#0" expanded="false" />
             <element signature="method#setName#0;class#Trail#0" expanded="false" />
-            <element signature="e#4030#4031#0" expanded="true" />
-            <element signature="e#4054#4055#0" expanded="true" />
+            <element signature="e#4178#4179#0" expanded="true" />
+            <element signature="e#4202#4203#0" expanded="true" />
             <element signature="method#setCondition#0;class#Trail#0" expanded="false" />
-            <element signature="e#4762#4763#0" expanded="true" />
-            <element signature="e#4788#4789#0" expanded="true" />
+            <element signature="e#4910#4911#0" expanded="true" />
+            <element signature="e#4936#4937#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/activities/TrailActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="0" selection-start="426" selection-end="426" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="714">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailStatusWidgetProvider.java">
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/widgets/TrailStatusWidgetProvider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="71" column="81" selection-start="2917" selection-end="2917" vertical-scroll-proportion="0.0" vertical-offset="1207" max-vertical-offset="1343">
           <folding>
@@ -763,14 +744,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailStatusViewsFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/widgets/TrailStatusViewsFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="58" column="35" selection-start="1993" selection-end="1993" vertical-scroll-proportion="0.0" vertical-offset="986" max-vertical-offset="2873">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/GhorbaSiteActions.java">
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/helpers/GhorbaSiteActions.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="0" selection-start="1092" selection-end="1092" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2363">
           <folding>
@@ -781,14 +762,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailStatusActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/activities/TrailStatusActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="52" column="38" selection-start="1494" selection-end="1649" vertical-scroll-proportion="0.0" vertical-offset="884" max-vertical-offset="2159">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/Trail.java">
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/models/Trail.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="260" column="0" selection-start="5492" selection-end="5492" vertical-scroll-proportion="0.0" vertical-offset="4420" max-vertical-offset="6120">
           <folding>
@@ -797,33 +778,33 @@
             <element signature="method#Trail#1;class#Trail#0" expanded="false" />
             <element signature="method#writeToParcel#0;class#Trail#0" expanded="false" />
             <element signature="method#readFromParcel#0;class#Trail#0" expanded="false" />
-            <element signature="e#2767#2768#0" expanded="true" />
-            <element signature="e#2793#2794#0" expanded="true" />
-            <element signature="e#2829#2830#0" expanded="true" />
-            <element signature="e#2858#2859#0" expanded="true" />
-            <element signature="e#2931#2932#0" expanded="true" />
-            <element signature="e#2985#2986#0" expanded="true" />
-            <element signature="e#3032#3033#0" expanded="true" />
+            <element signature="e#2915#2916#0" expanded="true" />
+            <element signature="e#2941#2942#0" expanded="true" />
+            <element signature="e#2977#2978#0" expanded="true" />
+            <element signature="e#3006#3007#0" expanded="true" />
+            <element signature="e#3079#3080#0" expanded="true" />
+            <element signature="e#3133#3134#0" expanded="true" />
+            <element signature="e#3180#3181#0" expanded="true" />
             <element signature="method#setStatus#0;class#Trail#0" expanded="false" />
             <element signature="method#setStatus#1;class#Trail#0" expanded="false" />
             <element signature="method#setName#0;class#Trail#0" expanded="false" />
-            <element signature="e#4030#4031#0" expanded="true" />
-            <element signature="e#4054#4055#0" expanded="true" />
+            <element signature="e#4178#4179#0" expanded="true" />
+            <element signature="e#4202#4203#0" expanded="true" />
             <element signature="method#setCondition#0;class#Trail#0" expanded="false" />
-            <element signature="e#4762#4763#0" expanded="true" />
-            <element signature="e#4788#4789#0" expanded="true" />
+            <element signature="e#4910#4911#0" expanded="true" />
+            <element signature="e#4936#4937#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/activities/TrailActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="0" selection-start="426" selection-end="426" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="714">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailStatusWidgetProvider.java">
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/widgets/TrailStatusWidgetProvider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="71" column="81" selection-start="2917" selection-end="2917" vertical-scroll-proportion="0.0" vertical-offset="1207" max-vertical-offset="1343">
           <folding>
@@ -833,7 +814,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailStatusViewsFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/widgets/TrailStatusViewsFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="58" column="35" selection-start="1993" selection-end="1993" vertical-scroll-proportion="0.0" vertical-offset="986" max-vertical-offset="2873">
           <folding />
@@ -847,14 +828,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailStatusActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/activities/TrailStatusActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="30" selection-start="1044" selection-end="1044" vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="2142">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/Trail.java">
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/models/Trail.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="260" column="0" selection-start="5492" selection-end="5492" vertical-scroll-proportion="0.0" vertical-offset="4420" max-vertical-offset="6120">
           <folding>
@@ -863,33 +844,33 @@
             <element signature="method#Trail#1;class#Trail#0" expanded="false" />
             <element signature="method#writeToParcel#0;class#Trail#0" expanded="false" />
             <element signature="method#readFromParcel#0;class#Trail#0" expanded="false" />
-            <element signature="e#2767#2768#0" expanded="true" />
-            <element signature="e#2793#2794#0" expanded="true" />
-            <element signature="e#2829#2830#0" expanded="true" />
-            <element signature="e#2858#2859#0" expanded="true" />
-            <element signature="e#2931#2932#0" expanded="true" />
-            <element signature="e#2985#2986#0" expanded="true" />
-            <element signature="e#3032#3033#0" expanded="true" />
+            <element signature="e#2915#2916#0" expanded="true" />
+            <element signature="e#2941#2942#0" expanded="true" />
+            <element signature="e#2977#2978#0" expanded="true" />
+            <element signature="e#3006#3007#0" expanded="true" />
+            <element signature="e#3079#3080#0" expanded="true" />
+            <element signature="e#3133#3134#0" expanded="true" />
+            <element signature="e#3180#3181#0" expanded="true" />
             <element signature="method#setStatus#0;class#Trail#0" expanded="false" />
             <element signature="method#setStatus#1;class#Trail#0" expanded="false" />
             <element signature="method#setName#0;class#Trail#0" expanded="false" />
-            <element signature="e#4030#4031#0" expanded="true" />
-            <element signature="e#4054#4055#0" expanded="true" />
+            <element signature="e#4178#4179#0" expanded="true" />
+            <element signature="e#4202#4203#0" expanded="true" />
             <element signature="method#setCondition#0;class#Trail#0" expanded="false" />
-            <element signature="e#4762#4763#0" expanded="true" />
-            <element signature="e#4788#4789#0" expanded="true" />
+            <element signature="e#4910#4911#0" expanded="true" />
+            <element signature="e#4936#4937#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailListAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/adapters/TrailListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="48" column="0" selection-start="906" selection-end="906" vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="1955">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailDataAccess.java">
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/helpers/TrailDataAccess.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="108" column="22" selection-start="3721" selection-end="3721" vertical-scroll-proportion="0.0" vertical-offset="1836" max-vertical-offset="2873">
           <folding />
@@ -951,12 +932,7 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/ITrailListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="108" selection-end="108" vertical-scroll-proportion="0.14739884" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailListAdapter.java">
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/adapters/TrailListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="48" column="0" selection-start="906" selection-end="906" vertical-scroll-proportion="-0.093612336" vertical-offset="816" max-vertical-offset="1819">
           <folding />
@@ -973,27 +949,13 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailStatusWidgetProvider.java">
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/widgets/TrailStatusWidgetProvider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="54" column="97" selection-start="1906" selection-end="1906" vertical-scroll-proportion="0.4841772" vertical-offset="0" max-vertical-offset="632">
           <folding>
             <element signature="method#onReceive#0;class#TrailStatusWidgetProvider#0" expanded="false" />
             <element signature="method#onUpdate#0;class#TrailStatusWidgetProvider#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailStatusViewsFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="35" selection-start="1993" selection-end="1993" vertical-scroll-proportion="-0.24717286" vertical-offset="986" max-vertical-offset="2686">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="56" selection-start="1132" selection-end="1132" vertical-scroll-proportion="0.4841772" vertical-offset="153" max-vertical-offset="833">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1014,7 +976,7 @@
         <state line="45" column="30" selection-start="2418" selection-end="2418" vertical-scroll-proportion="0.32738096" vertical-offset="528" max-vertical-offset="1309" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailStatusActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/activities/TrailStatusActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="52" column="38" selection-start="1494" selection-end="1649" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1836">
           <folding />
@@ -1031,17 +993,56 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="5" selection-start="913" selection-end="1155" vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="799">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="70" selection-start="108" selection-end="175" vertical-scroll-proportion="0.17655787" vertical-offset="0" max-vertical-offset="674">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/models/Trail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="132" column="0" selection-start="2898" selection-end="2898" vertical-scroll-proportion="0.0" vertical-offset="728" max-vertical-offset="4114">
+          <folding>
+            <element signature="class#TrailStatus#0;class#Trail#0" expanded="false" />
+            <element signature="method#Trail#0;class#Trail#0" expanded="false" />
+            <element signature="method#Trail#1;class#Trail#0" expanded="false" />
+            <element signature="method#writeToParcel#0;class#Trail#0" expanded="false" />
+            <element signature="method#readFromParcel#0;class#Trail#0" expanded="false" />
+            <element signature="e#2915#2916#0" expanded="true" />
+            <element signature="e#2941#2942#0" expanded="true" />
+            <element signature="e#2977#2978#0" expanded="true" />
+            <element signature="e#3006#3007#0" expanded="true" />
+            <element signature="e#3079#3080#0" expanded="true" />
+            <element signature="e#3133#3134#0" expanded="true" />
+            <element signature="e#3180#3181#0" expanded="true" />
+            <element signature="method#setStatus#0;class#Trail#0" expanded="false" />
+            <element signature="method#setStatus#1;class#Trail#0" expanded="false" />
+            <element signature="method#setName#0;class#Trail#0" expanded="false" />
+            <element signature="e#4178#4179#0" expanded="true" />
+            <element signature="e#4202#4203#0" expanded="true" />
+            <element signature="method#setCondition#0;class#Trail#0" expanded="false" />
+            <element signature="e#4910#4911#0" expanded="true" />
+            <element signature="e#4936#4937#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-19/android.jar!/org/apache/http/message/BasicHttpResponse.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="38" selection-start="866" selection-end="866" vertical-scroll-proportion="0.31828195" vertical-offset="0" max-vertical-offset="908">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/helpers/GhorbaSiteActions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="149" column="0" selection-start="5712" selection-end="5712" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="459">
+          <folding>
+            <element signature="method#login#0;class#GhorbaSiteActions#0" expanded="false" />
+            <element signature="method#getInputValueByName#0;class#GhorbaSiteActions#0" expanded="false" />
+            <element signature="method#postTrailReport#0;class#GhorbaSiteActions#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1052,23 +1053,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailDataAccess.java">
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/helpers/PageScraper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="159" column="0" selection-start="5148" selection-end="5148" vertical-scroll-proportion="0.0" vertical-offset="1009" max-vertical-offset="1683">
+        <state line="98" column="38" selection-start="3272" selection-end="3272" vertical-scroll-proportion="0.0" vertical-offset="877" max-vertical-offset="1785">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/PageScraper.java">
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/helpers/TrailDataAccess.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="38" selection-start="3223" selection-end="3223" vertical-scroll-proportion="0.0" vertical-offset="1066" max-vertical-offset="1751">
+        <state line="163" column="0" selection-start="5344" selection-end="5344" vertical-scroll-proportion="0.0" vertical-offset="1710" max-vertical-offset="2618">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/activities/TrailReportActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="46" selection-start="606" selection-end="644" vertical-scroll-proportion="0.0" vertical-offset="129" max-vertical-offset="1037">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/trail_report.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="39" selection-start="1615" selection-end="1629" vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="1054">
+        <state line="54" column="48" selection-start="1837" selection-end="1877" vertical-scroll-proportion="-29.88" vertical-offset="171" max-vertical-offset="1054">
           <folding />
         </state>
       </provider>
@@ -1076,56 +1084,71 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/Trail.java">
+    <entry file="file://$PROJECT_DIR$/res/layout/login.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="0" selection-start="2898" selection-end="2898" vertical-scroll-proportion="0.0" vertical-offset="728" max-vertical-offset="4114">
+        <state line="53" column="50" selection-start="1798" selection-end="1819" vertical-scroll-proportion="-25.12" vertical-offset="273" max-vertical-offset="1190">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/activities/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="0" selection-start="511" selection-end="511" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="578">
           <folding>
-            <element signature="class#TrailStatus#0;class#Trail#0" expanded="false" />
-            <element signature="method#Trail#0;class#Trail#0" expanded="false" />
-            <element signature="method#Trail#1;class#Trail#0" expanded="false" />
-            <element signature="method#writeToParcel#0;class#Trail#0" expanded="false" />
-            <element signature="method#readFromParcel#0;class#Trail#0" expanded="false" />
-            <element signature="e#2767#2768#0" expanded="true" />
-            <element signature="e#2793#2794#0" expanded="true" />
-            <element signature="e#2829#2830#0" expanded="true" />
-            <element signature="e#2858#2859#0" expanded="true" />
-            <element signature="e#2931#2932#0" expanded="true" />
-            <element signature="e#2985#2986#0" expanded="true" />
-            <element signature="e#3032#3033#0" expanded="true" />
-            <element signature="method#setStatus#0;class#Trail#0" expanded="false" />
-            <element signature="method#setStatus#1;class#Trail#0" expanded="false" />
-            <element signature="method#setName#0;class#Trail#0" expanded="false" />
-            <element signature="e#4030#4031#0" expanded="true" />
-            <element signature="e#4054#4055#0" expanded="true" />
-            <element signature="method#setCondition#0;class#Trail#0" expanded="false" />
-            <element signature="e#4762#4763#0" expanded="true" />
-            <element signature="e#4788#4789#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-19/android.jar!/org/apache/http/message/BasicHttpResponse.class">
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailStatusApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="38" selection-start="866" selection-end="866" vertical-scroll-proportion="0.0" vertical-offset="23" max-vertical-offset="697">
+        <state line="7" column="13" selection-start="169" selection-end="169" vertical-scroll-proportion="0.13449366" vertical-offset="0" max-vertical-offset="632">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/TrailReportActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/activities/TrailActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="0" selection-start="1905" selection-end="1905" vertical-scroll-proportion="0.0" vertical-offset="431" max-vertical-offset="1105">
+        <state line="33" column="30" selection-start="867" selection-end="867" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/GhorbaSiteActions.java">
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/widgets/TrailStatusViewsFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="4" selection-start="3405" selection-end="3405" vertical-scroll-proportion="0.31828195" vertical-offset="0" max-vertical-offset="908">
-          <folding>
-            <element signature="method#login#0;class#GhorbaSiteActions#0" expanded="false" />
-            <element signature="method#getInputValueByName#0;class#GhorbaSiteActions#0" expanded="false" />
-            <element signature="method#postTrailReport#0;class#GhorbaSiteActions#0" expanded="false" />
-          </folding>
+        <state line="58" column="35" selection-start="2081" selection-end="2081" vertical-scroll-proportion="-0.32956383" vertical-offset="986" max-vertical-offset="2686">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/widgets/WidgetService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="13" selection-start="239" selection-end="239" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/helpers/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="13" selection-start="349" selection-end="349" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/JoshShoemaker/trailstatus/interfaces/ITrailListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="141" selection-end="141" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="56" selection-start="1154" selection-end="1154" vertical-scroll-proportion="0.38132912" vertical-offset="218" max-vertical-offset="850">
+          <folding />
         </state>
       </provider>
     </entry>
