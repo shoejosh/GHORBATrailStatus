@@ -55,8 +55,12 @@ public class Trail implements Parcelable {
 	private String mPageName;
 
 	private String mShortReport;
+
+    private String mDescription;
 	
 	private Boolean mUpdatingPageData = false;
+
+    private String mId;
 
 	public Trail(String name) {
 		this.setName(name);
@@ -80,8 +84,10 @@ public class Trail implements Parcelable {
 		dest.writeLong(mUpdateDate == null ? -1 : mUpdateDate.getTime());
 		dest.writeLong(mPageDataUpdated == null ? -1 : mPageDataUpdated.getTimeInMillis());
 		dest.writeString(mPageName);
-		dest.writeString(mShortReport);	
+		dest.writeString(mShortReport);
+        dest.writeString(mDescription);
 		dest.writeByte((byte) (mUpdatingPageData? 1 : 0));
+        dest.writeString(mId);
 	}
 	
 	private void readFromParcel(Parcel in)
@@ -110,9 +116,27 @@ public class Trail implements Parcelable {
 		
 		mPageName = in.readString();
 		mShortReport = in.readString();
+        mDescription = in.readString();
 		mUpdatingPageData = in.readByte() == 1;
+        mId = in.readString();
 	}
-	
+
+    public String getId() {
+        return mId;
+    }
+
+    public void setId(String id) {
+        this.mId = id;
+    }
+
+    public String getDescription() {
+        return mDescription;
+    }
+
+    public void setDescription(String description) {
+        this.mDescription = description;
+    }
+
 	public TrailStatus getStatus() {
 		return mStatus;
 	}
@@ -195,7 +219,7 @@ public class Trail implements Parcelable {
 	}
 
 	public String getPageUrl() {
-		return "http://ghorba.org/trails/" + mPageName;
+		return Constants.GHORBA_URL + "trails/" + mPageName;
 	}
 
 	public String getShortReport() {

@@ -35,7 +35,8 @@ public class GhorbaSiteActions {
         try {
 
             //Load page to get form build id
-            HttpGet get = new HttpGet("http://ghorba.org/trails");
+
+            HttpGet get = new HttpGet(Constants.GHORBA_URL + "trails");
             HttpResponse getResponse = httpClient.execute(get, localContext);
             html = EntityUtils.toString(getResponse.getEntity());
             String formBuildId = getInputValueByName(html, "form_build_id");
@@ -45,7 +46,7 @@ public class GhorbaSiteActions {
             }
 
 
-            HttpPost post = new HttpPost("http://ghorba.org/trails?destination=trails");
+            HttpPost post = new HttpPost(Constants.GHORBA_URL + "trails?destination=trails");
 
             List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
             nameValuePairs.add(new BasicNameValuePair("name", username));
@@ -57,7 +58,18 @@ public class GhorbaSiteActions {
 
             HttpResponse response = httpClient.execute(post, localContext);
 
-            html = EntityUtils.toString(response.getEntity());
+            html = EntityUtils.toString(response.getEntity()).toLowerCase();
+            if(html.contains("unrecognized username or password"))
+            {
+                //invalid username or password
+                return false;
+            }
+
+            if(!html.contains("<a href=\"/user/logout\">"))
+            {
+                //?
+                return false;
+            }
 
         } catch (ClientProtocolException e) {
             e.printStackTrace();
@@ -82,31 +94,31 @@ public class GhorbaSiteActions {
         return null;
     }
 
-    public static void postTrailReport(int trailId, String condition, String shortDescription, String description)
+    public static String postTrailReport(int trailId, String condition, String shortDescription, String description)
     {
         httpClient = new DefaultHttpClient();
         CookieStore cookieStore = new BasicCookieStore();
         localContext = new BasicHttpContext();
         localContext.setAttribute(ClientContext.COOKIE_STORE, cookieStore);
 
-        if(!login("", ""))
+        if(!login("tjs", "biatch"))
         {
             //handle login failed
-            return;
+            return "Failed to login to GHORBA website";
         }
 
         String html = "";
         try {
 
             //Load page to get form build id
-            HttpGet get = new HttpGet("http://ghorba.org/node/add/trail-condition-report");
+            HttpGet get = new HttpGet(Constants.GHORBA_URL + "node/add/trail-condition-report");
             HttpResponse getResponse = httpClient.execute(get, localContext);
             html = EntityUtils.toString(getResponse.getEntity());
             String formBuildId = getInputValueByName(html, "form_build_id");
             String formToken = getInputValueByName(html, "form_token");
 
 
-            HttpPost post = new HttpPost("http://ghorba.org/node/add/trail-condition-report");
+            HttpPost post = new HttpPost(Constants.GHORBA_URL + "node/add/trail-condition-report");
 
             List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
             nameValuePairs.add(new BasicNameValuePair("field_trail_node[und]", Integer.toString(trailId) ));
@@ -129,5 +141,7 @@ public class GhorbaSiteActions {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        return "";
     }
 }

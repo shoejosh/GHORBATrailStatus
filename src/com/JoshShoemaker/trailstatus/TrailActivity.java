@@ -26,6 +26,16 @@ public class TrailActivity extends Activity {
     }
 
 
+    public void btnTrailReportClicked(View v)
+    {
+        if(mTrail != null)
+        {
+            Intent intent = new Intent(v.getContext(), TrailReportActivity.class);
+            intent.putExtra("trail", mTrail);
+            startActivity(intent);
+        }
+    }
+
     public void btnTrailWebpageClicked(View v)
     {
         if(mTrail != null)

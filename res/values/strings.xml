@@ -2,5 +2,16 @@
 <resources>
     <string name="app_name">GHORBA Trails</string>
     <string name="widget_title">GHORBA Trail Conditions</string>
-    <string name="template_user_agent" formatted="false">%s/%s (Linux; Android)</string>    
+    <string name="template_user_agent" formatted="false">%s/%s (Linux; Android)</string>
+
+    <string name="condition_prompt">Select a value</string>
+
+    <string-array name="trail_conditions">
+        <item>Dry/Loose</item>
+        <item>Dry/Packed</item>
+        <item>Tacky</item>
+        <item>Muddy in spots</item>
+        <item>Muddy (do not ride)</item>
+        <item>Other (see description)</item>
+    </string-array>
 </resources>

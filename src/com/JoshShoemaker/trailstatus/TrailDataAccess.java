@@ -18,7 +18,7 @@ import com.android.volley.toolbox.StringRequest;
 
 public class TrailDataAccess {
 
-    private static final String BASE_TRAIL_URL = "http://ghorba.org/trails";
+    private static final String BASE_TRAIL_URL = Constants.GHORBA_URL + "trails";
 
     private static String GetTrailsUrl()
     {
@@ -156,6 +156,17 @@ public class TrailDataAccess {
 
             trail.setShortReport(Html.fromHtml(matcher.group(2)).toString());
         }
+
+        regex = "<link rel=\"shortlink\" href=\"/node/(.*)\" />";
+        pattern = Pattern.compile(regex);
+        matcher = pattern.matcher(page);
+
+        if (matcher.find()) {
+
+            String id = matcher.group(1);
+            trail.setId(id);
+        }
+
 
         trail.setPageDataUpdated(Calendar.getInstance());
         trail.setUpdatingTrailPageData(false);
