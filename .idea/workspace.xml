@@ -1,75 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8570273d-778f-45f2-963a-79fa77fcc032" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\.gitattributes" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\.idea\encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\.idea\libraries\android_support_v4.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\.idea\libraries\volley.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\.idea\scopes\scope_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\GHORBATrailStatus.apk" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\gen\com\JoshShoemaker\trailstatus\BuildConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\gen\com\JoshShoemaker\trailstatus\Manifest.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\gen\com\JoshShoemaker\trailstatus\R.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\libs\android-support-v4.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\libs\volley.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\lint.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\proguard-project.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\project.properties" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\drawable-hdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\drawable-hdpi\navigation_refresh.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\drawable-hdpi\navigation_refresh_white.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\drawable-ldpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\drawable-mdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\drawable-mdpi\myshape.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\drawable-nodpi\preview.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\drawable-xhdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\drawable-xhdpi\navigation_refresh.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\drawable-xhdpi\navigation_refresh_white.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\drawable\navigation_refresh.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\drawable\navigation_refresh_white.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\drawable\refresh_button.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\drawable\refresh_button_pressed.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\drawable\refresh_button_selector.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\drawable\widget_frame.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\drawable\widget_frame_old.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\drawable\widget_header.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\drawable\widget_preview.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\layout\trail_list_item.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\layout\trail_list_loading_item.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\layout\trail_status_activity.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\layout\trail_status_appwidget.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\values-v11\bool.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\values-v11\styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\values-v14\styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\values\bool.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\values\colors.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\values\strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\values\styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\res\xml\trailstatus_appwidget_info.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\src\com\JoshShoemaker\trailstatus\GhorbaSiteActions.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\src\com\JoshShoemaker\trailstatus\ITrailListAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\src\com\JoshShoemaker\trailstatus\PageScraper.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\src\com\JoshShoemaker\trailstatus\Trail.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\src\com\JoshShoemaker\trailstatus\TrailDataAccess.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\src\com\JoshShoemaker\trailstatus\TrailListAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\src\com\JoshShoemaker\trailstatus\TrailStatusActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\src\com\JoshShoemaker\trailstatus\TrailStatusApp.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\src\com\JoshShoemaker\trailstatus\TrailStatusViewsFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\src\com\JoshShoemaker\trailstatus\TrailStatusWidgetProvider.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\src\com\JoshShoemaker\trailstatus\Utils.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\src\com\JoshShoemaker\trailstatus\WidgetService.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GHORBATrailStatus.iml" afterPath="$PROJECT_DIR$/GHORBATrailStatus.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="8570273d-778f-45f2-963a-79fa77fcc032" name="Default" comment="" />
     <ignored path="GHORBATrailStatus.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -1606,7 +1538,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
