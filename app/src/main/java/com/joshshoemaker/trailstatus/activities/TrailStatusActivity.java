@@ -13,7 +13,7 @@ import com.joshshoemaker.trailstatus.adapters.TrailListAdapter;
 import com.joshshoemaker.trailstatus.helpers.TrailDataAccess;
 import com.joshshoemaker.trailstatus.models.Trail;
 
-import butterknife.InjectView;
+import butterknife.Bind;
 import butterknife.OnClick;
 import butterknife.OnItemClick;
 
@@ -24,13 +24,13 @@ public class TrailStatusActivity extends BaseActivity {
     private TrailListAdapter adapter;
 
     //region Views
-    @InjectView(R.id.btnRefresh)
+    @Bind(R.id.btnRefresh)
     ImageButton refreshBtn;
 
-    @InjectView(R.id.trail_list)
+    @Bind(R.id.trail_list)
     ListView listView;
 
-    @InjectView(R.id.refreshProgress)
+    @Bind(R.id.refreshProgress)
     View refresh;
     //endregion
 
