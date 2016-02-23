@@ -2,31 +2,38 @@ package com.joshshoemaker.trailstatus;
 
 
 import android.app.Application;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.Volley;
+import com.joshshoemaker.trailstatus.api.GhorbaService;
+
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 
 public class TrailStatusApp extends Application {
 
-    private static TrailStatusApp sInstance;
+    private static TrailStatusApp instance;
 
-    private RequestQueue mRequestQueue;
+    private GhorbaService ghorbaService;
 
-    public RequestQueue getRequestQueue()
+    public GhorbaService getGhorbaService()
     {
-        return mRequestQueue;
+        return ghorbaService;
     }
 
     public static TrailStatusApp get() {
-        return sInstance;
+        return instance;
     }
 
     @Override
     public void onCreate()
     {
         super.onCreate();
-        sInstance = this;
+        instance = this;
 
-        mRequestQueue = Volley.newRequestQueue(this);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://ghorba.org/")
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .build();
+
+        ghorbaService = retrofit.create(GhorbaService.class);
     }
 
 }

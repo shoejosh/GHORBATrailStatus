@@ -16,6 +16,7 @@ import com.joshshoemaker.trailstatus.models.Trail;
 import butterknife.Bind;
 import butterknife.OnClick;
 import butterknife.OnItemClick;
+import rx.android.schedulers.AndroidSchedulers;
 
 /**
  * Created by Josh on 6/7/2015.
@@ -51,8 +52,7 @@ public class TrailStatusActivity extends BaseActivity {
 
         if(state == null)
         {
-            ShowProgress(true);
-            TrailDataAccess.LoadTrailData(adapter);
+            loadData();
         }
 
     }
@@ -96,8 +96,7 @@ public class TrailStatusActivity extends BaseActivity {
     //region View Events
     @OnClick(R.id.btnRefresh)
     public void onRefeshClicked() {
-        ShowProgress(true);
-        TrailDataAccess.LoadTrailData(adapter);
+        loadData();
     }
 
     @OnItemClick(R.id.trail_list)
@@ -109,7 +108,20 @@ public class TrailStatusActivity extends BaseActivity {
     }
     //endregion
 
-    public void ShowProgress(Boolean showProgress)
+    private void loadData() {
+        showProgress(true);
+        TrailDataAccess.GetTrailData()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        trails -> {
+                            adapter.setData(trails.toArray(new Trail[trails.size()]));
+                            showProgress(false);
+                        },
+                        throwable -> {}
+                );
+    }
+
+    public void showProgress(Boolean showProgress)
     {
         if(showProgress)
         {

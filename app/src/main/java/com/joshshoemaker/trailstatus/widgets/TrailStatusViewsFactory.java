@@ -1,9 +1,8 @@
 package com.joshshoemaker.trailstatus.widgets;
 
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
+
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
@@ -13,18 +12,15 @@ import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
 import com.joshshoemaker.trailstatus.R;
-import com.joshshoemaker.trailstatus.adapters.ITrailListAdapter;
 import com.joshshoemaker.trailstatus.helpers.TrailDataAccess;
 import com.joshshoemaker.trailstatus.helpers.Utils;
 import com.joshshoemaker.trailstatus.models.Trail;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFactory, ITrailListAdapter
+public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFactory
 {
 	private static Trail[] items;
-    private static int updateCount = 0;
 	private Context context = null;
-    private Calendar lastUpdated;
 
 	public TrailStatusViewsFactory(Context context, Intent intent)
 	{
@@ -92,37 +88,22 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
 
 	public void onDataSetChanged()
 	{
-
         if (!Utils.isNetworkConnected(context))
         {
             return;
         }
 
-        List<Trail> trails = TrailDataAccess.GetAllTrails(items);
-        items = trails.toArray(new Trail[trails.size()]);
+		TrailDataAccess.GetTrailData()
+				.subscribe(
+						trails -> {
+							items = trails.toArray(new Trail[trails.size()]);
 
-        //Check if any trail page data needs to be updated
-        List<Trail> trailsToUpdate =  new ArrayList<Trail>();
-        for(int i=0; i<items.length; i++)
-        {
-            if(items[i].shouldUpdatePageData())
-            {
-                trailsToUpdate.add(items[i]);
-            }
-        }
-
-        updateCount = trailsToUpdate.size();
-        for(int i=0; i<updateCount; i++)
-        {
-            TrailDataAccess.LoadTrailPageData(this, trailsToUpdate.get(i));
-        }
-
-        this.lastUpdated = Calendar.getInstance();
-
-		// Notify Widget Provider that data has been updated
-		Intent intent = new Intent(context, TrailStatusWidgetProvider.class);
-		intent.setAction(TrailStatusWidgetProvider.ACTION_VIEW_UPDATED);
-		context.sendBroadcast(intent);
+							// Notify Widget Provider that data has been updated
+							Intent intent = new Intent(context, TrailStatusWidgetProvider.class);
+							intent.setAction(TrailStatusWidgetProvider.ACTION_VIEW_UPDATED);
+							context.sendBroadcast(intent);
+						}
+				);
     }
 
 	public void onCreate()
@@ -134,37 +115,4 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
 	{
 		// TODO Auto-generated method stub
 	}
-
-    @Override
-    public void setData(Trail[] items) {
-
-    }
-
-    @Override
-    public Trail[] getData() {
-        return items;
-    }
-
-    @Override
-    public synchronized void trailUpdated()
-    {
-        //sanity check - shouldn't happen
-        if(updateCount == 0)
-        {
-            return;
-        }
-
-        updateCount--;
-
-        Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.SECOND, -1);
-
-        //All Trails Page data has been updated, notify widget to update OR last update was more than 1 second ago
-        if(updateCount == 0 || lastUpdated.before(cal))
-        {
-            Intent intent = new Intent(context, TrailStatusWidgetProvider.class);
-            intent.setAction(TrailStatusWidgetProvider.ACTION_VIEW_DATA_CHANGED);
-            context.sendBroadcast(intent);
-        }
-    }
 }

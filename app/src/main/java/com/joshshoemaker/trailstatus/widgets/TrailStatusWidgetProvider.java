@@ -21,9 +21,6 @@ import java.text.SimpleDateFormat;
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class TrailStatusWidgetProvider extends AppWidgetProvider {
 
-	public static String EXTRA_WORD=
-		    "com.commonsware.android.appwidget.lorem.WORD";
-	
 	public static final String ACTION_VIEW_DATA_CHANGED = "com.JoshShoemaker.trailstatus.VIEW_DATA_CHANGED";
 	
 	public static final String ACTION_VIEW_UPDATED = "com.JoshShoemaker.trailstatus.VIEW_DATA_UPDATED";

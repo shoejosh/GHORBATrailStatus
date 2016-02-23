@@ -9,11 +9,10 @@ import android.widget.TextView;
 
 import com.joshshoemaker.trailstatus.R;
 import com.joshshoemaker.trailstatus.activities.TrailStatusActivity;
-import com.joshshoemaker.trailstatus.adapters.ITrailListAdapter;
 import com.joshshoemaker.trailstatus.helpers.TrailDataAccess;
 import com.joshshoemaker.trailstatus.models.Trail;
 
-public class TrailListAdapter extends BaseAdapter implements ITrailListAdapter
+public class TrailListAdapter extends BaseAdapter
 {
 	private final Context context;
 	private Trail[] items;
@@ -56,13 +55,6 @@ public class TrailListAdapter extends BaseAdapter implements ITrailListAdapter
 		Trail trail = items[position];
 		View row = convertView;
 				
-		if (trail.shouldUpdatePageData())
-		{
-			trail.setUpdatingTrailPageData(true);
-			//new GetTrailPageData().execute(this, trail);
-            TrailDataAccess.LoadTrailPageData(this, trail);
-		}
-				
 		if(row == null)
 		{
 			LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -86,7 +78,6 @@ public class TrailListAdapter extends BaseAdapter implements ITrailListAdapter
 		holder.lastUpdated.setText(trail.getLastUpdatedText());		
 		
 		return row;
-		
 	}
 
 
@@ -94,22 +85,11 @@ public class TrailListAdapter extends BaseAdapter implements ITrailListAdapter
 	{
 		this.items = items;
 		this.notifyDataSetChanged();
-
-        if(this.context instanceof TrailStatusActivity)
-        {
-            ((TrailStatusActivity)this.context).ShowProgress(false);
-        }
-
 	}
-	
+
 	public Trail[] getData()
 	{
 		return this.items;
 	}
-
-    @Override
-    public void trailUpdated() {
-        this.notifyDataSetChanged();
-    }
 
 }
