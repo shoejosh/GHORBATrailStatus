@@ -49,7 +49,9 @@ public class Trail {
 	String pageName;
 
 	String shortReport;
-	
+
+    public Trail(){/*Required empty bean constructor */}
+
 	public Trail(String name) {
 		this.setName(name);
 		this.status = TrailStatus.UNKNOWN;
