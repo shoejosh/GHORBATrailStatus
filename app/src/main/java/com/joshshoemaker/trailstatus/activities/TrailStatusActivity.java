@@ -3,7 +3,6 @@ package com.joshshoemaker.trailstatus.activities;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -12,6 +11,10 @@ import com.joshshoemaker.trailstatus.R;
 import com.joshshoemaker.trailstatus.adapters.TrailListAdapter;
 import com.joshshoemaker.trailstatus.helpers.TrailDataAccess;
 import com.joshshoemaker.trailstatus.models.Trail;
+
+import org.parceler.Parcels;
+
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -62,7 +65,7 @@ public class TrailStatusActivity extends BaseActivity {
     {
         super.onRestoreInstanceState(savedInstanceState);
 
-        savedInstanceState.putParcelableArray("trails", adapter.getData());
+        savedInstanceState.putParcelable("trails", Parcels.wrap(adapter.getData()));
     }
 
     @Override
@@ -70,16 +73,11 @@ public class TrailStatusActivity extends BaseActivity {
     {
         super.onRestoreInstanceState(savedInstanceState);
 
-        Parcelable[] parcelableArray = savedInstanceState.getParcelableArray("trails");
-        Trail[] trails = null;
-        if(parcelableArray != null)
-        {
-            trails = new Trail[parcelableArray.length];
-            for(int i=0; i< parcelableArray.length; i++)
-            {
-                trails[i] = (Trail) parcelableArray[i];
-            }
+        if(savedInstanceState == null) {
+            return;
         }
+
+        List<Trail> trails = Parcels.unwrap(savedInstanceState.getParcelable("trails"));
 
         if(adapter != null)
         {
@@ -114,7 +112,7 @@ public class TrailStatusActivity extends BaseActivity {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         trails -> {
-                            adapter.setData(trails.toArray(new Trail[trails.size()]));
+                            adapter.setData(trails);
                             showProgress(false);
                         },
                         throwable -> {}

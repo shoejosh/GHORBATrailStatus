@@ -11,28 +11,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8570273d-778f-45f2-963a-79fa77fcc032" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/api/GhorbaService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/adapter_rxjava_2_0_0_beta4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/okhttp_3_0_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/okio_1_6_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/retrofit_2_0_0_beta4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/rxandroid_1_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/rxjava_1_1_1.xml" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\.idea\libraries\library_1_0_16.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\app\src\main\java\com\joshshoemaker\trailstatus\adapters\ITrailListAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Dropbox\Code\Android\GHORBATrailStatus\app\src\main\java\com\joshshoemaker\trailstatus\helpers\PageScraper.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GHORBATrailStatus.iml" afterPath="$PROJECT_DIR$/GHORBATrailStatus.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/parceler_api_1_0_4.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/models/Trail.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/models/Trail.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/helpers/TrailDataAccess.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/helpers/TrailDataAccess.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/adapters/TrailListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/adapters/TrailListAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/activities/TrailStatusActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/activities/TrailStatusActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/TrailStatusApp.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/TrailStatusApp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/widgets/TrailStatusViewsFactory.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/widgets/TrailStatusViewsFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/widgets/TrailStatusWidgetProvider.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/widgets/TrailStatusWidgetProvider.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="GHORBATrailStatus.iws" />
@@ -65,27 +50,18 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/activities/TrailStatusActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="98" column="19" selection-start-line="98" selection-start-column="19" selection-end-line="98" selection-end-column="19" />
+              <caret line="72" column="4" selection-start-line="72" selection-start-column="4" selection-end-line="72" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#747#761#0" expanded="false" />
-                <element signature="method#onSaveInstanceState#0;class#TrailStatusActivity#0" expanded="false" />
+                <element signature="e#771#785#0" expanded="false" />
+                <element signature="method#onCreate#0;class#TrailStatusActivity#0" expanded="false" />
                 <element signature="method#onRestoreInstanceState#0;class#TrailStatusActivity#0" expanded="false" />
-                <element signature="e#2363#2364#0" expanded="true" />
-                <element signature="e#2389#2390#0" expanded="true" />
+                <element signature="e#2100#2120#0" expanded="false" />
+                <element signature="e#2185#2186#0" expanded="true" />
+                <element signature="e#2211#2212#0" expanded="true" />
                 <element signature="method#onListItemClicked#0;class#TrailStatusActivity#0" expanded="false" />
                 <element signature="method#showProgress#0;class#TrailStatusActivity#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TrailStatusViewsFactory.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/widgets/TrailStatusViewsFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.4061538">
-              <caret line="98" column="77" selection-start-line="98" selection-start-column="77" selection-end-line="98" selection-end-column="77" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -94,13 +70,58 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/helpers/TrailDataAccess.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="40" column="74" selection-start-line="40" selection-start-column="74" selection-end-line="40" selection-end-column="74" />
+              <caret line="93" column="9" selection-start-line="93" selection-start-column="9" selection-end-line="93" selection-end-column="9" />
               <folding>
                 <element signature="method#GetTrailData#0;class#TrailDataAccess#0" expanded="false" />
                 <element signature="method#LoadTrailPageData#0;class#TrailDataAccess#0" expanded="false" />
                 <element signature="method#getTrailListFromHtml#0;class#TrailDataAccess#0" expanded="false" />
-                <element signature="method#loadTrailDataFromHtml#0;class#TrailDataAccess#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Trail.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/models/Trail.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.29655173">
+              <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="class#TrailStatus#0;class#Trail#0" expanded="false" />
+                <element signature="method#toString#0;class#TrailStatus#0;class#Trail#0" expanded="false" />
+                <element signature="method#Trail#0;class#Trail#0" expanded="false" />
+                <element signature="method#setStatus#0;class#Trail#0" expanded="false" />
+                <element signature="method#setName#0;class#Trail#0" expanded="false" />
+                <element signature="method#getLastUpdatedText#0;class#Trail#0" expanded="false" />
+                <element signature="method#getStatusColor#0;class#Trail#0" expanded="false" />
+                <element signature="method#getFormattedConditionString#0;class#Trail#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TrailListAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/adapters/TrailListAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="83" column="35" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
+              <folding>
+                <element signature="e#682#683#0" expanded="true" />
+                <element signature="e#715#716#0" expanded="true" />
+                <element signature="class#ViewHolder#0;class#TrailListAdapter#0" expanded="false" />
+                <element signature="e#2199#2200#0" expanded="true" />
+                <element signature="e#2223#2224#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="40" column="45" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1257,7 +1278,7 @@
     <option name="modificationStamps">
       <map>
         <entry key="$PROJECT_DIR$" value="4301129965154" />
-        <entry key="D:\Dropbox\Code\Android\GHORBATrailStatus" value="4345979401487" />
+        <entry key="D:\Dropbox\Code\Android\GHORBATrailStatus" value="4345980276543" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1483,6 +1504,7 @@
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.1.1/b494968f6050d494de55dc3ce005e59c7eb40012/rxjava-1.1.1.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.0.0-beta4/739e00dea1f0ac04fdb9b6160d667e23cc50a791/retrofit-2.0.0-beta4.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/adapter-rxjava/2.0.0-beta4/bd49baf667542c7d06f71e598bdee7fe57272013/adapter-rxjava-2.0.0-beta4.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.parceler/parceler-api/1.0.4/4f7392b86e064f3f6da06977f54c21a48e6b6871/parceler-api-1.0.4.jar" />
                             <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-v4/23.1.1/support-v4-23.1.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.0.1/b34c1f2d993044656e87f88970b6818e99e886ba/okhttp-3.0.1.jar" />
                             <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar" />
@@ -1619,14 +1641,15 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/activities/BaseActivity.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/api/GhorbaService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/activities/TrailStatusActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/helpers/PageScraper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/helpers/TrailDataAccess.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/widgets/TrailStatusWidgetProvider.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/adapters/TrailListAdapter.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/TrailStatusApp.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/widgets/TrailStatusViewsFactory.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/adapters/TrailListAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/helpers/TrailDataAccess.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/activities/TrailStatusActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/models/Trail.java" />
       </list>
     </option>
   </component>
@@ -1914,7 +1937,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.6120879" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33186814" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1968,11 +1991,12 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#747#761#0" expanded="false" />
-            <element signature="method#onSaveInstanceState#0;class#TrailStatusActivity#0" expanded="false" />
+            <element signature="e#771#785#0" expanded="false" />
+            <element signature="method#onCreate#0;class#TrailStatusActivity#0" expanded="false" />
             <element signature="method#onRestoreInstanceState#0;class#TrailStatusActivity#0" expanded="false" />
-            <element signature="e#2363#2364#0" expanded="true" />
-            <element signature="e#2389#2390#0" expanded="true" />
+            <element signature="e#2100#2120#0" expanded="false" />
+            <element signature="e#2185#2186#0" expanded="true" />
+            <element signature="e#2211#2212#0" expanded="true" />
             <element signature="method#onListItemClicked#0;class#TrailStatusActivity#0" expanded="false" />
             <element signature="method#showProgress#0;class#TrailStatusActivity#0" expanded="false" />
           </folding>
@@ -1987,7 +2011,6 @@
             <element signature="method#GetTrailData#0;class#TrailDataAccess#0" expanded="false" />
             <element signature="method#LoadTrailPageData#0;class#TrailDataAccess#0" expanded="false" />
             <element signature="method#getTrailListFromHtml#0;class#TrailDataAccess#0" expanded="false" />
-            <element signature="method#loadTrailDataFromHtml#0;class#TrailDataAccess#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2000,18 +2023,15 @@
             <element signature="class#TrailStatus#0;class#Trail#0" expanded="false" />
             <element signature="method#toString#0;class#TrailStatus#0;class#Trail#0" expanded="false" />
             <element signature="method#Trail#0;class#Trail#0" expanded="false" />
-            <element signature="method#writeToParcel#0;class#Trail#0" expanded="false" />
-            <element signature="method#readFromParcel#0;class#Trail#0" expanded="false" />
             <element signature="method#setStatus#0;class#Trail#0" expanded="false" />
-            <element signature="method#setStatus#1;class#Trail#0" expanded="false" />
-            <element signature="method#setName#0;class#Trail#0" expanded="false" />
-            <element signature="method#setCondition#0;class#Trail#0" expanded="false" />
-            <element signature="method#loadTrailPageData#0;class#Trail#0" expanded="false" />
-            <element signature="method#shouldUpdatePageData#0;class#Trail#0" expanded="false" />
+            <element signature="method#getStatus#0;class#Trail#0" expanded="false" />
+            <element signature="method#Trail#0;class#Trail#0" expanded="false" />
+            <element signature="method#setStatus#0;class#Trail#0" expanded="false" />
+            <element signature="method#setShortReport#0;class#Trail#0" expanded="false" />
+            <element signature="method#getUpdateDate#0;class#Trail#0" expanded="false" />
+            <element signature="method#setUpdateDate#0;class#Trail#0" expanded="false" />
             <element signature="method#getLastUpdatedText#0;class#Trail#0" expanded="false" />
             <element signature="method#getStatusColor#0;class#Trail#0" expanded="false" />
-            <element signature="method#getFormattedConditionString#0;class#Trail#0" expanded="false" />
-            <element signature="class#7729:7908" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2021,10 +2041,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="61" column="59" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="59" />
           <folding>
-            <element signature="e#617#618#0" expanded="false" />
-            <element signature="e#646#647#0" expanded="false" />
-            <element signature="e#673#674#0" expanded="false" />
-            <element signature="e#744#745#0" expanded="false" />
+            <element signature="e#514#515#0" expanded="false" />
+            <element signature="e#543#544#0" expanded="false" />
+            <element signature="e#682#683#0" expanded="true" />
+            <element signature="e#715#716#0" expanded="true" />
             <element signature="class#ViewHolder#0;class#TrailListAdapter#0" expanded="false" />
           </folding>
         </state>
@@ -2043,7 +2063,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2064,11 +2084,12 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#747#761#0" expanded="false" />
-            <element signature="method#onSaveInstanceState#0;class#TrailStatusActivity#0" expanded="false" />
+            <element signature="e#771#785#0" expanded="false" />
+            <element signature="method#onCreate#0;class#TrailStatusActivity#0" expanded="false" />
             <element signature="method#onRestoreInstanceState#0;class#TrailStatusActivity#0" expanded="false" />
-            <element signature="e#2363#2364#0" expanded="true" />
-            <element signature="e#2389#2390#0" expanded="true" />
+            <element signature="e#2100#2120#0" expanded="false" />
+            <element signature="e#2185#2186#0" expanded="true" />
+            <element signature="e#2211#2212#0" expanded="true" />
             <element signature="method#onListItemClicked#0;class#TrailStatusActivity#0" expanded="false" />
             <element signature="method#showProgress#0;class#TrailStatusActivity#0" expanded="false" />
           </folding>
@@ -2109,11 +2130,12 @@
           <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#747#761#0" expanded="false" />
-            <element signature="method#onSaveInstanceState#0;class#TrailStatusActivity#0" expanded="false" />
+            <element signature="e#771#785#0" expanded="false" />
+            <element signature="method#onCreate#0;class#TrailStatusActivity#0" expanded="false" />
             <element signature="method#onRestoreInstanceState#0;class#TrailStatusActivity#0" expanded="false" />
-            <element signature="e#2363#2364#0" expanded="true" />
-            <element signature="e#2389#2390#0" expanded="true" />
+            <element signature="e#2100#2120#0" expanded="false" />
+            <element signature="e#2185#2186#0" expanded="true" />
+            <element signature="e#2211#2212#0" expanded="true" />
             <element signature="method#onListItemClicked#0;class#TrailStatusActivity#0" expanded="false" />
             <element signature="method#showProgress#0;class#TrailStatusActivity#0" expanded="false" />
           </folding>
@@ -2154,11 +2176,12 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#747#761#0" expanded="false" />
-            <element signature="method#onSaveInstanceState#0;class#TrailStatusActivity#0" expanded="false" />
+            <element signature="e#771#785#0" expanded="false" />
+            <element signature="method#onCreate#0;class#TrailStatusActivity#0" expanded="false" />
             <element signature="method#onRestoreInstanceState#0;class#TrailStatusActivity#0" expanded="false" />
-            <element signature="e#2363#2364#0" expanded="true" />
-            <element signature="e#2389#2390#0" expanded="true" />
+            <element signature="e#2100#2120#0" expanded="false" />
+            <element signature="e#2185#2186#0" expanded="true" />
+            <element signature="e#2211#2212#0" expanded="true" />
             <element signature="method#onListItemClicked#0;class#TrailStatusActivity#0" expanded="false" />
             <element signature="method#showProgress#0;class#TrailStatusActivity#0" expanded="false" />
           </folding>
@@ -2199,11 +2222,12 @@
           <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#747#761#0" expanded="false" />
-            <element signature="method#onSaveInstanceState#0;class#TrailStatusActivity#0" expanded="false" />
+            <element signature="e#771#785#0" expanded="false" />
+            <element signature="method#onCreate#0;class#TrailStatusActivity#0" expanded="false" />
             <element signature="method#onRestoreInstanceState#0;class#TrailStatusActivity#0" expanded="false" />
-            <element signature="e#2363#2364#0" expanded="true" />
-            <element signature="e#2389#2390#0" expanded="true" />
+            <element signature="e#2100#2120#0" expanded="false" />
+            <element signature="e#2185#2186#0" expanded="true" />
+            <element signature="e#2211#2212#0" expanded="true" />
             <element signature="method#onListItemClicked#0;class#TrailStatusActivity#0" expanded="false" />
             <element signature="method#showProgress#0;class#TrailStatusActivity#0" expanded="false" />
           </folding>
@@ -2300,7 +2324,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2327,81 +2351,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/models/Trail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5203915">
-          <caret line="253" column="19" selection-start-line="253" selection-start-column="19" selection-end-line="253" selection-end-column="19" />
-          <folding>
-            <element signature="class#TrailStatus#0;class#Trail#0" expanded="false" />
-            <element signature="method#toString#0;class#TrailStatus#0;class#Trail#0" expanded="false" />
-            <element signature="method#Trail#0;class#Trail#0" expanded="false" />
-            <element signature="method#writeToParcel#0;class#Trail#0" expanded="false" />
-            <element signature="method#readFromParcel#0;class#Trail#0" expanded="false" />
-            <element signature="method#setStatus#0;class#Trail#0" expanded="false" />
-            <element signature="method#setStatus#1;class#Trail#0" expanded="false" />
-            <element signature="method#setName#0;class#Trail#0" expanded="false" />
-            <element signature="method#setCondition#0;class#Trail#0" expanded="false" />
-            <element signature="method#loadTrailPageData#0;class#Trail#0" expanded="false" />
-            <element signature="method#shouldUpdatePageData#0;class#Trail#0" expanded="false" />
-            <element signature="method#getLastUpdatedText#0;class#Trail#0" expanded="false" />
-            <element signature="method#getStatusColor#0;class#Trail#0" expanded="false" />
-            <element signature="method#getFormattedConditionString#0;class#Trail#0" expanded="false" />
-            <element signature="class#7729:7908" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/adapters/TrailListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44331065">
-          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding>
-            <element signature="method#getCount#0;class#TrailListAdapter#0" expanded="false" />
-            <element signature="class#ViewHolder#0;class#TrailListAdapter#0" expanded="false" />
-            <element signature="method#getView#0;class#TrailListAdapter#0" expanded="false" />
-            <element signature="method#setData#0;class#TrailListAdapter#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/helpers/TrailDataAccess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="74" selection-start-line="40" selection-start-column="74" selection-end-line="40" selection-end-column="74" />
-          <folding>
-            <element signature="method#GetTrailData#0;class#TrailDataAccess#0" expanded="false" />
-            <element signature="method#LoadTrailPageData#0;class#TrailDataAccess#0" expanded="false" />
-            <element signature="method#getTrailListFromHtml#0;class#TrailDataAccess#0" expanded="false" />
-            <element signature="method#loadTrailDataFromHtml#0;class#TrailDataAccess#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/activities/TrailStatusActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="98" column="19" selection-start-line="98" selection-start-column="19" selection-end-line="98" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#747#761#0" expanded="false" />
-            <element signature="method#onSaveInstanceState#0;class#TrailStatusActivity#0" expanded="false" />
-            <element signature="method#onRestoreInstanceState#0;class#TrailStatusActivity#0" expanded="false" />
-            <element signature="e#2363#2364#0" expanded="true" />
-            <element signature="e#2389#2390#0" expanded="true" />
-            <element signature="method#onListItemClicked#0;class#TrailStatusActivity#0" expanded="false" />
-            <element signature="method#showProgress#0;class#TrailStatusActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8018868">
-          <caret line="30" column="53" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/TrailStatusApp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2412,9 +2361,81 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/widgets/TrailStatusViewsFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4061538">
-          <caret line="98" column="77" selection-start-line="98" selection-start-column="77" selection-end-line="98" selection-end-column="77" />
+        <state vertical-scroll-proportion="0.8629442">
+          <caret line="89" column="4" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
+          <folding>
+            <element signature="method#hasStableIds#0;class#TrailStatusViewsFactory#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="45" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/adapters/TrailListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="83" column="35" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
+          <folding>
+            <element signature="e#682#683#0" expanded="true" />
+            <element signature="e#715#716#0" expanded="true" />
+            <element signature="class#ViewHolder#0;class#TrailListAdapter#0" expanded="false" />
+            <element signature="e#2199#2200#0" expanded="true" />
+            <element signature="e#2223#2224#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/helpers/TrailDataAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="93" column="9" selection-start-line="93" selection-start-column="9" selection-end-line="93" selection-end-column="9" />
+          <folding>
+            <element signature="method#GetTrailData#0;class#TrailDataAccess#0" expanded="false" />
+            <element signature="method#LoadTrailPageData#0;class#TrailDataAccess#0" expanded="false" />
+            <element signature="method#getTrailListFromHtml#0;class#TrailDataAccess#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/activities/TrailStatusActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="72" column="4" selection-start-line="72" selection-start-column="4" selection-end-line="72" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#771#785#0" expanded="false" />
+            <element signature="method#onCreate#0;class#TrailStatusActivity#0" expanded="false" />
+            <element signature="method#onRestoreInstanceState#0;class#TrailStatusActivity#0" expanded="false" />
+            <element signature="e#2100#2120#0" expanded="false" />
+            <element signature="e#2185#2186#0" expanded="true" />
+            <element signature="e#2211#2212#0" expanded="true" />
+            <element signature="method#onListItemClicked#0;class#TrailStatusActivity#0" expanded="false" />
+            <element signature="method#showProgress#0;class#TrailStatusActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/joshshoemaker/trailstatus/models/Trail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.29655173">
+          <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="class#TrailStatus#0;class#Trail#0" expanded="false" />
+            <element signature="method#toString#0;class#TrailStatus#0;class#Trail#0" expanded="false" />
+            <element signature="method#Trail#0;class#Trail#0" expanded="false" />
+            <element signature="method#setStatus#0;class#Trail#0" expanded="false" />
+            <element signature="method#setName#0;class#Trail#0" expanded="false" />
+            <element signature="method#getLastUpdatedText#0;class#Trail#0" expanded="false" />
+            <element signature="method#getStatusColor#0;class#Trail#0" expanded="false" />
+            <element signature="method#getFormattedConditionString#0;class#Trail#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

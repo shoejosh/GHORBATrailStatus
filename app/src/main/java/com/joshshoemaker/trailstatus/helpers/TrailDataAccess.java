@@ -92,8 +92,5 @@ public class TrailDataAccess {
 
             trail.setShortReport(Html.fromHtml(matcher.group(2)).toString());
         }
-
-        trail.setPageDataUpdated(Calendar.getInstance());
-        trail.setUpdatingTrailPageData(false);
     }
 }

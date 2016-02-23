@@ -1,15 +1,9 @@
 package com.joshshoemaker.trailstatus.models;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import android.content.Context;
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.StyleSpan;
@@ -17,7 +11,10 @@ import android.text.style.StyleSpan;
 import com.joshshoemaker.trailstatus.R;
 import com.joshshoemaker.trailstatus.helpers.Utils;
 
-public class Trail implements Parcelable {
+import org.parceler.Parcel;
+
+@Parcel
+public class Trail {
 
 	public enum TrailStatus {
 		OPEN, CLOSED, UNKNOWN;
@@ -37,87 +34,29 @@ public class Trail implements Parcelable {
 		}
 	};
 
-	private String mName;
+	String name;
 
-	private TrailStatus mStatus;
+	TrailStatus status;
 	
-	private Boolean mStatusChanged = false;
+	String parenName;
 
-    private Boolean mConditionChanged = false;
+	String condition;
 
-	private String mParenName;
-
-	private String mCondition;
-
-	private String mLastUpdated;
+	String lastUpdated;
 	
-	private Date mUpdateDate;
+	Date updateDate;
 	
-	private Calendar mPageDataUpdated;
+	String pageName;
 
-	private String mPageName;
-
-	private String mShortReport;
+	String shortReport;
 	
-	private Boolean mUpdatingPageData = false;
-
 	public Trail(String name) {
 		this.setName(name);
-		this.mStatus = TrailStatus.UNKNOWN;
-	}
-	
-	public Trail(Parcel in)
-	{
-		readFromParcel(in);
-	}
-
-	public void writeToParcel(Parcel dest, int flags)
-	{
-		dest.writeString(mName);
-		dest.writeString(mStatus.toString());
-		dest.writeByte((byte) (mStatusChanged ? 1 : 0));
-        dest.writeByte((byte) (mConditionChanged ? 1 : 0));
-		dest.writeString(mParenName);
-		dest.writeString(mCondition);
-		dest.writeString(mLastUpdated);
-		dest.writeLong(mUpdateDate == null ? -1 : mUpdateDate.getTime());
-		dest.writeLong(mPageDataUpdated == null ? -1 : mPageDataUpdated.getTimeInMillis());
-		dest.writeString(mPageName);
-		dest.writeString(mShortReport);	
-		dest.writeByte((byte) (mUpdatingPageData? 1 : 0));
-	}
-	
-	private void readFromParcel(Parcel in)
-	{
-		mName = in.readString();
-        this.mStatus = TrailStatus.UNKNOWN;
-		this.setStatus(in.readString());
-		mStatusChanged = in.readByte() == 1;
-        mConditionChanged = in.readByte() == 1;
-		mParenName = in.readString();
-		mCondition = in.readString();
-		mLastUpdated = in.readString();
-		
-		long val = in.readLong();
-		if(val != -1)
-		{
-			mUpdateDate = new Date(val);
-		}
-		
-		val = in.readLong();
-		if(val != -1)
-		{
-			mPageDataUpdated = Calendar.getInstance();
-			mPageDataUpdated.setTimeInMillis(val);
-		}
-		
-		mPageName = in.readString();
-		mShortReport = in.readString();
-		mUpdatingPageData = in.readByte() == 1;
+		this.status = TrailStatus.UNKNOWN;
 	}
 	
 	public TrailStatus getStatus() {
-		return mStatus;
+		return status;
 	}
 
 	public void setStatus(String status) {
@@ -132,17 +71,7 @@ public class Trail implements Parcelable {
 	
 	public void setStatus(TrailStatus status)
 	{
-        if(mStatus != null)
-        {
-            mStatusChanged = (mStatus != TrailStatus.UNKNOWN && !mStatus.equals(status));
-        }
-		
-		mStatus = status;
-	}
-
-	public Boolean getStatusChanged()
-	{
-		return mStatusChanged;
+		this.status = status;
 	}
 	
 	public void setName(String name) {
@@ -150,122 +79,61 @@ public class Trail implements Parcelable {
 		if (name.endsWith(")")) {
 			int index = name.lastIndexOf("(");
 			if (index != -1) {
-				mParenName = name.substring(index);
+				parenName = name.substring(index);
 				name = name.substring(0, index).trim();
 			}
 		}
-		mName = name;
+		this.name = name;
 	}
 
 	public String getName() {
-		return mName;
-	}
-
-	public String getParenName() {
-		return mParenName;
+		return name;
 	}
 
 	public String getCondition() {
-		return mCondition;
+		return condition;
 	}
 
 	public void setCondition(String condition) {
-        if(mCondition == null || mCondition.isEmpty())
-        {
-            mConditionChanged = false;
-        }
-        else
-        {
-            mConditionChanged =  !condition.equals(this.mCondition);
-        }
-		this.mCondition = condition;
+		this.condition = condition;
 	}
 
 	public String getLastUpdated() {
-		return mLastUpdated;
+		return lastUpdated;
 	}
 
 	public void setLastUpdated(String lastUpdated) {
-		this.mLastUpdated = lastUpdated;
+		this.lastUpdated = lastUpdated;
 	}
 
 	public void setPageName(String pageName) {
-		this.mPageName = pageName;
+		this.pageName = pageName;
 	}
 
 	public String getPageName() {
-		return this.mPageName;
+		return this.pageName;
 	}
 
 	public String getPageUrl() {
-		return "http://ghorba.org/trails/" + mPageName;
+		return "http://ghorba.org/trails/" + pageName;
 	}
 
 	public String getShortReport() {
-		return mShortReport;
+		return shortReport;
 	}
 
 	public void setShortReport(String shortReport) {
-		this.mShortReport = shortReport;
+		this.shortReport = shortReport;
 	}
 
 	public Date getUpdateDate()
 	{
-		return mUpdateDate;
+		return updateDate;
 	}
 	
 	public void setUpdateDate(Date date)
 	{
-		mUpdateDate = date;
-	}
-	
-	public void setPageDataUpdated(Calendar cal)
-	{
-		mPageDataUpdated = cal;
-	}
-	
-	public void setUpdatingTrailPageData(Boolean updating)
-	{
-		mUpdatingPageData = updating;
-	}
-	
-	public void loadTrailPageData(String pageData) {
-		String regex = "<a href=\"/trails/" + getPageName() + "/(\\d{4}-\\d\\d-\\d\\d)\">(.*)</a>";
-		Pattern pattern = Pattern.compile(regex);
-		Matcher matcher = pattern.matcher(pageData);
-
-		if (matcher.find()) {
-			
-			String date = matcher.group(1);
-			SimpleDateFormat dateParser = new SimpleDateFormat("yyyy-MM-dd");			
-			try {
-				this.mUpdateDate = dateParser.parse(date);
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			this.setShortReport(matcher.group(2));
-		}
-		
-		this.mPageDataUpdated = Calendar.getInstance();
-	}
-	
-	public Boolean shouldUpdatePageData()
-	{
-		if(mUpdatingPageData)
-		{
-			return false;
-		}
-		
-		Calendar cal = Calendar.getInstance();
-		cal.add(Calendar.HOUR, -24);
-				
-		if(mShortReport == null || mStatusChanged || mConditionChanged || mPageDataUpdated.before(cal))
-		{
-			return true;
-		}
-		return false;
+		updateDate = date;
 	}
 	
 	public String getLastUpdatedText()
@@ -337,21 +205,5 @@ public class Trail implements Parcelable {
 	    str.setSpan(new StyleSpan(android.graphics.Typeface.BOLD_ITALIC), 0, this.getCondition().length() + 2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 	    return str;
 	}
-
-	public int describeContents()
-	{
-		return 0;
-	}
-	
-	public static final Parcelable.Creator<Trail> CREATOR = new Parcelable.Creator<Trail>()
-	{
-		public Trail createFromParcel(Parcel in) {
-			return new Trail(in);
-		}
-		
-		public Trail[] newArray(int size) {
-			return new Trail[size];
-		}
-	};
 }
 

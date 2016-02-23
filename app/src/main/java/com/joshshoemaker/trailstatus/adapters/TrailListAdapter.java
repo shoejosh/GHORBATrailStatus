@@ -8,14 +8,14 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.joshshoemaker.trailstatus.R;
-import com.joshshoemaker.trailstatus.activities.TrailStatusActivity;
-import com.joshshoemaker.trailstatus.helpers.TrailDataAccess;
 import com.joshshoemaker.trailstatus.models.Trail;
+
+import java.util.List;
 
 public class TrailListAdapter extends BaseAdapter
 {
 	private final Context context;
-	private Trail[] items;
+	private List<Trail> items;
 
 	public TrailListAdapter(Context context)
 	{
@@ -29,12 +29,12 @@ public class TrailListAdapter extends BaseAdapter
 			return 0;
 		}
 
-		return (items.length);
+		return (items.size());
 	}
 
 	public Object getItem(int position)
 	{
-		return items[position];
+		return items.get(position);
 	}
 
 	public long getItemId(int position)
@@ -52,7 +52,7 @@ public class TrailListAdapter extends BaseAdapter
 	
 	public View getView(int position, View convertView, ViewGroup parent)
 	{
-		Trail trail = items[position];
+		Trail trail = items.get(position);
 		View row = convertView;
 				
 		if(row == null)
@@ -81,13 +81,13 @@ public class TrailListAdapter extends BaseAdapter
 	}
 
 
-    public void setData(Trail[] items)
+    public void setData(List<Trail> items)
 	{
 		this.items = items;
 		this.notifyDataSetChanged();
 	}
 
-	public Trail[] getData()
+	public List<Trail> getData()
 	{
 		return this.items;
 	}
