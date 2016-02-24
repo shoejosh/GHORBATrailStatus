@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>    
+<resources>
+    <color name="primary">#52642A</color>
+    <color name="primary_dark">#3C4A1C</color>
+    <color name="accent">#DE6A26</color>
+
     <color name="trail_open_color">#009E00</color>    
     <color name="trail_closed_color">#F00000</color>
     <color name="widget_header_color">#E0E0E0</color>

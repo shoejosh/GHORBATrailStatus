@@ -1,10 +1,14 @@
 package com.joshshoemaker.trailstatus.activities;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.graphics.drawable.DrawableCompat;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ListView;
 
 import com.joshshoemaker.trailstatus.R;
@@ -17,7 +21,6 @@ import org.parceler.Parcels;
 import java.util.List;
 
 import butterknife.Bind;
-import butterknife.OnClick;
 import butterknife.OnItemClick;
 import rx.android.schedulers.AndroidSchedulers;
 
@@ -26,10 +29,6 @@ import rx.android.schedulers.AndroidSchedulers;
  */
 public class TrailStatusActivity extends BaseActivity {
     private TrailListAdapter adapter;
-
-    //region Views
-    @Bind(R.id.btnRefresh)
-    ImageButton refreshBtn;
 
     @Bind(R.id.trail_list)
     ListView listView;
@@ -58,6 +57,31 @@ public class TrailStatusActivity extends BaseActivity {
             loadData();
         }
 
+        this.setTitle(R.string.widget_title);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main, menu);
+
+        MenuItem item = menu.findItem(R.id.action_refresh);
+        Drawable menuIcon = DrawableCompat.wrap(item.getIcon());
+        DrawableCompat.setTint(menuIcon, getResources().getColor(R.color.white));
+        item.setIcon(menuIcon);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.action_refresh:
+                loadData();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
@@ -92,10 +116,6 @@ public class TrailStatusActivity extends BaseActivity {
     //endregion
 
     //region View Events
-    @OnClick(R.id.btnRefresh)
-    public void onRefeshClicked() {
-        loadData();
-    }
 
     @OnItemClick(R.id.trail_list)
     public void onListItemClicked(int position  ) {
