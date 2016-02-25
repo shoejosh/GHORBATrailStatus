@@ -11,25 +11,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
+import com.joshshoemaker.trailstatus.PresenterManager;
 import com.joshshoemaker.trailstatus.R;
 import com.joshshoemaker.trailstatus.adapters.TrailListAdapter;
-import com.joshshoemaker.trailstatus.helpers.TrailDataAccess;
 import com.joshshoemaker.trailstatus.models.Trail;
-
-import org.parceler.Parcels;
+import com.joshshoemaker.trailstatus.presenters.TrailStatusPresenter;
 
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.OnItemClick;
-import rx.android.schedulers.AndroidSchedulers;
 
 /**
  * Created by Josh on 6/7/2015.
  */
-public class TrailStatusActivity extends BaseActivity {
+public class TrailStatusActivity extends BaseActivity<TrailStatusPresenter> {
     private TrailListAdapter adapter;
 
+    //region views
     @Bind(R.id.trail_list)
     ListView listView;
 
@@ -38,7 +37,6 @@ public class TrailStatusActivity extends BaseActivity {
     //endregion
 
     //region Activity Events
-
     @Override
     protected int getContentView() {
         return R.layout.trail_status_activity;
@@ -49,14 +47,14 @@ public class TrailStatusActivity extends BaseActivity {
     {
         super.onCreate(state);
 
-        adapter = new TrailListAdapter(this);
-        listView.setAdapter(adapter);
-
-        if(state == null)
-        {
-            loadData();
+        if(state == null) {
+            presenter = new TrailStatusPresenter();
+        } else {
+            presenter = PresenterManager.getInstance().restorePresenter(state);
         }
 
+        adapter = new TrailListAdapter(this);
+        listView.setAdapter(adapter);
         this.setTitle(R.string.widget_title);
     }
 
@@ -77,40 +75,10 @@ public class TrailStatusActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.action_refresh:
-                loadData();
+                presenter.onRefreshClicked();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
-        }
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle savedInstanceState)
-    {
-        super.onRestoreInstanceState(savedInstanceState);
-
-        savedInstanceState.putParcelable("trails", Parcels.wrap(adapter.getData()));
-    }
-
-    @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState)
-    {
-        super.onRestoreInstanceState(savedInstanceState);
-
-        if(savedInstanceState == null) {
-            return;
-        }
-
-        List<Trail> trails = Parcels.unwrap(savedInstanceState.getParcelable("trails"));
-
-        if(adapter != null)
-        {
-            adapter.setData(trails);
-        }
-        else
-        {
-            //this shouldn't happen!
-            onCreate(null);
         }
     }
     //endregion
@@ -124,19 +92,11 @@ public class TrailStatusActivity extends BaseActivity {
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(trail.getPageUrl()));
         startActivity(browserIntent);
     }
+
     //endregion
 
-    private void loadData() {
-        showProgress(true);
-        TrailDataAccess.GetTrailData()
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        trails -> {
-                            adapter.setData(trails);
-                            showProgress(false);
-                        },
-                        throwable -> {}
-                );
+    public void showTrails(List<Trail> trails) {
+        adapter.setData(trails);
     }
 
     public void showProgress(Boolean showProgress)
