@@ -5,10 +5,11 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.graphics.drawable.DrawableCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ListView;
 
 import com.joshshoemaker.trailstatus.PresenterManager;
@@ -25,15 +26,16 @@ import butterknife.OnItemClick;
 /**
  * Created by Josh on 6/7/2015.
  */
-public class TrailStatusActivity extends BaseActivity<TrailStatusPresenter> {
+public class TrailStatusActivity extends BaseActivity<TrailStatusPresenter>
+{
     private TrailListAdapter adapter;
 
     //region views
     @Bind(R.id.trail_list)
     ListView listView;
 
-    @Bind(R.id.refreshProgress)
-    View refresh;
+    @Bind(R.id.swiperefresh)
+    SwipeRefreshLayout swipeRefreshLayout;
     //endregion
 
     //region Activity Events
@@ -56,6 +58,21 @@ public class TrailStatusActivity extends BaseActivity<TrailStatusPresenter> {
         adapter = new TrailListAdapter(this);
         listView.setAdapter(adapter);
         this.setTitle(R.string.widget_title);
+
+        //workaround for SwipeRefreshLayout.setRefreshing not working during activity initialization
+        //http://stackoverflow.com/questions/26858692/swiperefreshlayout-setrefreshing-not-showing-indicator-initially
+        TypedValue typed_value = new TypedValue();
+        getTheme().resolveAttribute(android.support.v7.appcompat.R.attr.actionBarSize, typed_value, true);
+        swipeRefreshLayout.setProgressViewOffset(false, 0, getResources().getDimensionPixelSize(typed_value.resourceId));
+
+        swipeRefreshLayout.setOnRefreshListener(
+            new SwipeRefreshLayout.OnRefreshListener() {
+                @Override
+                public void onRefresh() {
+                    presenter.onRefreshClicked();
+                }
+            }
+        );
     }
 
     @Override
@@ -101,15 +118,6 @@ public class TrailStatusActivity extends BaseActivity<TrailStatusPresenter> {
 
     public void showProgress(Boolean showProgress)
     {
-        if(showProgress)
-        {
-            refresh.setVisibility(View.VISIBLE);
-            listView.setVisibility(View.INVISIBLE);
-        }
-        else
-        {
-            refresh.setVisibility(View.INVISIBLE);
-            listView.setVisibility(View.VISIBLE);
-        }
+        swipeRefreshLayout.setRefreshing(showProgress);
     }
 }
