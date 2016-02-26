@@ -18,6 +18,9 @@ android {
         targetSdkVersion 23
         versionCode 5
         versionName "1.0.3"
+
+        //Use vector drawables on API7+ instead of generating PNG files.
+        //generatedDensities = [] //Change to 'vectorDrawables.useSupportLibrary = true' once using gradle plugin 2.0+
     }
     buildTypes {
         release {
@@ -25,11 +28,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    //remove this once switched to gradle plugin 2.0+
+    //aaptOptions {
+        //additionalParameters "--no-version-vectors"
+    //}
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:appcompat-v7:23.2.0'
 
     compile 'com.jakewharton:butterknife:7.0.1'
 
