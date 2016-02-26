@@ -1,8 +1,6 @@
 package com.joshshoemaker.trailstatus.widgets;
 
 
-import java.util.Calendar;
-
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
@@ -94,16 +92,17 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
         }
 
 		TrailDataAccess.GetTrailData()
+                .toBlocking() //need to block so widget doesn't try to update the list before the operation completes
 				.subscribe(
-						trails -> {
-							items = trails.toArray(new Trail[trails.size()]);
+                        trails -> {
+                            items = trails.toArray(new Trail[trails.size()]);
 
-							// Notify Widget Provider that data has been updated
-							Intent intent = new Intent(context, TrailStatusWidgetProvider.class);
-							intent.setAction(TrailStatusWidgetProvider.ACTION_VIEW_UPDATED);
-							context.sendBroadcast(intent);
-						}
-				);
+                            // Notify Widget Provider that data has been updated
+                            Intent intent = new Intent(context, TrailStatusWidgetProvider.class);
+                            intent.setAction(TrailStatusWidgetProvider.ACTION_VIEW_UPDATED);
+                            context.sendBroadcast(intent);
+                        }
+                );
     }
 
 	public void onCreate()

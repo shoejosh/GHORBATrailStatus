@@ -1,10 +1,13 @@
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:minWidth="250dip"
   	android:minHeight="110dip"
     android:updatePeriodMillis="21600000"
     android:initialLayout="@layout/trail_status_appwidget"
   	android:previewImage="@drawable/widget_preview"
-  	android:resizeMode="horizontal|vertical">
+  	android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen"
+    tools:ignore="UnusedAttribute">
 </appwidget-provider>
 
 <!-- Widget Sizing formula where n = number of cells -->

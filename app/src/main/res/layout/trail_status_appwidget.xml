@@ -4,8 +4,7 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:layout_marginLeft="0dp"
-              android:layout_marginRight="0dp">
+              android:padding="@dimen/widget_margin">
        
     <RelativeLayout 
         android:id="@+id/header"

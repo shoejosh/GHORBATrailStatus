@@ -52,6 +52,7 @@ public class TrailStatusWidgetProvider extends AppWidgetProvider {
 	}
 	
 
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         final int N = appWidgetIds.length;
     	                       
@@ -60,10 +61,10 @@ public class TrailStatusWidgetProvider extends AppWidgetProvider {
             
             Intent svcIntent = new Intent(context, WidgetService.class );
             svcIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,  appWidgetId);
-            svcIntent.setData(Uri.parse(svcIntent.toUri(Intent.URI_INTENT_SCHEME)));           
-            
-            RemoteViews widget = new RemoteViews(context.getPackageName(), R.layout.trail_status_appwidget);         
-            
+            svcIntent.setData(Uri.parse(svcIntent.toUri(Intent.URI_INTENT_SCHEME)));
+
+            RemoteViews widget = new RemoteViews(context.getPackageName(), R.layout.trail_status_appwidget);
+
             widget.setRemoteAdapter(R.id.trail_list, svcIntent);
             widget.setOnClickPendingIntent(R.id.btnRefresh, getPendingSelfIntent(context, ACTION_VIEW_DATA_CHANGED));
             
@@ -73,7 +74,6 @@ public class TrailStatusWidgetProvider extends AppWidgetProvider {
             widget.setPendingIntentTemplate(R.id.trail_list, browserPendingIntent);            
             
             appWidgetManager.updateAppWidget(appWidgetId, widget);
-            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.trail_list);
         }
 
         super.onUpdate(context, appWidgetManager, appWidgetIds);

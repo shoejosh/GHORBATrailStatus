@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <bool name="sinceHoneycomb">false</bool>
-    <bool name="beforeHoneycomb">true</bool>
+    <bool name="sinceICS">false</bool>
+    <bool name="beforeICS">true</bool>
 </resources>
