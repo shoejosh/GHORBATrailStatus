@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
+import android.view.View;
 import android.widget.RemoteViews;
 
 import com.joshshoemaker.trailstatus.R;
@@ -22,34 +23,60 @@ import java.text.SimpleDateFormat;
 public class TrailStatusWidgetProvider extends AppWidgetProvider {
 
 	public static final String ACTION_VIEW_DATA_CHANGED = "com.JoshShoemaker.trailstatus.VIEW_DATA_CHANGED";
-	
+	public static final String ACTION_VIEW_UPDATE_FAILED = "com.JoshShoemaker.trailstatus.VIEW_UPDATE_FAILED";
 	public static final String ACTION_VIEW_UPDATED = "com.JoshShoemaker.trailstatus.VIEW_DATA_UPDATED";
 
 	//@Override
 	public void onReceive(Context context, Intent intent){
-		
-		AppWidgetManager awm = AppWidgetManager.getInstance(context);		
-		int[] ids = awm.getAppWidgetIds(new ComponentName(context, getClass()));	
-		
-		if(intent.getAction() == ACTION_VIEW_DATA_CHANGED)
+
+		AppWidgetManager awm = AppWidgetManager.getInstance(context);
+		int[] ids = awm.getAppWidgetIds(new ComponentName(context, getClass()));
+
+		if(intent.getAction().equals(ACTION_VIEW_DATA_CHANGED))
 		{
+            RemoteViews widget = new RemoteViews(context.getPackageName(), R.layout.trail_status_appwidget);
+            setWidgetProgressVisibility(true, widget);
+            awm.partiallyUpdateAppWidget(ids, widget);
+
             awm.notifyAppWidgetViewDataChanged(ids, R.id.trail_list);
 		}
-		else if(intent.getAction() == ACTION_VIEW_UPDATED)
-		{			
+		else if(intent.getAction().equals(ACTION_VIEW_UPDATED))
+		{
 			String time = new SimpleDateFormat("hh:mm a").format(new Date());
-			
-			RemoteViews widget = new RemoteViews(context.getPackageName(), R.layout.trail_status_appwidget);   
+
+			RemoteViews widget = new RemoteViews(context.getPackageName(), R.layout.trail_status_appwidget);
 			widget.setTextViewText(R.id.widget_last_updated, time);
+            setWidgetProgressVisibility(false, widget);
 			awm.partiallyUpdateAppWidget(ids, widget);
 		}
-		else if(intent.getAction() == ConnectivityManager.CONNECTIVITY_ACTION)
+        else if(intent.getAction().equals(ACTION_VIEW_UPDATE_FAILED))
+        {
+            RemoteViews widget = new RemoteViews(context.getPackageName(), R.layout.trail_status_appwidget);
+            setWidgetProgressVisibility(false, widget);
+            awm.partiallyUpdateAppWidget(ids, widget);
+
+            awm.partiallyUpdateAppWidget(ids, widget);
+        }
+		else if(intent.getAction().equals(ConnectivityManager.CONNECTIVITY_ACTION))
 		{
 			//TODO: If Connection has been restored and widget has not been updated recently, update it.
 		}
+
 		
 		super.onReceive(context, intent);	
 	}
+
+    private void setWidgetProgressVisibility(boolean progressVisible, RemoteViews widget) {
+        if(progressVisible) {
+            widget.setViewVisibility(R.id.widget_last_updated, View.GONE);
+            widget.setViewVisibility(R.id.btnRefresh, View.GONE);
+            widget.setViewVisibility(R.id.refreshProgress, View.VISIBLE);
+        } else {
+            widget.setViewVisibility(R.id.widget_last_updated, View.VISIBLE);
+            widget.setViewVisibility(R.id.btnRefresh, View.VISIBLE);
+            widget.setViewVisibility(R.id.refreshProgress, View.GONE);
+        }
+    }
 	
 
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
@@ -60,7 +87,7 @@ public class TrailStatusWidgetProvider extends AppWidgetProvider {
             int appWidgetId = appWidgetIds[i];    
             
             Intent svcIntent = new Intent(context, WidgetService.class );
-            svcIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,  appWidgetId);
+            svcIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
             svcIntent.setData(Uri.parse(svcIntent.toUri(Intent.URI_INTENT_SCHEME)));
 
             RemoteViews widget = new RemoteViews(context.getPackageName(), R.layout.trail_status_appwidget);

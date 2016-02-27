@@ -92,6 +92,7 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
         }
 
 		TrailDataAccess.GetTrailData()
+                .retry(2) //retry up to 2 times on error
                 .toBlocking() //need to block so widget doesn't try to update the list before the operation completes
 				.subscribe(
                         trails -> {
@@ -100,6 +101,12 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
                             // Notify Widget Provider that data has been updated
                             Intent intent = new Intent(context, TrailStatusWidgetProvider.class);
                             intent.setAction(TrailStatusWidgetProvider.ACTION_VIEW_UPDATED);
+                            context.sendBroadcast(intent);
+                        },
+                        throwable -> {
+                            // Data hasn't been updated but notify to stop showing progress spinner.
+                            Intent intent = new Intent(context, TrailStatusWidgetProvider.class);
+                            intent.setAction(TrailStatusWidgetProvider.ACTION_VIEW_UPDATE_FAILED);
                             context.sendBroadcast(intent);
                         }
                 );
