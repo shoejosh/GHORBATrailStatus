@@ -51,4 +51,7 @@ dependencies {
     apt 'org.parceler:parceler:1.0.4'
 
     compile 'com.google.guava:guava:18.0'
+
+    testCompile 'junit:junit:4.12'
+    testCompile "org.mockito:mockito-core:1.9.5"
 }
