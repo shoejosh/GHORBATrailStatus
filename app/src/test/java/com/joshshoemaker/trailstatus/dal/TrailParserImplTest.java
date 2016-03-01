@@ -3,8 +3,9 @@ package com.joshshoemaker.trailstatus.dal;
 import com.joshshoemaker.trailstatus.models.Trail;
 import com.joshshoemaker.trailstatus.models.TrailFactory;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 
@@ -18,16 +19,15 @@ import static org.mockito.Mockito.*;
 /**
  * Created by Josh on 2/28/2016.
  */
-public class TrailParserImplTest extends TestCase {
+public class TrailParserImplTest {
 
     private TrailParserImpl trailParser;
     private Trail mockTrail;
     private String trailListPageHtml;
     private String trailPageHtml;
 
-    public void setUp() throws Exception {
-        super.setUp();
-
+    @Before
+    public void init() throws Exception {
         TrailFactory mockTrailFactory = mock(TrailFactory.class);
         mockTrail = mock(Trail.class);
         trailParser = new TrailParserImpl(mockTrailFactory);
