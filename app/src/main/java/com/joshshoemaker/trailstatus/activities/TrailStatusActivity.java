@@ -59,12 +59,6 @@ public class TrailStatusActivity extends BaseActivity<TrailStatusPresenter>
         listView.setAdapter(adapter);
         this.setTitle(R.string.widget_title);
 
-        //workaround for SwipeRefreshLayout.setRefreshing not working during activity initialization
-        //http://stackoverflow.com/questions/26858692/swiperefreshlayout-setrefreshing-not-showing-indicator-initially
-        TypedValue typed_value = new TypedValue();
-        getTheme().resolveAttribute(android.support.v7.appcompat.R.attr.actionBarSize, typed_value, true);
-        swipeRefreshLayout.setProgressViewOffset(false, 0, getResources().getDimensionPixelSize(typed_value.resourceId));
-
         swipeRefreshLayout.setOnRefreshListener(
             new SwipeRefreshLayout.OnRefreshListener() {
                 @Override
@@ -118,6 +112,13 @@ public class TrailStatusActivity extends BaseActivity<TrailStatusPresenter>
 
     public void showProgress(Boolean showProgress)
     {
-        swipeRefreshLayout.setRefreshing(showProgress);
+        //workaround for SwipeRefreshLayout.setRefreshing not working during activity initialization
+        //http://stackoverflow.com/questions/26858692/swiperefreshlayout-setrefreshing-not-showing-indicator-initially
+        swipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                swipeRefreshLayout.setRefreshing(showProgress);
+            }
+        });
     }
 }
