@@ -48,7 +48,7 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
 		row.setTextViewText(R.id.trail_name, trail.getName());
 		row.setTextViewText(R.id.trail_status_condition, trail.getStatus().toString());
 		row.setTextViewText(R.id.trail_last_updated, trail.getLastUpdatedText());
-		row.setInt(R.id.trail_status_condition, "setTextColor", trail.getStatusColor(context));
+		row.setInt(R.id.trail_status_condition, "setTextColor", context.getResources().getColor(trail.getStatusColorId()));
 		row.setTextViewText(R.id.trail_condition, trail.getFormattedConditionString());
 
         if( trail.getShortReport() == null || trail.getShortReport().equals(""))
@@ -91,7 +91,7 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
             return;
         }
 
-		TrailDataAccess.GetTrailData()
+        TrailDataAccess.GetTrailData()
                 .retry(2) //retry up to 2 times on error
                 .toBlocking() //need to block so widget doesn't try to update the list before the operation completes
 				.subscribe(

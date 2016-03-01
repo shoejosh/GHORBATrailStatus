@@ -2,8 +2,8 @@ package com.joshshoemaker.trailstatus.models;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
-import android.content.Context;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.StyleSpan;
@@ -144,12 +144,12 @@ public class Trail {
 		{
 			return "";
 		}
-		
-		SimpleDateFormat sdf = new SimpleDateFormat("MMM d");
-	    String lastUpdated = sdf.format(this.getUpdateDate()).toString();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM d", Locale.US);
+        String lastUpdatedText = sdf.format(this.getUpdateDate());
 	    
 	    if(Utils.isSameDate(this.getUpdateDate(), new Date()))
-	    {    	
+	    {
 	    	//updated within last hour?
 	    	int index = this.getLastUpdated().indexOf("min") + 3;
 			//min index = "1 min" = 5. max index = "59 min" = 6  
@@ -162,40 +162,40 @@ public class Trail {
 	        	if(index < 7 || index > 8)
 	        	{
 	        		index = -1;
-	        	}
-	        	
-	    	}
+                }
+
+            }
 	    	
 	    	if(index > 0)
 	    	{
-		    	lastUpdated = this.getLastUpdated();
-				lastUpdated = lastUpdated.substring(0, index);
+                lastUpdatedText = getLastUpdated().substring(0, index);
 	    	}
 	    }
-	    
-	    return lastUpdated;
+
+        return lastUpdatedText;
 	}
 
-	public int getStatusColor(Context context)
-	{
-		Trail.TrailStatus status = this.getStatus();
-	    
-	    int colorId = R.color.trail_open_color;
-	    switch(status)
-	    {
-	    	case OPEN:
-	    		colorId = R.color.trail_open_color;
-	    		break;
-	    	case CLOSED:
-	    		colorId = R.color.trail_closed_color;
-	    		break;
-	    	case UNKNOWN:
-	    		colorId = R.color.white;
-	    		
-	    }
-	    return context.getResources().getColor(colorId);
-	}
-	
+    public int getStatusColorId()
+    {
+        Trail.TrailStatus status = this.getStatus();
+
+        int colorId = R.color.trail_open_color;
+        switch(status)
+        {
+            case OPEN:
+                colorId = R.color.trail_open_color;
+                break;
+            case CLOSED:
+                colorId = R.color.trail_closed_color;
+                break;
+            case UNKNOWN:
+                colorId = R.color.white;
+
+        }
+        return colorId;
+    }
+
+    //TODO: move this view formatting out of model and into view
 	public SpannableString getFormattedConditionString()
 	{
 		if(this.getCondition() == null || this.getShortReport() == null)

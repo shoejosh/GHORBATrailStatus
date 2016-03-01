@@ -73,7 +73,7 @@ public class TrailListAdapter extends BaseAdapter
 		
 		holder.trailName.setText(trail.getName());
 		holder.trailStatus.setText(trail.getStatus().toString());
-		holder.trailStatus.setTextColor(trail.getStatusColor(context));			
+		holder.trailStatus.setTextColor(context.getResources().getColor(trail.getStatusColorId()));
 		holder.trailCondition.setText(trail.getFormattedConditionString());
 		holder.lastUpdated.setText(trail.getLastUpdatedText());		
 		
