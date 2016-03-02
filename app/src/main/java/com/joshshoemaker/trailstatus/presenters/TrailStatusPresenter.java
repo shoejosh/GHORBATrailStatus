@@ -2,9 +2,12 @@ package com.joshshoemaker.trailstatus.presenters;
 
 import android.support.annotation.NonNull;
 
+import com.joshshoemaker.trailstatus.TrailStatusApp;
 import com.joshshoemaker.trailstatus.activities.TrailStatusActivity;
-import com.joshshoemaker.trailstatus.helpers.TrailDataAccess;
+import com.joshshoemaker.trailstatus.dal.TrailParserImpl;
+import com.joshshoemaker.trailstatus.dal.TrailService;
 import com.joshshoemaker.trailstatus.models.Trail;
+import com.joshshoemaker.trailstatus.models.TrailFactoryImpl;
 
 import java.util.List;
 
@@ -16,6 +19,11 @@ import rx.android.schedulers.AndroidSchedulers;
 public class TrailStatusPresenter extends BasePresenter<List<Trail>, TrailStatusActivity> {
 
     private boolean isLoadingData = false;
+    private TrailService trailService;
+
+    public TrailStatusPresenter() {
+        trailService = new TrailService(TrailStatusApp.get().getGhorbaService(), new TrailParserImpl(new TrailFactoryImpl()));
+    }
 
     @Override
     protected void updateView() {
@@ -37,7 +45,7 @@ public class TrailStatusPresenter extends BasePresenter<List<Trail>, TrailStatus
     private void loadData() {
         view().showProgress(true);
         isLoadingData = true;
-        TrailDataAccess.GetTrailData()
+        trailService.getTrailData()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         trails -> {

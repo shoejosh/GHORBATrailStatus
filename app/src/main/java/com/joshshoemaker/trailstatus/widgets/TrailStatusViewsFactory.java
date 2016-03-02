@@ -10,9 +10,12 @@ import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
 import com.joshshoemaker.trailstatus.R;
-import com.joshshoemaker.trailstatus.helpers.TrailDataAccess;
+import com.joshshoemaker.trailstatus.TrailStatusApp;
+import com.joshshoemaker.trailstatus.dal.TrailParserImpl;
+import com.joshshoemaker.trailstatus.dal.TrailService;
 import com.joshshoemaker.trailstatus.helpers.Utils;
 import com.joshshoemaker.trailstatus.models.Trail;
+import com.joshshoemaker.trailstatus.models.TrailFactoryImpl;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFactory
@@ -40,8 +43,6 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
 	public RemoteViews getViewAt(int position)
 	{
 		Trail trail = items[position];
-
-		// trail.setShortReport("A long short report to test layout wrapping stuffs and stuff, like you know? I need to fix it if it doesn't work! A long short report to test layout wrapping stuffs and stuff, like you know? I need to fix it if it doesn't work!");
 
 		// setup ListItem row view
 		RemoteViews row = new RemoteViews(context.getPackageName(), R.layout.trail_list_item);
@@ -91,7 +92,9 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
             return;
         }
 
-        TrailDataAccess.GetTrailData()
+        TrailService trailService = new TrailService(TrailStatusApp.get().getGhorbaService(), new TrailParserImpl(new TrailFactoryImpl()));
+
+        trailService.getTrailData()
                 .retry(2) //retry up to 2 times on error
                 .toBlocking() //need to block so widget doesn't try to update the list before the operation completes
 				.subscribe(
