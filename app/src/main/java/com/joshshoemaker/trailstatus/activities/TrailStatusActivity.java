@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -14,6 +13,7 @@ import android.widget.ListView;
 
 import com.joshshoemaker.trailstatus.PresenterManager;
 import com.joshshoemaker.trailstatus.R;
+import com.joshshoemaker.trailstatus.TrailStatusApp;
 import com.joshshoemaker.trailstatus.adapters.TrailListAdapter;
 import com.joshshoemaker.trailstatus.models.Trail;
 import com.joshshoemaker.trailstatus.presenters.TrailStatusPresenter;
@@ -50,7 +50,7 @@ public class TrailStatusActivity extends BaseActivity<TrailStatusPresenter>
         super.onCreate(state);
 
         if(state == null) {
-            presenter = new TrailStatusPresenter();
+            ((TrailStatusApp)getApplication()).getComponent().inject(this);
         } else {
             presenter = PresenterManager.getInstance().restorePresenter(state);
         }

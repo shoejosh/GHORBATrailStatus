@@ -8,6 +8,8 @@ import com.joshshoemaker.trailstatus.PresenterManager;
 import com.joshshoemaker.trailstatus.R;
 import com.joshshoemaker.trailstatus.presenters.BasePresenter;
 
+import javax.inject.Inject;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -18,6 +20,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
 
     protected abstract int getContentView();
 
+    @Inject
     protected T presenter;
 
     @Bind(R.id.toolbar)

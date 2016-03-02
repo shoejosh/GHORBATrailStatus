@@ -2,21 +2,15 @@ package com.joshshoemaker.trailstatus;
 
 
 import android.app.Application;
-import com.joshshoemaker.trailstatus.api.GhorbaService;
-
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import com.joshshoemaker.trailstatus.di.ApplicationComponent;
+import com.joshshoemaker.trailstatus.di.ApplicationModule;
+import com.joshshoemaker.trailstatus.di.DaggerApplicationComponent;
 
 public class TrailStatusApp extends Application {
 
     private static TrailStatusApp instance;
 
-    private GhorbaService ghorbaService;
-
-    public GhorbaService getGhorbaService()
-    {
-        return ghorbaService;
-    }
+    private ApplicationComponent component;
 
     public static TrailStatusApp get() {
         return instance;
@@ -28,12 +22,13 @@ public class TrailStatusApp extends Application {
         super.onCreate();
         instance = this;
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://ghorba.org/")
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .build();
+        component = DaggerApplicationComponent.builder()
+                        .applicationModule(new ApplicationModule(this))
+                        .build();
+    }
 
-        ghorbaService = retrofit.create(GhorbaService.class);
+    public ApplicationComponent getComponent() {
+        return component;
     }
 
 }

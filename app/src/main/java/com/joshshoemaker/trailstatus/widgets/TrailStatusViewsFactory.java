@@ -11,11 +11,11 @@ import android.widget.RemoteViewsService;
 
 import com.joshshoemaker.trailstatus.R;
 import com.joshshoemaker.trailstatus.TrailStatusApp;
-import com.joshshoemaker.trailstatus.dal.TrailParserImpl;
 import com.joshshoemaker.trailstatus.dal.TrailService;
 import com.joshshoemaker.trailstatus.helpers.Utils;
 import com.joshshoemaker.trailstatus.models.Trail;
-import com.joshshoemaker.trailstatus.models.TrailFactoryImpl;
+
+import javax.inject.Inject;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFactory
@@ -23,8 +23,12 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
 	private static Trail[] items;
 	private Context context = null;
 
+    @Inject
+    TrailService trailService;
+
 	public TrailStatusViewsFactory(Context context, Intent intent)
 	{
+        ((TrailStatusApp)context.getApplicationContext()).getComponent().inject(this);
 		this.context = context;
 		// appWidgetId=intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
 		// AppWidgetManager.INVALID_APPWIDGET_ID);
@@ -91,8 +95,6 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
         {
             return;
         }
-
-        TrailService trailService = new TrailService(TrailStatusApp.get().getGhorbaService(), new TrailParserImpl(new TrailFactoryImpl()));
 
         trailService.getTrailData()
                 .retry(2) //retry up to 2 times on error

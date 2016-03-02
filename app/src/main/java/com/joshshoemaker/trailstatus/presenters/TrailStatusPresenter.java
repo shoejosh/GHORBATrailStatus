@@ -2,12 +2,9 @@ package com.joshshoemaker.trailstatus.presenters;
 
 import android.support.annotation.NonNull;
 
-import com.joshshoemaker.trailstatus.TrailStatusApp;
 import com.joshshoemaker.trailstatus.activities.TrailStatusActivity;
-import com.joshshoemaker.trailstatus.dal.TrailParserImpl;
 import com.joshshoemaker.trailstatus.dal.TrailService;
 import com.joshshoemaker.trailstatus.models.Trail;
-import com.joshshoemaker.trailstatus.models.TrailFactoryImpl;
 
 import java.util.List;
 
@@ -21,8 +18,8 @@ public class TrailStatusPresenter extends BasePresenter<List<Trail>, TrailStatus
     private boolean isLoadingData = false;
     private TrailService trailService;
 
-    public TrailStatusPresenter() {
-        trailService = new TrailService(TrailStatusApp.get().getGhorbaService(), new TrailParserImpl(new TrailFactoryImpl()));
+    public TrailStatusPresenter(TrailService trailService) {
+        this.trailService = trailService;
     }
 
     @Override
