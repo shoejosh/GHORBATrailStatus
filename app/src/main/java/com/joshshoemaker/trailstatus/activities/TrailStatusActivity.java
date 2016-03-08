@@ -49,10 +49,11 @@ public class TrailStatusActivity extends BaseActivity<TrailStatusPresenter>
     {
         super.onCreate(state);
 
-        if(state == null) {
-            ((TrailStatusApp)getApplication()).getComponent().inject(this);
-        } else {
+        if(state != null) {
             presenter = PresenterManager.getInstance().restorePresenter(state);
+        }
+        if(presenter == null) {
+            ((TrailStatusApp) getApplication()).getComponent().inject(this);
         }
 
         adapter = new TrailListAdapter(this);
