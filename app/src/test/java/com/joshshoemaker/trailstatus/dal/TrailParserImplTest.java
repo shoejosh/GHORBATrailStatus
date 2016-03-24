@@ -7,10 +7,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.ArgumentCaptor;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import static org.mockito.Mockito.*;
@@ -107,7 +104,7 @@ public class TrailParserImplTest {
         trailParser.getTrailListFromHtml(trailListPageHtml);
 
         verify(mockTrail).setName(eq("Double Lake Recreation Area"));
-        verify(mockTrail).setName(eq("Cypresswood (Collins Park)"));
+        verify(mockTrail).setName(eq("Cypresswood"));
     }
 
     @Test
@@ -125,23 +122,15 @@ public class TrailParserImplTest {
         verify(mockTrail, times(2)).setStatus(eq("Open"));
     }
 
-    @Test
+   /* @Test
     public void testGetTrailListFromHtml_parsesConditionCorrectly() {
         trailParser.getTrailListFromHtml(trailListPageHtml);
 
         verify(mockTrail).setCondition(eq("Muddy in spots"));
         verify(mockTrail).setCondition(eq("Tacky"));
-    }
+    }*/
 
-    @Test
-    public void testGetTrailListFromHtml_parsesLastUpdatedCorrectly() {
-        trailParser.getTrailListFromHtml(trailListPageHtml);
-
-        verify(mockTrail).setLastUpdated(eq("3 days 17 hours"));
-        verify(mockTrail).setLastUpdated(eq("4 weeks 1 day"));
-    }
-
-    @Test
+    /*@Test
     public void testLoadTrailDataFromHtml_parsesCorrectUpdateDate() {
         when(mockTrail.getPageName()).thenReturn("memorial-park");
 
@@ -162,5 +151,5 @@ public class TrailParserImplTest {
         trailParser.loadTrailDataFromHtml(mockTrail, trailPageHtml);
 
         verify(mockTrail).setShortReport(eq("Rodeo coming to town"));
-    }
+    }*/
 }

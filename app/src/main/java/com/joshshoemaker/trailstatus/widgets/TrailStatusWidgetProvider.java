@@ -101,6 +101,7 @@ public class TrailStatusWidgetProvider extends AppWidgetProvider {
             widget.setPendingIntentTemplate(R.id.trail_list, browserPendingIntent);            
             
             appWidgetManager.updateAppWidget(appWidgetId, widget);
+            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.trail_list);
         }
 
         super.onUpdate(context, appWidgetManager, appWidgetIds);

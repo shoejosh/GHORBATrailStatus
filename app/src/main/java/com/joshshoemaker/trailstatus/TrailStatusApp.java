@@ -7,6 +7,8 @@ import com.joshshoemaker.trailstatus.di.ApplicationComponent;
 import com.joshshoemaker.trailstatus.di.ApplicationModule;
 import com.joshshoemaker.trailstatus.di.DaggerApplicationComponent;
 import io.fabric.sdk.android.Fabric;
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 
 public class TrailStatusApp extends Application {
 
@@ -28,6 +30,12 @@ public class TrailStatusApp extends Application {
         component = DaggerApplicationComponent.builder()
                         .applicationModule(new ApplicationModule(this))
                         .build();
+
+        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this)
+                .name("trailstatus.realm")
+                .build();
+
+        Realm.setDefaultConfiguration(realmConfiguration);
     }
 
     public ApplicationComponent getComponent() {

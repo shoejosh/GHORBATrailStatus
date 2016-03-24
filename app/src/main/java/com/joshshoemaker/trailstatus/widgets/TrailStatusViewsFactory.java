@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
+import android.text.Html;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
@@ -14,6 +15,10 @@ import com.joshshoemaker.trailstatus.TrailStatusApp;
 import com.joshshoemaker.trailstatus.dal.TrailService;
 import com.joshshoemaker.trailstatus.helpers.Utils;
 import com.joshshoemaker.trailstatus.models.Trail;
+import com.joshshoemaker.trailstatus.models.TrailConditionReport;
+
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 import javax.inject.Inject;
 
@@ -30,8 +35,6 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
 	{
         ((TrailStatusApp)context.getApplicationContext()).getComponent().inject(this);
 		this.context = context;
-		// appWidgetId=intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
-		// AppWidgetManager.INVALID_APPWIDGET_ID);
 	}
 
 	public int getCount()
@@ -51,14 +54,24 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
 		// setup ListItem row view
 		RemoteViews row = new RemoteViews(context.getPackageName(), R.layout.trail_list_item);
 		row.setTextViewText(R.id.trail_name, trail.getName());
-		row.setTextViewText(R.id.trail_status_condition, trail.getStatus().toString());
-		row.setTextViewText(R.id.trail_last_updated, trail.getLastUpdatedText());
-		row.setInt(R.id.trail_status_condition, "setTextColor", context.getResources().getColor(trail.getStatusColorId()));
-		row.setTextViewText(R.id.trail_condition, trail.getFormattedConditionString());
+		row.setTextViewText(R.id.trail_status_condition, trail.getStatus());
 
-        if( trail.getShortReport() == null || trail.getShortReport().equals(""))
-        {
-            row.setTextViewText(R.id.trail_condition, "Updating..");
+        TrailConditionReport currentConditionReport = trail.getStatusReports().get(0);
+
+        String conditionText = String.format(context.getResources().getString(R.string.trail_condition),
+                currentConditionReport.getCondition(),
+                currentConditionReport.getShortReport());
+        row.setTextViewText(R.id.trail_condition, Html.fromHtml(conditionText));
+
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM d", Locale.US);
+        String lastUpdatedText = sdf.format(currentConditionReport.getUpdateDate());
+		row.setTextViewText(R.id.trail_last_updated, lastUpdatedText);
+
+        if(trail.getStatus().equalsIgnoreCase("open")) {
+            row.setInt(R.id.trail_status_condition, "setTextColor", context.getResources().getColor(R.color.trail_open_color));
+        }
+        else if (trail.getStatus().equalsIgnoreCase("closed")) {
+            row.setInt(R.id.trail_status_condition, "setTextColor", context.getResources().getColor(R.color.trail_closed_color));
         }
 
 		// add fill in intent for on click event
@@ -96,7 +109,7 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
             return;
         }
 
-        trailService.getTrailData()
+        trailService.updateTrailData()
                 .retry(2) //retry up to 2 times on error
                 .toBlocking() //need to block so widget doesn't try to update the list before the operation completes
 				.subscribe(

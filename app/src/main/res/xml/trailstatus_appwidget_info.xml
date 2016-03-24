@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:minWidth="250dip"
   	android:minHeight="110dip"
-    android:updatePeriodMillis="900000"
+    android:updatePeriodMillis="18000000"
     android:initialLayout="@layout/trail_status_appwidget"
   	android:previewImage="@drawable/widget_preview"
   	android:resizeMode="horizontal|vertical"

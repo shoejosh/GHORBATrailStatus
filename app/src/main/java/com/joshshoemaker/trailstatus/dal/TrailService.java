@@ -6,6 +6,8 @@ import com.joshshoemaker.trailstatus.models.Trail;
 import java.io.IOException;
 import java.util.List;
 
+import io.realm.Realm;
+import io.realm.RealmResults;
 import rx.Observable;
 import rx.exceptions.Exceptions;
 import rx.schedulers.Schedulers;
@@ -24,6 +26,15 @@ public class TrailService {
     }
 
     public Observable<List<Trail>> getTrailData() {
+        Realm realm = Realm.getDefaultInstance();
+        return realm.where(Trail.class).findAll().asObservable()
+                .first()
+                .map(realm::copyFromRealm)
+                .doOnTerminate(realm::close);
+    }
+
+    public Observable<List<Trail>> updateTrailData() {
+
         return ghorbaService.getTrailListData()
                 .subscribeOn(Schedulers.io())
                 .map(response -> {
@@ -35,6 +46,13 @@ public class TrailService {
                 })
                 .flatMap(Observable::from)
                 .flatMap(trail -> loadTrailPageData(trail, trailParser))
+                .doOnNext(trail -> {
+                    Realm realm = Realm.getDefaultInstance();
+                    realm.beginTransaction();
+                    realm.copyToRealmOrUpdate(trail);
+                    realm.commitTransaction();
+                    realm.close();
+                })
                 .toList();
     }
 

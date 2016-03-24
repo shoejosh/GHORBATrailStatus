@@ -3,6 +3,7 @@ package com.joshshoemaker.trailstatus.di;
 import android.app.Application;
 import android.content.Context;
 
+import com.joshshoemaker.trailstatus.Constants;
 import com.joshshoemaker.trailstatus.api.GhorbaService;
 import com.joshshoemaker.trailstatus.dal.TrailParser;
 import com.joshshoemaker.trailstatus.dal.TrailParserImpl;
@@ -41,7 +42,7 @@ public class ApplicationModule {
     @Provides @Singleton
     public GhorbaService provideGhorbaService() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://ghorba.org/")
+                .baseUrl(Constants.BASE_URL)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
 

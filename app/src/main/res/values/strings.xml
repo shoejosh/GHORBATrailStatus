@@ -2,5 +2,6 @@
 <resources>
     <string name="app_name">GHORBA Trails</string>
     <string name="widget_title">GHORBA Trail Conditions</string>
-    <string name="template_user_agent" formatted="false">%s/%s (Linux; Android)</string>    
+    <string name="template_user_agent" formatted="false">%s/%s (Linux; Android)</string>
+    <string name="trail_condition">&lt;b>&lt;i>%1$s&lt;/i>&lt;/b> - %2$s</string>
 </resources>

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/trail_list_item_view"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:alpha="1"
-    android:background="@color/widget_item_color"
-    android:minHeight="?android:attr/listPreferredItemHeight"
-    android:paddingBottom="2dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:paddingTop="3dp" >
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/trail_list_item_view"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:alpha="1"
+                android:background="@color/widget_item_color"
+                android:minHeight="?android:attr/listPreferredItemHeight"
+                android:paddingBottom="2dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="3dp">
 
     <TextView
         android:id="@+id/trail_name"
@@ -19,7 +20,8 @@
         android:gravity="left"
         android:textColor="#5E5E5E"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:text="Memorial Park"/>
 
     <TextView
         android:id="@+id/trail_status_condition"
@@ -28,7 +30,9 @@
         android:layout_alignParentRight="true"
         android:gravity="right"
         android:textSize="12sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:text="Open"
+        tools:textColor="@color/trail_open_color"/>
 
     <TextView
         android:id="@+id/trail_condition"
@@ -38,10 +42,10 @@
         android:layout_below="@id/trail_name"
         android:gravity="left"
         android:paddingLeft="1dp"
-        android:paddingTop="0dp"        
-        android:paddingRight="35dp"
+        android:paddingTop="0dp"
         android:textSize="12sp"
-        android:textColor="#5E5E5E" />
+        android:textColor="#5E5E5E"
+        tools:text="Muddy in spots"/>
 
     <TextView
         android:id="@+id/trail_last_updated"
@@ -52,6 +56,7 @@
         android:gravity="right"
         android:paddingLeft="6dip"
         android:textSize="10sp"
-        android:textColor="#5E5E5E" />
+        android:textColor="#5E5E5E"
+        tools:text="3/18"/>
 
 </RelativeLayout>
