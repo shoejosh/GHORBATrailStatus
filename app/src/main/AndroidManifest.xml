@@ -19,6 +19,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.TrailActivity"
+            android:parentActivityName=".activities.TrailStatusActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.TrailStatusActivity" />
+        </activity>
 
         <receiver android:name=".widgets.TrailStatusWidgetProvider"
                   android:enabled="@bool/sinceICS">

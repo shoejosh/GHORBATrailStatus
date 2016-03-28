@@ -4,7 +4,6 @@ package com.joshshoemaker.trailstatus.widgets;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Build;
 import android.text.Html;
 import android.widget.RemoteViews;
@@ -12,6 +11,7 @@ import android.widget.RemoteViewsService;
 
 import com.joshshoemaker.trailstatus.R;
 import com.joshshoemaker.trailstatus.TrailStatusApp;
+import com.joshshoemaker.trailstatus.activities.TrailActivity;
 import com.joshshoemaker.trailstatus.dal.TrailService;
 import com.joshshoemaker.trailstatus.helpers.Utils;
 import com.joshshoemaker.trailstatus.models.Trail;
@@ -76,7 +76,7 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
 
 		// add fill in intent for on click event
 		Intent i = new Intent();
-		i.setData(Uri.parse(trail.getPageUrl()));
+        i.putExtra(TrailActivity.EXTRA_TRAIL_PAGE_NAME, trail.getPageName());
 		row.setOnClickFillInIntent(R.id.trail_list_item_view, i);
 
 		return (row);

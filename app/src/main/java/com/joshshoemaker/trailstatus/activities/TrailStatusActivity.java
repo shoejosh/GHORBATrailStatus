@@ -41,7 +41,7 @@ public class TrailStatusActivity extends BaseActivity<TrailStatusPresenter>
     //region Activity Events
     @Override
     protected int getContentView() {
-        return R.layout.trail_status_activity;
+        return R.layout.activity_trail_status;
     }
 
     @Override
@@ -101,8 +101,9 @@ public class TrailStatusActivity extends BaseActivity<TrailStatusPresenter>
     public void onListItemClicked(int position  ) {
         Trail trail = (Trail)adapter.getItem(position);
 
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(trail.getPageUrl()));
-        startActivity(browserIntent);
+        Intent intent = new Intent(this, TrailActivity.class);
+        intent.putExtra(TrailActivity.EXTRA_TRAIL_PAGE_NAME, trail.getPageName());
+        startActivity(intent);
     }
 
     //endregion

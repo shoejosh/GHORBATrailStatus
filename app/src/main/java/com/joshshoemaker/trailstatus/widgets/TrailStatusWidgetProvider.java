@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.RemoteViews;
 
 import com.joshshoemaker.trailstatus.R;
+import com.joshshoemaker.trailstatus.activities.TrailActivity;
 
 import java.text.SimpleDateFormat;
 
@@ -95,9 +96,9 @@ public class TrailStatusWidgetProvider extends AppWidgetProvider {
             widget.setRemoteAdapter(R.id.trail_list, svcIntent);
             widget.setOnClickPendingIntent(R.id.btnRefresh, getPendingSelfIntent(context, ACTION_VIEW_DATA_CHANGED));
             
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW);
-            browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            PendingIntent browserPendingIntent = PendingIntent.getActivity(context, 0, browserIntent, 0);
+            Intent itemClickIntent = new Intent(context, TrailActivity.class);
+            itemClickIntent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+            PendingIntent browserPendingIntent = PendingIntent.getActivity(context, 0, itemClickIntent, PendingIntent.FLAG_UPDATE_CURRENT);
             widget.setPendingIntentTemplate(R.id.trail_list, browserPendingIntent);            
             
             appWidgetManager.updateAppWidget(appWidgetId, widget);

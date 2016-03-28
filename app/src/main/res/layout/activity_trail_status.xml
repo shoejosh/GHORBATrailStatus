@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="0dp"
-            android:divider="#D0D0D0"
+            android:divider="@color/divider"
             android:dividerHeight="0.5dp"
             android:fadingEdgeLength="0dp"
             android:layout_weight="1"
