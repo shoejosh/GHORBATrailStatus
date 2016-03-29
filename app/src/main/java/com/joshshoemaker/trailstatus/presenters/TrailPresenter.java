@@ -13,6 +13,11 @@ public class TrailPresenter extends BasePresenter<Trail, TrailActivity> {
     @Override
     protected void updateView() {
         view().setActivityTitle(model.getName());
+        view().setStatus(model.getStatus());
+        view().setDescription(model.getDescription());
+        view().setDifficulty(model.getDifficulty());
+        view().setLength(model.getLength());
+        view().setTechnicalRating(model.getTechnicalRating());
         view().setTrailConditionReports(model.getStatusReports());
     }
 

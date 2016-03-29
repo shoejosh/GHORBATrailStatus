@@ -8,6 +8,7 @@
     <color name="trail_closed_color">#F00000</color>
     <color name="widget_header_color">#E0E0E0</color>
     <color name="widget_item_color">#FFFFFF</color>
+    <color name="text_color">#737373</color>
     <color name="white">#FFFFFF</color>
     <color name="divider">#D0D0D0</color>
 </resources>

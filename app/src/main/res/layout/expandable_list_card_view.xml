@@ -13,7 +13,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:textColor="@color/accent"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:fontFamily="sans-serif-medium"
             tools:text="Recent Trail Condition Reports"/>
 
@@ -64,7 +64,7 @@
                 android:layout_marginLeft="10dp"
                 android:textColor="@color/accent"
                 android:fontFamily="sans-serif-medium"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:text="See more"/>
 
         </LinearLayout>

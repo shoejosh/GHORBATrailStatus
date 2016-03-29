@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:card_view="http://schemas.android.com/apk/res-auto"
               xmlns:expandable="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:background="#F4F4F4"
@@ -19,13 +20,227 @@
             android:orientation="vertical"
             android:padding="8dp">
 
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="#FAFAFA"
+                card_view:cardCornerRadius="2dp"
+                card_view:cardElevation="4dp"
+                card_view:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="Details"
+                            android:textColor="@color/accent"
+                            android:textSize="16sp"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/divider"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Status"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp"/>
+
+                        <TextView
+                            android:id="@+id/status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:ellipsize="end"
+                            android:maxLines="3"
+                            android:textSize="14sp"
+                            android:textColor="@color/text_color"
+                            tools:text="Open"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/divider"/>
+
+                    <LinearLayout
+                        android:id="@+id/description_row"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Description"
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp"/>
+
+                            <TextView
+                                android:id="@+id/description"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:ellipsize="end"
+                                android:maxLines="3"
+                                android:textColor="@color/text_color"
+                                android:textSize="14sp"
+                                tools:text="Jack Brooks Park offers some of the most challenging trails in the Houston Area.
+For you city and northern Houston dwellers, it’s worth a weekend drive down to Hitchcock.
+The maintenance crew led by the most excellent trail steward, Booker, does an incredible job of maintaining the trail and adding Technical Trail Features (TTFs) that make for a fun ride, in full cooperation with the the Galveston Country Parks department. Trails are one way please follow arrows &amp; try not to go backwards."/>
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@color/divider"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/difficulty_row"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Difficulty"
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp"/>
+
+                            <TextView
+                                android:id="@+id/difficulty"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:textColor="@color/text_color"
+                                android:textSize="14sp"
+                                tools:text="Intermediate, Expert"/>
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@color/divider"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/length_row"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Length"
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp"/>
+
+                            <TextView
+                                android:id="@+id/length"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:textColor="@color/text_color"
+                                android:textSize="14sp"
+                                tools:text="6.50 miles"/>
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@color/divider"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/technical_rating_row"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Technical Rating"
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp"/>
+
+                            <TextView
+                                android:id="@+id/technical_rating"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:textColor="@color/text_color"
+                                android:textSize="14sp"
+                                tools:text="2-4(TTF's)"/>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
             <com.joshshoemaker.trailstatus.views.ExpandableListCardView
                 android:id="@+id/expandable_trail_conditions_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="#FAFAFA"
                 card_view:cardCornerRadius="2dp"
                 card_view:cardElevation="4dp"
-                card_view:cardBackgroundColor="#FAFAFA"
                 card_view:cardUseCompatPadding="true"
                 expandable:titleText="Recent Trail Condition Reports">
 

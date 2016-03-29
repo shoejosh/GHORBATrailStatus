@@ -24,7 +24,7 @@ public class TrailStatusApp extends Application {
     public void onCreate()
     {
         super.onCreate();
-        Fabric.with(this, new Crashlytics());
+        //Fabric.with(this, new Crashlytics());
         instance = this;
 
         component = DaggerApplicationComponent.builder()
