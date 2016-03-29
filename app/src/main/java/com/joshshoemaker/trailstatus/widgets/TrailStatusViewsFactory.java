@@ -64,7 +64,7 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
         row.setTextViewText(R.id.trail_condition, Html.fromHtml(conditionText));
 
         SimpleDateFormat sdf = new SimpleDateFormat("MMM d", Locale.US);
-        String lastUpdatedText = sdf.format(currentConditionReport.getUpdateDate());
+        String lastUpdatedText = sdf.format(currentConditionReport.getDate());
 		row.setTextViewText(R.id.trail_last_updated, lastUpdatedText);
 
         if(trail.getStatus().equalsIgnoreCase("open")) {

@@ -15,6 +15,10 @@ public class Trail extends RealmObject {
     private String pageName;
     private String name;
     private String status;
+    private String difficulty;
+    private String length;
+    private String technicalRating;
+    private String description;
     private RealmList<TrailConditionReport> statusReports;
 
     //region getters/setters
@@ -49,6 +53,38 @@ public class Trail extends RealmObject {
 
     public void setStatusReports(RealmList<TrailConditionReport> statusReports) {
         this.statusReports = statusReports;
+    }
+
+    public String getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(String difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public String getLength() {
+        return length;
+    }
+
+    public void setLength(String length) {
+        this.length = length;
+    }
+
+    public String getTechnicalRating() {
+        return technicalRating;
+    }
+
+    public void setTechnicalRating(String technicalRating) {
+        this.technicalRating = technicalRating;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     //endregion

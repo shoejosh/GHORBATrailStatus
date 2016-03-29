@@ -11,7 +11,7 @@ public class TrailConditionReport extends RealmObject {
 
     private String condition;
     private String shortReport;
-    private Date updateDate;
+    private Date date;
 
     public String getCondition() {
         return condition;
@@ -29,11 +29,11 @@ public class TrailConditionReport extends RealmObject {
         this.shortReport = shortReport;
     }
 
-    public Date getUpdateDate() {
-        return updateDate;
+    public Date getDate() {
+        return date;
     }
 
-    public void setUpdateDate(Date updateDate) {
-        this.updateDate = updateDate;
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

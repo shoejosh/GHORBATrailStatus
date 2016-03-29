@@ -75,7 +75,7 @@ public class TrailConditionReportAdapter extends BaseAdapter {
         holder.shortReport.setText(report.getShortReport());
 
         SimpleDateFormat sdf = new SimpleDateFormat("MMM d", Locale.US);
-        String reportDateText = sdf.format(report.getUpdateDate());
+        String reportDateText = sdf.format(report.getDate());
         holder.reportDate.setText(reportDateText);
 
         return convertView;

@@ -93,7 +93,7 @@ public class TrailListAdapter extends BaseAdapter
         holder.trailCondition.setText(Html.fromHtml(conditionText));
 
         SimpleDateFormat sdf = new SimpleDateFormat("MMM d", Locale.US);
-        String lastUpdatedText = sdf.format(currentConditionReport.getUpdateDate());
+        String lastUpdatedText = sdf.format(currentConditionReport.getDate());
         holder.lastUpdated.setText(lastUpdatedText);
 
 		return row;

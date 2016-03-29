@@ -1,5 +1,7 @@
 package com.joshshoemaker.trailstatus.dal;
 
+import com.google.common.io.Files;
+import com.joshshoemaker.trailstatus.TestUtils;
 import com.joshshoemaker.trailstatus.models.Trail;
 import com.joshshoemaker.trailstatus.models.TrailFactory;
 
@@ -8,6 +10,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.File;
 import java.util.List;
 
 import static org.mockito.Mockito.*;
@@ -58,38 +61,8 @@ public class TrailParserImplTest {
                 "          \n" +
                 "      </tbody>";
 
-        trailPageHtml = "<tbody>\n" +
-                "          <tr class=\"odd views-row-first\">\n" +
-                "                  <td class=\"views-field views-field-field-trail-condition\">\n" +
-                "            Dry/Loose          </td>\n" +
-                "                  <td class=\"views-field views-field-title\">\n" +
-                "            <a href=\"/trails/memorial-park/2016-02-22\">Rodeo coming to town</a>          </td>\n" +
-                "                  <td class=\"views-field views-field-created\">\n" +
-                "            <em class=\"placeholder\">6 days 8 hours</em> ago          </td>\n" +
-                "                  <td class=\"views-field views-field-name\">\n" +
-                "            <span class=\"username\">Dkoonsusaavid</span>          </td>\n" +
-                "              </tr>\n" +
-                "          <tr class=\"even\">\n" +
-                "                  <td class=\"views-field views-field-field-trail-condition\">\n" +
-                "            Dry/Packed          </td>\n" +
-                "                  <td class=\"views-field views-field-title\">\n" +
-                "            <a href=\"/trails/memorial-park/2016-02-17-0\">Trails are open. </a>          </td>\n" +
-                "                  <td class=\"views-field views-field-created\">\n" +
-                "            <em class=\"placeholder\">1 week 3 days</em> ago          </td>\n" +
-                "                  <td class=\"views-field views-field-name\">\n" +
-                "            <span class=\"username\">silverbiker</span>          </td>\n" +
-                "              </tr>\n" +
-                "          <tr class=\"even views-row-last\">\n" +
-                "                  <td class=\"views-field views-field-field-trail-condition\">\n" +
-                "            Muddy in spots          </td>\n" +
-                "                  <td class=\"views-field views-field-title\">\n" +
-                "            <a href=\"/trails/memorial-park/2016-01-23\">Trails in fair shape, Green has some structural damage, incl bridge out</a>          </td>\n" +
-                "                  <td class=\"views-field views-field-created\">\n" +
-                "            <em class=\"placeholder\">1 month 6 days</em> ago          </td>\n" +
-                "                  <td class=\"views-field views-field-name\">\n" +
-                "            <span class=\"username\">BdM</span>          </td>\n" +
-                "              </tr>\n" +
-                "      </tbody>";
+        File file = TestUtils.getFileFromPath(this, "trail.html");
+        trailPageHtml = TestUtils.getStringFromFile(file);
     }
 
     @Test
@@ -122,13 +95,34 @@ public class TrailParserImplTest {
         verify(mockTrail, times(2)).setStatus(eq("Open"));
     }
 
-   /* @Test
-    public void testGetTrailListFromHtml_parsesConditionCorrectly() {
-        trailParser.getTrailListFromHtml(trailListPageHtml);
+    @Test
+    public void testLoadTrailDataFromHtml_parsesDifficultyCorrectly() {
+        trailParser.loadTrailDataFromHtml(mockTrail, trailPageHtml);
 
-        verify(mockTrail).setCondition(eq("Muddy in spots"));
-        verify(mockTrail).setCondition(eq("Tacky"));
-    }*/
+        verify(mockTrail).setDifficulty("Intermediate, Expert");
+    }
+
+    @Test
+    public void testLoadTrailDataFromHtml_parsesLengthCorrectly() {
+        trailParser.loadTrailDataFromHtml(mockTrail, trailPageHtml);
+
+        verify(mockTrail).setLength("6.50 miles");
+    }
+
+    @Test
+    public void testLoadTrailDataFromHtml_parsesTechnicalRatingCorrectly() {
+        trailParser.loadTrailDataFromHtml(mockTrail, trailPageHtml);
+
+        verify(mockTrail).setTechnicalRating("2-4(TTF's)");
+    }
+
+    @Test
+    public void testLoadTrailDataFromHtml_parsesDescriptionCorrectly() {
+        trailParser.loadTrailDataFromHtml(mockTrail, trailPageHtml);
+
+        verify(mockTrail).setDescription("Jack Brooks Park offers some of the most challenging trails in the Houston Area. For you city and northern Houston dwellers, it’s worth a weekend drive down to Hitchcock. The maintenance crew led by the most excellent trail steward, Booker, does an incredible job of maintaining the trail and adding Technical Trail Features (TTFs) that make for a fun ride, in full cooperation with the the Galveston Country Parks department. Trails are one way please follow arrows & try not to go backwards.");
+    }
+
 
     /*@Test
     public void testLoadTrailDataFromHtml_parsesCorrectUpdateDate() {
@@ -137,19 +131,10 @@ public class TrailParserImplTest {
         trailParser.loadTrailDataFromHtml(mockTrail, trailPageHtml);
 
         ArgumentCaptor<Date> argument = ArgumentCaptor.forClass(Date.class);
-        verify(mockTrail).setUpdateDate(argument.capture());
+        verify(mockTrail).setDate(argument.capture());
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
         assertEquals(sdf.format(argument.getValue()), "2016-02-22");
-    }
-
-    @Test
-    public void testLoadTrailDataFromHtml_parsesCorrectShortReport() {
-        when(mockTrail.getPageName()).thenReturn("memorial-park");
-
-        trailParser.loadTrailDataFromHtml(mockTrail, trailPageHtml);
-
-        verify(mockTrail).setShortReport(eq("Rodeo coming to town"));
     }*/
 }
