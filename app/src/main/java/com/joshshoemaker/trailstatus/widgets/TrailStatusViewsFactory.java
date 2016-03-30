@@ -11,7 +11,9 @@ import android.widget.RemoteViewsService;
 
 import com.joshshoemaker.trailstatus.R;
 import com.joshshoemaker.trailstatus.TrailStatusApp;
+import com.joshshoemaker.trailstatus.activities.TaskStackBuilderProxyActivity;
 import com.joshshoemaker.trailstatus.activities.TrailActivity;
+import com.joshshoemaker.trailstatus.activities.TrailStatusActivity;
 import com.joshshoemaker.trailstatus.dal.TrailService;
 import com.joshshoemaker.trailstatus.helpers.Utils;
 import com.joshshoemaker.trailstatus.models.Trail;
@@ -31,7 +33,7 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
     @Inject
     TrailService trailService;
 
-	public TrailStatusViewsFactory(Context context, Intent intent)
+	public TrailStatusViewsFactory(Context context)
 	{
         ((TrailStatusApp)context.getApplicationContext()).getComponent().inject(this);
 		this.context = context;
@@ -75,9 +77,11 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
         }
 
 		// add fill in intent for on click event
-		Intent i = new Intent();
-        i.putExtra(TrailActivity.EXTRA_TRAIL_PAGE_NAME, trail.getPageName());
-		row.setOnClickFillInIntent(R.id.trail_list_item_view, i);
+        Intent homeIntent = new Intent(context, TrailStatusActivity.class);
+		Intent trailIntent = new Intent(context, TrailActivity.class);
+        trailIntent.putExtra(TrailActivity.EXTRA_TRAIL_PAGE_NAME, trail.getPageName());
+        Intent fillIntent = TaskStackBuilderProxyActivity.getFillIntent(homeIntent, trailIntent);
+		row.setOnClickFillInIntent(R.id.trail_list_item_view, fillIntent);
 
 		return (row);
 	}
@@ -124,7 +128,7 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
                         throwable -> {
                             // Data hasn't been updated but notify to stop showing progress spinner.
                             Intent intent = new Intent(context, TrailStatusWidgetProvider.class);
-                            intent.setAction(TrailStatusWidgetProvider.ACTION_VIEW_UPDATE_FAILED);
+                            intent.setAction(TrailStatusWidgetProvider.ACTION_VIEW_UPDATED);
                             context.sendBroadcast(intent);
                         }
                 );

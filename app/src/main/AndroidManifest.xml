@@ -26,6 +26,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.TrailStatusActivity" />
         </activity>
+        <activity
+            android:name=".activities.TaskStackBuilderProxyActivity"
+            android:theme="@android:style/Theme.NoDisplay"
+            android:exported="false" />
 
         <receiver android:name=".widgets.TrailStatusWidgetProvider"
                   android:enabled="@bool/sinceICS">
