@@ -5,11 +5,11 @@ import android.util.Log;
 
 import com.joshshoemaker.trailstatus.activities.TrailStatusActivity;
 import com.joshshoemaker.trailstatus.dal.TrailService;
+import com.joshshoemaker.trailstatus.helpers.Utils;
 import com.joshshoemaker.trailstatus.models.Trail;
 
 import java.util.List;
 
-import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 
 /**
@@ -38,36 +38,33 @@ public class TrailStatusPresenter extends BasePresenter<List<Trail>, TrailStatus
         if(isLoadingData) {
             view().showProgress(true);
         }
-        else if(model == null && !isLoadingData) {
+        else if(model == null) {
             loadData();
+        }
+        else if (trailService.isTrailDataStale() && Utils.isNetworkConnected(view)) {
+            refreshData();
         }
     }
 
     private void loadData() {
 
-        //TODO: update trail data if it is stale
         trailService.getTrailData()
-                .flatMap(trails1 -> {
-                    if(trails1.size() > 0) {
-                        return Observable.just(trails1);
-                    }
-
-                    view().showProgress(true);
-                    isLoadingData = true;
-                    return trailService.updateTrailData();
-                })
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         trails -> {
                             setModel(trails);
-                            isLoadingData = false;
-                            view().showProgress(false);
+
+                            if(trails.size() == 0 || trailService.isTrailDataStale()) {
+                                if(Utils.isNetworkConnected(view())) {
+                                    refreshData();
+                                }
+                            }
                         },
                         throwable -> {
                             Log.e(TAG, "error", throwable);
-                            isLoadingData = false;
-                            view().showProgress(false);
-                            view().showNetworkError();
+                            if(Utils.isNetworkConnected(view())) {
+                                refreshData();
+                            }
                         }
                 );
     }

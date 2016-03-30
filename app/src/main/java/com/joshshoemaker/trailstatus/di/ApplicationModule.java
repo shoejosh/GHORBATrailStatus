@@ -2,6 +2,7 @@ package com.joshshoemaker.trailstatus.di;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.SharedPreferences;
 
 import com.joshshoemaker.trailstatus.Constants;
 import com.joshshoemaker.trailstatus.api.GhorbaService;
@@ -35,6 +36,11 @@ public class ApplicationModule {
     }
 
     @Provides @Singleton
+    public SharedPreferences provideSharedPreferences(Context context) {
+        return context.getSharedPreferences(Constants.PREFERENCE_FILE_KEY, Context.MODE_PRIVATE);
+    }
+
+    @Provides @Singleton
     public TrailFactory provideTrailFactory() {
         return new TrailFactoryImpl();
     }
@@ -55,8 +61,8 @@ public class ApplicationModule {
     }
 
     @Provides @Singleton
-    public TrailService provideTrailService(GhorbaService ghorbaService, TrailParser trailParser) {
-        return new TrailService(ghorbaService, trailParser);
+    public TrailService provideTrailService(GhorbaService ghorbaService, TrailParser trailParser, SharedPreferences sharedPreferences) {
+        return new TrailService(ghorbaService, trailParser, sharedPreferences);
     }
 
     @Provides
