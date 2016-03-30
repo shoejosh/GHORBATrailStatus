@@ -16,6 +16,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -169,6 +172,14 @@ public class ExpandableListCardView extends CardView {
 
         } else {
             expandedListItemContainer.getLayoutParams().height = expandedListHeight;
+
+            RotateAnimation animation = new RotateAnimation(0, 180,
+                    Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+            animation.setInterpolator(new LinearInterpolator());
+            animation.setDuration(0);
+            animation.setFillAfter(true);
+
+            expandIcon.startAnimation(animation);
         }
 
         expandText.setText("See less");
@@ -220,6 +231,14 @@ public class ExpandableListCardView extends CardView {
         } else {
             expandedListItemContainer.getLayoutParams().height = 0;
             expandedListItemContainer.setVisibility(GONE);
+
+            RotateAnimation animation = new RotateAnimation(180, 360,
+                    Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+            animation.setInterpolator(new LinearInterpolator());
+            animation.setDuration(0);
+            animation.setFillAfter(true);
+
+            expandIcon.startAnimation(animation);
         }
 
         expandText.setText("See more");

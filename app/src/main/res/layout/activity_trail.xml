@@ -40,9 +40,9 @@
                         android:padding="16dp">
 
                         <TextView
+                            style="@style/TextViewTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-medium"
                             android:text="Details"
                             android:textColor="@color/accent"
                             android:textSize="16sp"/>
@@ -61,21 +61,22 @@
                         android:padding="16dp">
 
                         <TextView
+                            style="@style/TextViewBody"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Status"
-                            android:textColor="@android:color/black"
+                            android:textColor="@color/text_title_color"
                             android:textSize="16sp"/>
 
                         <TextView
                             android:id="@+id/status"
+                            style="@style/TextViewBody"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:ellipsize="end"
                             android:maxLines="3"
                             android:textSize="14sp"
-                            android:textColor="@color/text_color"
                             tools:text="Open"/>
 
                     </LinearLayout>
@@ -98,20 +99,21 @@
                             android:padding="16dp">
 
                             <TextView
+                                style="@style/TextViewBody"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Description"
-                                android:textColor="@android:color/black"
+                                android:textColor="@color/text_title_color"
                                 android:textSize="16sp"/>
 
                             <TextView
                                 android:id="@+id/description"
+                                style="@style/TextViewBody"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4dp"
                                 android:ellipsize="end"
                                 android:maxLines="3"
-                                android:textColor="@color/text_color"
                                 android:textSize="14sp"
                                 tools:text="Jack Brooks Park offers some of the most challenging trails in the Houston Area.
 For you city and northern Houston dwellers, it’s worth a weekend drive down to Hitchcock.
@@ -140,18 +142,19 @@ The maintenance crew led by the most excellent trail steward, Booker, does an in
                             android:padding="16dp">
 
                             <TextView
+                                style="@style/TextViewBody"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Difficulty"
-                                android:textColor="@android:color/black"
+                                android:textColor="@color/text_title_color"
                                 android:textSize="16sp"/>
 
                             <TextView
                                 android:id="@+id/difficulty"
+                                style="@style/TextViewBody"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
-                                android:textColor="@color/text_color"
                                 android:textSize="14sp"
                                 tools:text="Intermediate, Expert"/>
 
@@ -176,18 +179,19 @@ The maintenance crew led by the most excellent trail steward, Booker, does an in
                             android:padding="16dp">
 
                             <TextView
+                                style="@style/TextViewBody"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Length"
-                                android:textColor="@android:color/black"
+                                android:textColor="@color/text_title_color"
                                 android:textSize="16sp"/>
 
                             <TextView
                                 android:id="@+id/length"
+                                style="@style/TextViewBody"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
-                                android:textColor="@color/text_color"
                                 android:textSize="14sp"
                                 tools:text="6.50 miles"/>
 
@@ -212,18 +216,19 @@ The maintenance crew led by the most excellent trail steward, Booker, does an in
                             android:padding="16dp">
 
                             <TextView
+                                style="@style/TextViewBody"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Technical Rating"
-                                android:textColor="@android:color/black"
+                                android:textColor="@color/text_title_color"
                                 android:textSize="16sp"/>
 
                             <TextView
                                 android:id="@+id/technical_rating"
+                                style="@style/TextViewBody"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
-                                android:textColor="@color/text_color"
                                 android:textSize="14sp"
                                 tools:text="2-4(TTF's)"/>
 

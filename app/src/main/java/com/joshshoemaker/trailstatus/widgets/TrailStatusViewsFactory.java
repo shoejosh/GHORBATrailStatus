@@ -52,7 +52,7 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
 		Trail trail = items[position];
 
 		// setup ListItem row view
-		RemoteViews row = new RemoteViews(context.getPackageName(), R.layout.trail_list_item);
+		RemoteViews row = new RemoteViews(context.getPackageName(), R.layout.item_trail);
 		row.setTextViewText(R.id.trail_name, trail.getName());
 		row.setTextViewText(R.id.trail_status_condition, trail.getStatus());
 

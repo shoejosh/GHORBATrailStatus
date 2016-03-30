@@ -62,7 +62,7 @@ public class TrailListAdapter extends BaseAdapter
 		if(row == null)
 		{
 			LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			row = inflater.inflate(R.layout.trail_list_item, parent, false);
+			row = inflater.inflate(R.layout.item_trail, parent, false);
 			
 			ViewHolder viewHolder = new ViewHolder();
 			viewHolder.trailName = (TextView) row.findViewById(R.id.trail_name);

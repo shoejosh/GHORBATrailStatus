@@ -22,19 +22,21 @@
 
             <TextView
                 android:id="@+id/condition"
+                style="@style/TextViewBody"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="@android:color/black"
+                android:textColor="@color/text_title_color"
                 android:textSize="16sp"
                 tools:text="Muddy in spots"
                 />
 
             <TextView
                 android:id="@+id/report_date"
+                style="@style/TextViewBody"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
+                android:textColor="@color/text_title_color"
                 android:textSize="14sp"
                 tools:text="Mar 31"/>
 
@@ -42,10 +44,10 @@
 
         <TextView
             android:id="@+id/short_report"
+            style="@style/TextViewBody"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:textColor="@color/text_color"
             android:textSize="14sp"
             tools:text="Trail Report could be pretty long!"
             />

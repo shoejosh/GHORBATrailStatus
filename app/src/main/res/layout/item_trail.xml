@@ -7,10 +7,10 @@
                 android:alpha="1"
                 android:background="@color/widget_item_color"
                 android:minHeight="?android:attr/listPreferredItemHeight"
-                android:paddingBottom="2dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="3dp">
+                android:paddingBottom="8dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="8dp">
 
     <TextView
         android:id="@+id/trail_name"
@@ -18,9 +18,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:gravity="left"
-        android:textColor="#5E5E5E"
         android:textSize="16sp"
-        android:textStyle="bold"
+        style="@style/TextViewTitle"
         tools:text="Memorial Park"/>
 
     <TextView
@@ -30,7 +29,7 @@
         android:layout_alignParentRight="true"
         android:gravity="right"
         android:textSize="12sp"
-        android:textStyle="bold"
+        style="@style/TextViewBody2"
         tools:text="Open"
         tools:textColor="@color/trail_open_color"/>
 
@@ -39,12 +38,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/trail_last_updated"
         android:layout_below="@id/trail_name"
         android:gravity="left"
         android:paddingLeft="1dp"
         android:paddingTop="0dp"
         android:textSize="12sp"
-        android:textColor="#5E5E5E"
+        style="@style/TextViewBody"
         tools:text="Muddy in spots"/>
 
     <TextView
@@ -54,9 +54,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:gravity="right"
-        android:paddingLeft="6dip"
-        android:textSize="10sp"
-        android:textColor="#5E5E5E"
+        android:textSize="12sp"
+        style="@style/TextViewBody"
         tools:text="3/18"/>
 
 </RelativeLayout>
