@@ -33,4 +33,10 @@ public class TrailPresenter extends BasePresenter<Trail, TrailActivity> {
 
         realm.close();
     }
+
+    public void viewInBrowserClicked() {
+        if(view() != null) {
+            view().showPageInBrowser(model.getPageUrl());
+        }
+    }
 }

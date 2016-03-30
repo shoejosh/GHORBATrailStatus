@@ -1,8 +1,12 @@
 package com.joshshoemaker.trailstatus.activities;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -95,10 +99,21 @@ public class TrailActivity extends BaseActivity<TrailPresenter> {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.trail, menu);
+
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);
+                return true;
+            case R.id.action_view_in_browser:
+                presenter.viewInBrowserClicked();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -170,5 +185,10 @@ public class TrailActivity extends BaseActivity<TrailPresenter> {
         } else {
             technicalRatingTextView.setText(technicalRating);
         }
+    }
+
+    public void showPageInBrowser(String url) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        startActivity(browserIntent);
     }
 }

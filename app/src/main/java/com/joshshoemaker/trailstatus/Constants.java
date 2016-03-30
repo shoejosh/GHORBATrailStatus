@@ -9,4 +9,5 @@ public final class Constants {
     }
 
     public static final String BASE_URL = "http://ghorba.org/";
+    public static final String TRAILS_URL = BASE_URL + "trails/";
 }

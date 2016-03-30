@@ -92,7 +92,7 @@ public class Trail extends RealmObject {
     //region helper methods
 
     public String getPageUrl() {
-        return Constants.BASE_URL + getPageName();
+        return Constants.TRAILS_URL + getPageName();
     }
 
     //endregion
