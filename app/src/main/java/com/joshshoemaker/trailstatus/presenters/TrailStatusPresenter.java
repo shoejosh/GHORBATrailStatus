@@ -65,6 +65,9 @@ public class TrailStatusPresenter extends BasePresenter<List<Trail>, TrailStatus
                         },
                         throwable -> {
                             Log.e(TAG, "error", throwable);
+                            isLoadingData = false;
+                            view().showProgress(false);
+                            view().showNetworkError();
                         }
                 );
     }
@@ -83,6 +86,9 @@ public class TrailStatusPresenter extends BasePresenter<List<Trail>, TrailStatus
                         },
                         throwable -> {
                             Log.e(TAG, "error", throwable);
+                            isLoadingData = false;
+                            view().showProgress(false);
+                            view().showNetworkError();
                         }
                 );
     }

@@ -2,7 +2,6 @@ package com.joshshoemaker.trailstatus.activities;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -10,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.joshshoemaker.trailstatus.PresenterManager;
 import com.joshshoemaker.trailstatus.R;
@@ -122,5 +122,9 @@ public class TrailStatusActivity extends BaseActivity<TrailStatusPresenter>
                 swipeRefreshLayout.setRefreshing(showProgress);
             }
         });
+    }
+
+    public void showNetworkError() {
+        Toast.makeText(TrailStatusActivity.this, "Error loading trail data. Please try again later.", Toast.LENGTH_LONG).show();
     }
 }
