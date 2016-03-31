@@ -9,6 +9,9 @@ import android.text.Html;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.CustomEvent;
+import com.joshshoemaker.trailstatus.BuildConfig;
 import com.joshshoemaker.trailstatus.R;
 import com.joshshoemaker.trailstatus.TrailStatusApp;
 import com.joshshoemaker.trailstatus.activities.TaskStackBuilderProxyActivity;
@@ -113,6 +116,9 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
             return;
         }
 
+        if(!BuildConfig.DEBUG) {
+            Answers.getInstance().logCustom(new CustomEvent("AppWidget update"));
+        }
         trailService.updateTrailData()
                 .retry(2) //retry up to 2 times on error
                 .toBlocking() //need to block so widget doesn't try to update the list before the operation completes

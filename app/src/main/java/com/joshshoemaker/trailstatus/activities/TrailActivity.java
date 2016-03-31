@@ -11,6 +11,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.ContentViewEvent;
+import com.joshshoemaker.trailstatus.BuildConfig;
 import com.joshshoemaker.trailstatus.views.ExpandableListCardView;
 import com.joshshoemaker.trailstatus.PresenterManager;
 import com.joshshoemaker.trailstatus.R;
@@ -85,6 +88,12 @@ public class TrailActivity extends BaseActivity<TrailPresenter> {
             String trailPageName = getIntent().getStringExtra(EXTRA_TRAIL_PAGE_NAME);
             presenter = new TrailPresenter();
             presenter.setTrailPageName(trailPageName);
+
+            if(state == null && !BuildConfig.DEBUG) {
+                Answers.getInstance().logContentView(new ContentViewEvent()
+                        .putContentType("Trail Details")
+                        .putContentId(trailPageName));
+            }
         }
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
