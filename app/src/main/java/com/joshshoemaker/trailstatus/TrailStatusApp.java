@@ -1,12 +1,9 @@
 package com.joshshoemaker.trailstatus;
 
-
 import android.app.Application;
-import com.crashlytics.android.Crashlytics;
 import com.joshshoemaker.trailstatus.di.ApplicationComponent;
 import com.joshshoemaker.trailstatus.di.ApplicationModule;
 import com.joshshoemaker.trailstatus.di.DaggerApplicationComponent;
-import io.fabric.sdk.android.Fabric;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
@@ -24,7 +21,6 @@ public class TrailStatusApp extends Application {
     public void onCreate()
     {
         super.onCreate();
-        //Fabric.with(this, new Crashlytics());
         instance = this;
 
         component = DaggerApplicationComponent.builder()
