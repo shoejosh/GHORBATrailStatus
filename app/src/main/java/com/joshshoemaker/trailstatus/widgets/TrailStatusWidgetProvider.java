@@ -15,6 +15,7 @@ import android.widget.RemoteViews;
 
 import com.joshshoemaker.trailstatus.R;
 import com.joshshoemaker.trailstatus.activities.TaskStackBuilderProxyActivity;
+import com.joshshoemaker.trailstatus.activities.TrailStatusActivity;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class TrailStatusWidgetProvider extends AppWidgetProvider {
@@ -69,19 +70,23 @@ public class TrailStatusWidgetProvider extends AppWidgetProvider {
         for (int i=0; i<N; i++) {
             int appWidgetId = appWidgetIds[i];    
             
-            Intent svcIntent = new Intent(context, WidgetService.class );
-            svcIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
+            final Intent svcIntent = new Intent(context, WidgetService.class )
+                    .putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
             svcIntent.setData(Uri.parse(svcIntent.toUri(Intent.URI_INTENT_SCHEME)));
 
-            RemoteViews widget = new RemoteViews(context.getPackageName(), R.layout.appwidget_trail_status);
+            final RemoteViews widget = new RemoteViews(context.getPackageName(), R.layout.appwidget_trail_status);
 
             widget.setRemoteAdapter(R.id.trail_list, svcIntent);
             widget.setOnClickPendingIntent(R.id.btnRefresh, getPendingSelfIntent(context, ACTION_VIEW_DATA_CHANGED));
 
-            Intent itemClickIntent = TaskStackBuilderProxyActivity.getTemplate(context);
-            PendingIntent onClickPendingIntent = PendingIntent.getActivity(context, 0, itemClickIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            final Intent itemClickIntent = TaskStackBuilderProxyActivity.getTemplate(context);
+            final PendingIntent onClickPendingIntent = PendingIntent.getActivity(context, 0, itemClickIntent, PendingIntent.FLAG_UPDATE_CURRENT);
             widget.setPendingIntentTemplate(R.id.trail_list, onClickPendingIntent);
 
+            final Intent openAppIntent = new Intent(context, TrailStatusActivity.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            final PendingIntent openAppPendingIntent = PendingIntent.getActivity(context, 0, openAppIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            widget.setOnClickPendingIntent(R.id.header, openAppPendingIntent);
             setWidgetProgressVisibility(true, widget);
             appWidgetManager.updateAppWidget(appWidgetId, widget);
             //appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.trail_list);
