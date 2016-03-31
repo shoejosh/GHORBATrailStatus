@@ -17,12 +17,12 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 
 @Module
 public class ApplicationModule {
-
 
     private Application application;
 
@@ -46,10 +46,11 @@ public class ApplicationModule {
     }
 
     @Provides @Singleton
-    public GhorbaService provideGhorbaService() {
+    public GhorbaService provideGhorbaService(OkHttpClient okHttpClient) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .client(okHttpClient)
                 .build();
 
         return retrofit.create(GhorbaService.class);

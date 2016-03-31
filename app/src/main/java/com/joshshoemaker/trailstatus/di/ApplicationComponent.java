@@ -9,7 +9,7 @@ import javax.inject.Singleton;
 import dagger.Component;
 
 @Singleton
-@Component(modules = { ApplicationModule.class })
+@Component(modules = { ApplicationModule.class, OkHttpModule.class})
 public interface ApplicationComponent {
     void inject(TrailStatusApp target);
     void inject(TrailStatusActivity target);
