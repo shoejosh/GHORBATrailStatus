@@ -27,7 +27,11 @@ public class TrailStatusApp extends Application {
     {
         super.onCreate();
         CrashlyticsCore core = new CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build();
-        Fabric.with(this, new Crashlytics.Builder().core(core).build(), new Answers());
+        if(BuildConfig.DEBUG) {
+            Fabric.with(this, new Crashlytics.Builder().core(core).build());
+        } else {
+            Fabric.with(this, new Crashlytics.Builder().core(core).build(), new Answers());
+        }
         instance = this;
 
         component = DaggerApplicationComponent.builder()
