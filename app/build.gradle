@@ -20,6 +20,12 @@ repositories {
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.neenbedankt.android-apt'
 
+// Manifest version information!
+def versionMajor = 2
+def versionMinor = 0
+def versionPatch = 0
+def versionBuild = 0
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
@@ -34,8 +40,8 @@ android {
         applicationId "com.joshshoemaker.trailstatus"
         minSdkVersion 9
         targetSdkVersion 23
-        versionCode 5
-        versionName "1.0.3"
+        versionCode versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
 
         //Use vector drawables on API7+ instead of generating PNG files.
         generatedDensities = [] //Change to 'vectorDrawables.useSupportLibrary = true' once using gradle plugin 2.0+
