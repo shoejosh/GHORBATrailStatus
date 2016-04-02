@@ -9,6 +9,6 @@ import android.widget.RemoteViewsService;
 public class WidgetService extends RemoteViewsService {
   @Override
   public RemoteViewsFactory onGetViewFactory(Intent intent) {
-      return(new TrailStatusViewsFactory(this.getApplicationContext()));
+      return new TrailStatusViewsFactory(this.getApplicationContext());
   }
 }

@@ -75,8 +75,10 @@ public class TrailStatusWidgetProvider extends AppWidgetProvider {
             svcIntent.setData(Uri.parse(svcIntent.toUri(Intent.URI_INTENT_SCHEME)));
 
             final RemoteViews widget = new RemoteViews(context.getPackageName(), R.layout.appwidget_trail_status);
-
             widget.setRemoteAdapter(R.id.trail_list, svcIntent);
+            widget.setEmptyView(R.id.trail_list, android.R.id.empty);
+
+
             widget.setOnClickPendingIntent(R.id.btnRefresh, getPendingSelfIntent(context, ACTION_VIEW_DATA_CHANGED));
 
             final Intent itemClickIntent = TaskStackBuilderProxyActivity.getTemplate(context);
@@ -87,9 +89,9 @@ public class TrailStatusWidgetProvider extends AppWidgetProvider {
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             final PendingIntent openAppPendingIntent = PendingIntent.getActivity(context, 0, openAppIntent, PendingIntent.FLAG_UPDATE_CURRENT);
             widget.setOnClickPendingIntent(R.id.header, openAppPendingIntent);
-            setWidgetProgressVisibility(true, widget);
+
             appWidgetManager.updateAppWidget(appWidgetId, widget);
-            //appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.trail_list);
+            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.trail_list);
         }
 
         super.onUpdate(context, appWidgetManager, appWidgetIds);
