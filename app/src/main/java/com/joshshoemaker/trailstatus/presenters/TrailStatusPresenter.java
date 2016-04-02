@@ -3,6 +3,7 @@ package com.joshshoemaker.trailstatus.presenters;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.crashlytics.android.Crashlytics;
 import com.joshshoemaker.trailstatus.activities.TrailStatusActivity;
 import com.joshshoemaker.trailstatus.dal.TrailService;
 import com.joshshoemaker.trailstatus.helpers.Utils;
@@ -62,6 +63,7 @@ public class TrailStatusPresenter extends BasePresenter<List<Trail>, TrailStatus
                         },
                         throwable -> {
                             Log.e(TAG, "error", throwable);
+                            Crashlytics.logException(throwable);
                             if(Utils.isNetworkConnected(view())) {
                                 refreshData();
                             }
@@ -83,6 +85,7 @@ public class TrailStatusPresenter extends BasePresenter<List<Trail>, TrailStatus
                         },
                         throwable -> {
                             Log.e(TAG, "error", throwable);
+                            Crashlytics.logException(throwable);
                             isLoadingData = false;
                             view().showProgress(false);
                             view().showNetworkError();

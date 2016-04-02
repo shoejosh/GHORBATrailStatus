@@ -9,6 +9,7 @@ import android.text.Html;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
+import com.crashlytics.android.Crashlytics;
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.CustomEvent;
 import com.joshshoemaker.trailstatus.BuildConfig;
@@ -133,6 +134,7 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
                         },
                         throwable -> {
                             // Data hasn't been updated but notify to stop showing progress spinner.
+                            Crashlytics.logException(throwable);
                             Intent intent = new Intent(context, TrailStatusWidgetProvider.class);
                             intent.setAction(TrailStatusWidgetProvider.ACTION_VIEW_UPDATED);
                             context.sendBroadcast(intent);
