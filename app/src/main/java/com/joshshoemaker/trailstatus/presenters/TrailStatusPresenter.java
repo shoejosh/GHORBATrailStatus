@@ -29,7 +29,9 @@ public class TrailStatusPresenter extends BasePresenter<List<Trail>, TrailStatus
 
     @Override
     protected void updateView() {
-        view().showTrails(model);
+        if(view() != null) {
+            view().showTrails(model);
+        }
     }
 
     @Override
@@ -37,7 +39,7 @@ public class TrailStatusPresenter extends BasePresenter<List<Trail>, TrailStatus
         super.bindView(view);
 
         if(isLoadingData) {
-            view().showProgress(true);
+            view.showProgress(true);
         }
         else if(model == null) {
             loadData();
@@ -56,7 +58,7 @@ public class TrailStatusPresenter extends BasePresenter<List<Trail>, TrailStatus
                             setModel(trails);
 
                             if(trails.size() == 0 || trailService.isTrailDataStale()) {
-                                if(Utils.isNetworkConnected(view())) {
+                                if(view() != null && Utils.isNetworkConnected(view())) {
                                     refreshData();
                                 }
                             }
@@ -64,7 +66,7 @@ public class TrailStatusPresenter extends BasePresenter<List<Trail>, TrailStatus
                         throwable -> {
                             Log.e(TAG, "error", throwable);
                             Crashlytics.logException(throwable);
-                            if(Utils.isNetworkConnected(view())) {
+                            if(view() != null && Utils.isNetworkConnected(view())) {
                                 refreshData();
                             }
                         }
@@ -72,6 +74,10 @@ public class TrailStatusPresenter extends BasePresenter<List<Trail>, TrailStatus
     }
 
     private void refreshData() {
+        if(view() == null) {
+            return;
+        }
+
         view().showProgress(true);
         isLoadingData = true;
 
@@ -81,14 +87,18 @@ public class TrailStatusPresenter extends BasePresenter<List<Trail>, TrailStatus
                         trails -> {
                             setModel(trails);
                             isLoadingData = false;
-                            view().showProgress(false);
+                            if(view() != null) {
+                                view().showProgress(false);
+                            }
                         },
                         throwable -> {
                             Log.e(TAG, "error", throwable);
                             Crashlytics.logException(throwable);
                             isLoadingData = false;
-                            view().showProgress(false);
-                            view().showNetworkError();
+                            if(view() != null) {
+                                view().showProgress(false);
+                                view().showNetworkError();
+                            }
                         }
                 );
     }
