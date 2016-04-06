@@ -1,6 +1,5 @@
 package com.joshshoemaker.trailstatus.dal;
 
-import com.google.common.io.Files;
 import com.joshshoemaker.trailstatus.TestUtils;
 import com.joshshoemaker.trailstatus.models.Trail;
 import com.joshshoemaker.trailstatus.models.TrailFactory;
