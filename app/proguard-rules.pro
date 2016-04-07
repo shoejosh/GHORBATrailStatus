@@ -36,6 +36,11 @@
     @butterknife.* <methods>;
 }
 
+# jsoup
+#
+# http://stackoverflow.com/questions/14343448/using-jsoup-with-proguard-closing-force-close
+-keeppackagenames org.jsoup.nodes
+
 # Realm
 -keep class io.realm.annotations.RealmModule
 -keep @io.realm.annotations.RealmModule class *
