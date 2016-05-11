@@ -62,16 +62,19 @@ public class TrailStatusViewsFactory implements RemoteViewsService.RemoteViewsFa
 		row.setTextViewText(R.id.trail_name, trail.getName());
 		row.setTextViewText(R.id.trail_status_condition, trail.getStatus());
 
-        TrailConditionReport currentConditionReport = trail.getStatusReports().get(0);
+        if(trail.getStatusReports().size() > 0) {
+            TrailConditionReport currentConditionReport = trail.getStatusReports().get(0);
 
-        String conditionText = String.format(context.getResources().getString(R.string.trail_condition),
-                currentConditionReport.getCondition(),
-                currentConditionReport.getShortReport());
-        row.setTextViewText(R.id.trail_condition, Html.fromHtml(conditionText));
+            String conditionText = String.format(context.getResources().getString(R.string.trail_condition),
+                    currentConditionReport.getCondition(),
+                    currentConditionReport.getShortReport());
+            row.setTextViewText(R.id.trail_condition, Html.fromHtml(conditionText));
 
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM d", Locale.US);
-        String lastUpdatedText = sdf.format(currentConditionReport.getDate());
-		row.setTextViewText(R.id.trail_last_updated, lastUpdatedText);
+
+            SimpleDateFormat sdf = new SimpleDateFormat("MMM d", Locale.US);
+            String lastUpdatedText = sdf.format(currentConditionReport.getDate());
+            row.setTextViewText(R.id.trail_last_updated, lastUpdatedText);
+        }
 
         if(trail.getStatus().equalsIgnoreCase("open")) {
             row.setInt(R.id.trail_status_condition, "setTextColor", context.getResources().getColor(R.color.trail_open_color));

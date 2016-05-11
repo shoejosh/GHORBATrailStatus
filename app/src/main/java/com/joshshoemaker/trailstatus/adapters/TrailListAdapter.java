@@ -84,17 +84,23 @@ public class TrailListAdapter extends BaseAdapter
             holder.trailStatus.setTextColor(context.getResources().getColor(R.color.trail_closed_color));
         }
 
-        TrailConditionReport currentConditionReport = trail.getStatusReports().get(0);
 
-        String conditionText = String.format(context.getResources().getString(R.string.trail_condition),
-                currentConditionReport.getCondition(),
-                currentConditionReport.getShortReport());
+        if(trail.getStatusReports().size() > 0) {
+            TrailConditionReport currentConditionReport = trail.getStatusReports().get(0);
 
-        holder.trailCondition.setText(Html.fromHtml(conditionText));
+            String conditionText = String.format(context.getResources().getString(R.string.trail_condition),
+                    currentConditionReport.getCondition(),
+                    currentConditionReport.getShortReport());
 
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM d", Locale.US);
-        String lastUpdatedText = sdf.format(currentConditionReport.getDate());
-        holder.lastUpdated.setText(lastUpdatedText);
+            holder.trailCondition.setText(Html.fromHtml(conditionText));
+
+            SimpleDateFormat sdf = new SimpleDateFormat("MMM d", Locale.US);
+            String lastUpdatedText = sdf.format(currentConditionReport.getDate());
+            holder.lastUpdated.setText(lastUpdatedText);
+        } else {
+            holder.trailCondition.setText("");
+            holder.lastUpdated.setText("");
+        }
 
 		return row;
 	}
